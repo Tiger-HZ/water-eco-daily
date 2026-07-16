@@ -1,0 +1,95 @@
+# ============================================
+# 水生态环境知识管理系统 - 全局配置
+# ============================================
+
+project:
+  name: "杭州市水生态环境知识管理系统"
+  version: "1.0.0"
+  workspace: "/workspace/water-eco-kb"
+
+# LLM配置（需用户提供API Key）
+llm:
+  # 支持任意OpenAI兼容API：DeepSeek、通义千问、智谱GLM、OpenAI等
+  provider: "deepseek"
+  api_key: ""  # 在此处填入API Key，或通过环境变量LLM_API_KEY设置
+  base_url: "https://api.deepseek.com/v1"
+  model: "deepseek-chat"
+  temperature: 0.3
+  max_tokens: 4096
+
+# 嵌入模型配置
+embedding:
+  model_name: "BAAI/bge-large-zh-v1.5"
+  # 若CPU性能不足，可降级为bge-base-zh-v1.5（768维，更轻量）
+  # model_name: "BAAI/bge-base-zh-v1.5"
+  batch_size: 32
+  cache_dir: "/workspace/water-eco-kb/data/cache"
+  device: "cpu"  # 有GPU可改为"cuda"
+
+# 向量数据库配置
+vector_db:
+  collection_name: "water_eco_knowledge"
+  persist_path: "/workspace/water-eco-kb/data/chroma"
+
+# SQLite元数据库
+metadata_db:
+  path: "/workspace/water-eco-kb/data/metadata.db"
+
+# 知识图谱配置
+knowledge_graph:
+  graph_path: "/workspace/water-eco-kb/data/graph.json"
+  spacy_model: "zh_core_web_sm"
+
+# tdrive云盘配置
+tdrive:
+  root_dir_id: "CWPEgbUECHEU"
+  dirs_mapping_file: "/workspace/water-eco-kb/config/tdrive_dirs.json"
+
+# 检索配置
+retrieval:
+  top_k: 20                # 混合检索初始候选数
+  final_k: 5               # 重排序后送入LLM的文档数
+  quality_threshold: 0.3   # 低于此质量分的文档不纳入检索结果
+  bm25_weight: 0.4         # BM25权重
+  vector_weight: 0.6       # 向量检索权重
+  enable_reranker: true    # 是否启用Cross-Encoder重排序
+  reranker_model: "BAAI/bge-reranker-base"  # 重排序模型
+
+# 资讯推送配置
+push:
+  output_dir: "/workspace/water-eco-kb/output/digests"
+  time_segments:
+    - {key: "7d", label: "近7天", days: 7}
+    - {key: "1m", label: "近1个月", days: 30}
+    - {key: "3m", label: "近3个月", days: 90}
+    - {key: "6m", label: "近半年", days: 180}
+    - {key: "this_year", label: "本年度(2026)", year: 2026}
+    - {key: "last_year", label: "去年(2025)", year: 2025}
+    - {key: "3y", label: "近3年(2023-2026)", days: 1095}
+    - {key: "older", label: "更早"}
+  max_items_per_segment: 15
+
+# 采集配置
+collection:
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  request_timeout: 30
+  request_delay: 1.0  # 请求间隔（秒），避免被封
+  max_retries: 3
+  cache_dir: "/workspace/water-eco-kb/data/cache"
+
+# 地理权重配置
+geo_weights:
+  杭州: 0.3
+  浙江: 0.2
+  长三角: 0.1
+  全国: 0.0
+  国际: -0.1  # 国际内容需更高相关性才纳入
+
+# 来源权威度评分
+source_authority:
+  政府机构: 0.9
+  学术期刊: 0.8
+  主流媒体: 0.7
+  行业媒体: 0.6
+  微信公众号: 0.4
+  其他: 0.3
