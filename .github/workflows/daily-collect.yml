@@ -1,0 +1,33 @@
+name: 每日水生态资讯采集
+on:
+  schedule:
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+jobs:
+  collect-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: pip install requests beautifulsoup4 pyyaml rank-bm25 jieba sentence-transformers chromadb langchain langchain-openai langchain-community networkx spacy pyvis 2>/dev/null
+      - run: python -m spacy download zh_core_web_sm 2>/dev/null
+      - run: npm install -g cheerio 2>/dev/null
+      - name: 采集资讯
+        run: PYTHONPATH=. python3 scripts/daily_collect.py
+        continue-on-error: true
+      - name: 生成报告
+        run: PYTHONPATH=. python3 scripts/generate_report.py
+      - name: 推送到GitHub Pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          cp output/site/index.html index.html
+          git add index.html data/metadata.db
+          git commit -m "每日更新 $(date -u +%Y-%m-%d)" || echo "No changes"
+          git push
