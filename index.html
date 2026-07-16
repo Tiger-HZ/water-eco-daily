@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水生态环境资讯日报 · 2026年07月16日</title>
+<style>
+/* ============================================================
+   全局变量与重置
+   ============================================================ */
+:root {
+    --c-deep: #0c4a6e;        /* 深蓝 */
+    --c-mid:  #0891b2;        /* 青绿 */
+    --c-light: #e0f2fe;       /* 浅蓝 */
+    --c-accent: #06b6d4;      /* 亮青 */
+    --c-bg:    #f0f9ff;       /* 极浅蓝背景 */
+    --c-card:  #ffffff;
+    --c-text:  #1e293b;
+    --c-text-soft: #64748b;
+    --c-border: #e2e8f0;
+    --c-high: #16a34a;
+    --c-high-bg: #dcfce7;
+    --c-mid-q: #2563eb;
+    --c-mid-bg: #dbeafe;
+    --c-low:  #64748b;
+    --c-low-bg: #f1f5f9;
+    --c-hz: #dc2626;          /* 杭州高亮 */
+    --shadow-sm: 0 1px 2px rgba(15,23,42,.04), 0 1px 3px rgba(15,23,42,.06);
+    --shadow-md: 0 4px 6px -1px rgba(15,23,42,.08), 0 2px 4px -2px rgba(15,23,42,.06);
+    --shadow-lg: 0 10px 25px -5px rgba(12,74,110,.15), 0 8px 10px -6px rgba(12,74,110,.10);
+    --radius: 14px;
+    --radius-sm: 8px;
+    --maxw: 1320px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: var(--c-bg);
+    color: var(--c-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+a { color: var(--c-mid); text-decoration: none; transition: color .2s; }
+a:hover { color: var(--c-deep); }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ============================================================
+   顶部导航栏
+   ============================================================ */
+.navbar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(12, 74, 110, .92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    color: #fff;
+}
+.navbar-inner {
+    max-width: var(--maxw); margin: 0 auto;
+    padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+}
+.navbar-brand {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 17px; font-weight: 700; letter-spacing: .5px;
+}
+.navbar-brand .logo {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--c-accent), #67e8f9);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    box-shadow: 0 0 0 2px rgba(255,255,255,.15);
+}
+.navbar-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.date-picker { color: #cbd5e1; font-size: 13px; }
+.date-picker input {
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.18);
+    color: #fff; border-radius: 6px;
+    padding: 5px 10px; font-size: 13px; font-family: inherit;
+}
+.date-picker input::-webkit-calendar-picker-indicator { filter: invert(1); }
+.btn-feedback {
+    background: var(--c-accent); color: #fff;
+    padding: 7px 16px; border-radius: 20px;
+    font-size: 13px; font-weight: 600;
+    transition: all .2s;
+    box-shadow: 0 2px 8px rgba(6,182,212,.4);
+}
+.btn-feedback:hover { background: #22d3ee; transform: translateY(-1px); }
+
+/* ============================================================
+   Hero 区
+   ============================================================ */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, #0c4a6e 0%, #0891b2 60%, #06b6d4 100%);
+    color: #fff;
+    padding: 64px 24px 72px;
+    overflow: hidden;
+}
+.hero::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.12) 0, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(103,232,249,.18) 0, transparent 45%);
+    pointer-events: none;
+}
+/* 水波纹动画 */
+.waves {
+    position: absolute; left: 0; right: 0; bottom: -2px;
+    height: 90px; pointer-events: none;
+}
+.wave {
+    position: absolute; bottom: 0; left: 0; width: 200%; height: 100%;
+    background-repeat: repeat-x; background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+.wave svg { display: block; width: 100%; height: 100%; }
+.wave1 { animation: wave-move 12s linear infinite; opacity: .5; }
+.wave2 { animation: wave-move 8s linear infinite reverse; opacity: .35; }
+.wave3 { animation: wave-move 16s linear infinite; opacity: .25; }
+@keyframes wave-move {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.hero-inner {
+    position: relative; z-index: 2;
+    max-width: var(--maxw); margin: 0 auto;
+    text-align: center;
+}
+.hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.25);
+    padding: 5px 14px; border-radius: 20px;
+    font-size: 12.5px; letter-spacing: 1px;
+    margin-bottom: 18px;
+    backdrop-filter: blur(4px);
+}
+.hero-eyebrow .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #4ade80; box-shadow: 0 0 8px #4ade80;
+    animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.hero h1 {
+    font-size: clamp(28px, 4.2vw, 46px);
+    font-weight: 800; letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 20px rgba(0,0,0,.2);
+}
+.hero-sub {
+    font-size: 15px; color: rgba(255,255,255,.85);
+    margin-bottom: 36px;
+}
+.hero-stats {
+    display: flex; justify-content: center; gap: 14px;
+    flex-wrap: wrap;
+}
+.hero-stat {
+    background: rgba(255,255,255,.13);
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 12px;
+    padding: 14px 26px;
+    min-width: 110px;
+    backdrop-filter: blur(6px);
+    transition: transform .25s, background .25s;
+}
+.hero-stat:hover { transform: translateY(-3px); background: rgba(255,255,255,.2); }
+.hero-stat .num {
+    font-size: 28px; font-weight: 800; line-height: 1;
+    color: #fff;
+}
+.hero-stat .lbl {
+    font-size: 12.5px; color: rgba(255,255,255,.8);
+    margin-top: 5px;
+}
+
+/* ============================================================
+   主体容器
+   ============================================================ */
+.container {
+    max-width: var(--maxw); margin: 0 auto;
+    padding: 0 24px;
+}
+.section { margin: 40px 0; }
+.section-title {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 19px; font-weight: 700; color: var(--c-deep);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--c-light);
+}
+.section-title .bar {
+    width: 4px; height: 20px; border-radius: 2px;
+    background: linear-gradient(180deg, var(--c-deep), var(--c-accent));
+}
+.section-title .count {
+    margin-left: auto; font-size: 13px; font-weight: 500;
+    color: var(--c-text-soft);
+    background: var(--c-light); padding: 3px 12px; border-radius: 12px;
+}
+
+/* ============================================================
+   统计概览卡片
+   ============================================================ */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+.stat-card {
+    background: var(--c-card);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--c-border);
+    position: relative; overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+}
+.stat-card::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+    background: var(--c-accent);
+}
+.stat-card.s1::before { background: linear-gradient(180deg,#0c4a6e,#0891b2); }
+.stat-card.s2::before { background: linear-gradient(180deg,#0891b2,#06b6d4); }
+.stat-card.s3::before { background: linear-gradient(180deg,#16a34a,#22c55e); }
+.stat-card.s4::before { background: linear-gradient(180deg,#d97706,#f59e0b); }
+.stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.stat-card .stat-icon {
+    font-size: 24px; margin-bottom: 8px;
+}
+.stat-card .stat-num {
+    font-size: 30px; font-weight: 800; color: var(--c-deep);
+    line-height: 1.1;
+}
+.stat-card .stat-lbl {
+    font-size: 13.5px; color: var(--c-text-soft);
+    margin-top: 4px;
+}
+.stat-card .stat-trend {
+    font-size: 12px; color: var(--c-high); margin-top: 6px;
+}
+
+/* ============================================================
+   分类分布条形图
+   ============================================================ */
+.cat-bars {
+    background: var(--c-card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--c-border);
+}
+.cat-bar-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 48px;
+    align-items: center; gap: 14px;
+    padding: 8px 0;
+    cursor: pointer;
+    transition: background .2s;
+    border-radius: 6px;
+    padding-left: 6px; padding-right: 6px;
+}
+.cat-bar-row:hover { background: var(--c-light); }
+.cat-bar-label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 500;
+}
+.cat-bar-label .cat-icon { font-size: 16px; }
+.cat-bar-track {
+    height: 14px; border-radius: 7px;
+    background: #f1f5f9; overflow: hidden;
+}
+.cat-bar-fill {
+    height: 100%; border-radius: 7px;
+    background: linear-gradient(90deg, var(--c-deep), var(--c-accent));
+    transition: width .8s cubic-bezier(.4,0,.2,1);
+}
+.cat-bar-count {
+    text-align: right; font-weight: 700; color: var(--c-deep);
+    font-size: 15px;
+}
+
+/* ============================================================
+   筛选区
+   ============================================================ */
+.filter-panel {
+    background: var(--c-card);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--c-border);
+}
+.filter-group { margin-bottom: 18px; }
+.filter-group:last-child { margin-bottom: 0; }
+.filter-label {
+    font-size: 12.5px; font-weight: 600; color: var(--c-text-soft);
+    text-transform: uppercase; letter-spacing: .5px;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 6px;
+}
+.cat-tabs {
+    display: flex; flex-wrap: wrap; gap: 8px;
+}
+.cat-tab {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 14px; border-radius: 20px;
+    background: #f1f5f9; color: var(--c-text);
+    font-size: 13.5px; font-weight: 500;
+    border: 1.5px solid transparent;
+    transition: all .2s;
+}
+.cat-tab:hover { background: var(--c-light); }
+.cat-tab.active {
+    background: var(--c-deep); color: #fff;
+    box-shadow: 0 3px 10px rgba(12,74,110,.3);
+}
+.cat-tab-icon { font-size: 14px; }
+.cat-tab-count {
+    background: rgba(255,255,255,.25); color: inherit;
+    padding: 1px 8px; border-radius: 10px;
+    font-size: 11.5px; font-weight: 700;
+}
+.cat-tab:not(.active) .cat-tab-count {
+    background: #e2e8f0; color: var(--c-text-soft);
+}
+
+.time-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.time-btn {
+    padding: 6px 14px; border-radius: 6px;
+    background: #f1f5f9; color: var(--c-text-soft);
+    font-size: 13px; font-weight: 500;
+    border: 1.5px solid transparent;
+    transition: all .2s;
+}
+.time-btn:hover { background: var(--c-light); color: var(--c-deep); }
+.time-btn.active {
+    background: var(--c-accent); color: #fff;
+    border-color: var(--c-accent);
+}
+
+.search-sort-row {
+    display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+    margin-top: 4px;
+}
+.search-box {
+    flex: 1; min-width: 220px; position: relative;
+}
+.search-box input {
+    width: 100%; padding: 10px 14px 10px 38px;
+    border: 1.5px solid var(--c-border); border-radius: 10px;
+    font-size: 14px; font-family: inherit;
+    transition: border-color .2s, box-shadow .2s;
+    background: #f8fafc;
+}
+.search-box input:focus {
+    outline: none; border-color: var(--c-accent);
+    box-shadow: 0 0 0 3px rgba(6,182,212,.15);
+    background: #fff;
+}
+.search-box .search-icon {
+    position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+    color: var(--c-text-soft); font-size: 16px; pointer-events: none;
+}
+.sort-group {
+    display: flex; align-items: center; gap: 8px;
+}
+.sort-group label { font-size: 13px; color: var(--c-text-soft); white-space: nowrap; }
+.sort-select {
+    padding: 8px 12px; border-radius: 8px;
+    border: 1.5px solid var(--c-border); background: #f8fafc;
+    font-size: 13.5px; font-family: inherit; color: var(--c-text);
+    cursor: pointer;
+}
+.sort-select:focus { outline: none; border-color: var(--c-accent); }
+
+.result-info {
+    font-size: 13px; color: var(--c-text-soft);
+    margin-top: 14px; padding-top: 14px;
+    border-top: 1px dashed var(--c-border);
+}
+.result-info b { color: var(--c-deep); }
+
+/* ============================================================
+   内容列表（卡片网格）
+   ============================================================ */
+.doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 18px;
+}
+.doc-card {
+    background: var(--c-card);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--c-border);
+    border-left: 4px solid var(--c-border);
+    display: flex; flex-direction: column;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    position: relative;
+}
+.doc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+/* 质量等级左边框配色 */
+.doc-card.q-high { border-left-color: var(--c-high); }
+.doc-card.q-mid  { border-left-color: var(--c-mid-q); }
+.doc-card.q-low  { border-left-color: var(--c-low); }
+/* 杭州相关高亮 */
+.doc-card.is-hz {
+    border: 1.5px solid var(--c-hz);
+    border-left: 4px solid var(--c-hz);
+    background: linear-gradient(180deg, #fef2f2 0%, #fff 30%);
+}
+.doc-card.is-hz::after {
+    content: "杭州"; position: absolute; top: 12px; right: 12px;
+    background: var(--c-hz); color: #fff;
+    font-size: 10.5px; font-weight: 700;
+    padding: 2px 8px; border-radius: 10px;
+    letter-spacing: .5px;
+}
+.doc-card-head {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 10px;
+    padding-right: 48px;
+}
+.quality-badge {
+    flex-shrink: 0;
+    font-size: 11px; font-weight: 700;
+    padding: 3px 9px; border-radius: 10px;
+    letter-spacing: .5px;
+    white-space: nowrap;
+}
+.quality-badge.q-high { background: var(--c-high-bg); color: var(--c-high); }
+.quality-badge.q-mid  { background: var(--c-mid-bg); color: var(--c-mid-q); }
+.quality-badge.q-low  { background: var(--c-low-bg); color: var(--c-low); }
+.doc-cat-tag {
+    flex-shrink: 0; font-size: 11.5px;
+    color: var(--c-mid); background: var(--c-light);
+    padding: 3px 9px; border-radius: 10px;
+    white-space: nowrap;
+}
+.doc-title {
+    font-size: 16px; font-weight: 700; color: var(--c-text);
+    line-height: 1.45;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: color .2s;
+}
+.doc-title:hover { color: var(--c-deep); }
+.doc-summary {
+    font-size: 13.5px; color: var(--c-text-soft);
+    line-height: 1.65;
+    margin-bottom: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: -webkit-line-clamp .2s;
+}
+.doc-summary.expanded {
+    -webkit-line-clamp: unset;
+    display: block;
+}
+.doc-summary-toggle {
+    align-self: flex-start;
+    color: var(--c-accent); font-size: 12.5px; font-weight: 600;
+    margin-bottom: 14px;
+    transition: color .2s;
+}
+.doc-summary-toggle:hover { color: var(--c-deep); }
+.doc-keywords {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 12px;
+}
+.doc-keyword {
+    font-size: 11.5px; color: var(--c-text-soft);
+    background: #f1f5f9; padding: 2px 8px; border-radius: 8px;
+}
+.doc-meta {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: 6px 14px;
+    margin-top: auto; padding-top: 12px;
+    border-top: 1px dashed var(--c-border);
+    font-size: 12.5px; color: var(--c-text-soft);
+}
+.doc-meta .meta-item { display: inline-flex; align-items: center; gap: 5px; }
+.doc-meta .geo-tag {
+    background: var(--c-light); color: var(--c-deep);
+    padding: 2px 8px; border-radius: 8px; font-weight: 600;
+    font-size: 11.5px;
+}
+.doc-meta .geo-tag.hz { background: #fee2e2; color: var(--c-hz); }
+.doc-link {
+    margin-left: auto;
+    color: var(--c-accent); font-weight: 600; font-size: 12.5px;
+    display: inline-flex; align-items: center; gap: 4px;
+    transition: color .2s, gap .2s;
+}
+.doc-link:hover { color: var(--c-deep); gap: 6px; }
+
+/* 空状态 */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center; padding: 60px 20px;
+    color: var(--c-text-soft);
+}
+.empty-state .icon { font-size: 48px; margin-bottom: 12px; opacity: .5; }
+.empty-state .title { font-size: 17px; font-weight: 600; margin-bottom: 6px; color: var(--c-text); }
+.empty-state .desc { font-size: 13.5px; }
+
+/* ============================================================
+   底部反馈区
+   ============================================================ */
+.feedback-section {
+    margin-top: 60px;
+    background: linear-gradient(135deg, #0c4a6e 0%, #0891b2 100%);
+    border-radius: var(--radius);
+    padding: 44px 36px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.feedback-section::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(103,232,249,.2) 0, transparent 50%);
+}
+.feedback-section > * { position: relative; z-index: 1; }
+.feedback-section h2 {
+    font-size: 26px; font-weight: 800; margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+.feedback-section p {
+    font-size: 14.5px; color: rgba(255,255,255,.9);
+    max-width: 640px; margin: 0 auto 24px;
+    line-height: 1.7;
+}
+.feedback-section .email { color: #67e8f9; font-weight: 600; }
+.feedback-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #fff; color: var(--c-deep);
+    padding: 13px 32px; border-radius: 26px;
+    font-size: 15px; font-weight: 700;
+    transition: all .25s;
+    box-shadow: 0 6px 20px rgba(0,0,0,.2);
+}
+.feedback-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0,0,0,.3);
+    background: #f0fdff;
+}
+
+/* 页脚 */
+.footer {
+    text-align: center; padding: 28px 20px;
+    font-size: 12.5px; color: var(--c-text-soft);
+    border-top: 1px solid var(--c-border);
+    margin-top: 40px;
+}
+.footer .sep { margin: 0 8px; opacity: .5; }
+
+/* ============================================================
+   响应式
+   ============================================================ */
+@media (max-width: 1024px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .doc-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+}
+@media (max-width: 720px) {
+    .navbar-inner { padding: 10px 16px; }
+    .hero { padding: 44px 18px 56px; }
+    .container { padding: 0 16px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .stat-card { padding: 16px; }
+    .stat-card .stat-num { font-size: 24px; }
+    .hero-stat { padding: 12px 18px; min-width: 88px; }
+    .hero-stat .num { font-size: 22px; }
+    .cat-bar-row { grid-template-columns: 130px 1fr 40px; gap: 10px; font-size: 13px; }
+    .doc-grid { grid-template-columns: 1fr; }
+    .filter-panel { padding: 16px; }
+    .feedback-section { padding: 32px 20px; }
+    .feedback-section h2 { font-size: 22px; }
+    .search-sort-row { flex-direction: column; align-items: stretch; }
+    .sort-group { justify-content: space-between; }
+}
+@media (max-width: 480px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .navbar-brand { font-size: 15px; }
+}
+
+/* 回到顶部 */
+.back-top {
+    position: fixed; right: 24px; bottom: 24px;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--c-deep); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; box-shadow: var(--shadow-lg);
+    opacity: 0; visibility: hidden;
+    transition: all .3s; z-index: 50;
+}
+.back-top.show { opacity: 1; visibility: visible; }
+.back-top:hover { background: var(--c-accent); transform: translateY(-2px); }
+</style>
+</head>
+<body>
+
+<!-- ============ 顶部导航栏 ============ -->
+<nav class="navbar">
+    <div class="navbar-inner">
+        <div class="navbar-brand">
+            <span class="logo">💧</span>
+            <span>水生态环境知识管理系统</span>
+        </div>
+        <div class="navbar-actions">
+            <div class="date-picker">
+                <span>📅 查看：</span>
+                <input type="date" id="historyDate" value="2026-07-16" max="2026-07-16">
+            </div>
+            <button class="btn-feedback" onclick="document.getElementById('feedbackSection').scrollIntoView({behavior:'smooth'})">
+                意见反馈
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ============ Hero 区 ============ -->
+<header class="hero">
+    <div class="hero-inner">
+        <div class="hero-eyebrow">
+            <span class="dot"></span>
+            <span>WATER ECOLOGY INTELLIGENCE</span>
+        </div>
+        <h1>水生态环境资讯日报</h1>
+        <div class="hero-sub">2026年07月16日 · 星期四 · 数据截至当日实时更新</div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="num">178</div>
+                <div class="lbl">收录文献总数</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">2</div>
+                <div class="lbl">近7天新增</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">3</div>
+                <div class="lbl">覆盖分类</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">95</div>
+                <div class="lbl">高质量文献</div>
+            </div>
+        </div>
+    </div>
+    <!-- 水波纹动画 -->
+    <div class="waves">
+        <div class="wave wave1">
+            <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,45 C240,80 480,10 720,45 C960,80 1200,10 1440,45 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.5)"></path>
+                <path d="M1440,45 C1680,80 1920,10 2160,45 C2400,80 2640,10 2880,45 L2880,90 L1440,90 Z" fill="rgba(255,255,255,0.5)"></path>
+            </svg>
+        </div>
+        <div class="wave wave2">
+            <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,55 C240,25 480,75 720,55 C960,25 1200,75 1440,55 L1440,90 L0,90 Z" fill="rgba(103,232,249,0.4)"></path>
+                <path d="M1440,55 C1680,25 1920,75 2160,55 C2400,25 2640,75 2880,55 L2880,90 L1440,90 Z" fill="rgba(103,232,249,0.4)"></path>
+            </svg>
+        </div>
+        <div class="wave wave3">
+            <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,65 C240,40 480,85 720,65 C960,40 1200,85 1440,65 L1440,90 L0,90 Z" fill="rgba(255,255,255,0.3)"></path>
+                <path d="M1440,65 C1680,40 1920,85 2160,65 C2400,40 2640,85 2880,65 L2880,90 L1440,90 Z" fill="rgba(255,255,255,0.3)"></path>
+            </svg>
+        </div>
+    </div>
+</header>
+
+<!-- ============ 统计概览 ============ -->
+<div class="container">
+    <section class="section">
+        <div class="section-title">
+            <span class="bar"></span>
+            <span>统计概览</span>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card s1">
+                <div class="stat-icon">📚</div>
+                <div class="stat-num">178</div>
+                <div class="stat-lbl">总文档数</div>
+            </div>
+            <div class="stat-card s2">
+                <div class="stat-icon">🆕</div>
+                <div class="stat-num">2</div>
+                <div class="stat-lbl">近7天新增</div>
+            </div>
+            <div class="stat-card s3">
+                <div class="stat-icon">🗂️</div>
+                <div class="stat-num">3<span style="font-size:16px;color:var(--c-text-soft)"> / 7</span></div>
+                <div class="stat-lbl">活跃分类数</div>
+            </div>
+            <div class="stat-card s4">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-num">95</div>
+                <div class="stat-lbl">高质量文献</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 分类分布 ============ -->
+    <section class="section">
+        <div class="section-title">
+            <span class="bar"></span>
+            <span>分类分布</span>
+            <span class="count">共 178 篇</span>
+        </div>
+        <div class="cat-bars">
+            
+        <div class="cat-bar-row" data-cat="01_政策法规与标准">
+            <div class="cat-bar-label">
+                <span class="cat-icon">📜</span>
+                <span class="cat-name">政策法规与标准</span>
+            </div>
+            <div class="cat-bar-track">
+                <div class="cat-bar-fill" style="width:0.0%"></div>
+            </div>
+            <div class="cat-bar-count">0</div>
+        </div>
+        
+
+        <div class="cat-bar-row" data-cat="02_水环境质量管理">
+            <div class="cat-bar-label">
+                <span class="cat-icon">📊</span>
+                <span class="cat-name">水环境质量管理</span>
+            </div>
+            <div class="cat-bar-track">
+                <div class="cat-bar-fill" style="width:0.0%"></div>
+            </div>
+            <div class="cat-bar-count">0</div>
+        </div>
+        
+
+        <div class="cat-bar-row" data-cat="03_水污染防治与监管">
+            <div class="cat-bar-label">
+                <span class="cat-icon">🏭</span>
+                <span class="cat-name">水污染防治与监管</span>
+            </div>
+            <div class="cat-bar-track">
+                <div class="cat-bar-fill" style="width:1.2%"></div>
+            </div>
+            <div class="cat-bar-count">2</div>
+        </div>
+        
+
+        <div class="cat-bar-row" data-cat="04_水生态修复与保护">
+            <div class="cat-bar-label">
+                <span class="cat-icon">🌱</span>
+                <span class="cat-name">水生态修复与保护</span>
+            </div>
+            <div class="cat-bar-track">
+                <div class="cat-bar-fill" style="width:0.0%"></div>
+            </div>
+            <div class="cat-bar-count">0</div>
+        </div>
+        
+
+        <div class="cat-bar-row" data-cat="05_饮用水水源保护">
+            <div class="cat-bar-label">
+                <span class="cat-icon">💧</span>
+                <span class="cat-name">饮用水水源保护</span>
+            </div>
+            <div class="cat-bar-track">
+                <div class="cat-bar-fill" style="width:2.9%"></div>
+            </div>
+            <div class="cat-bar-count">5</div>
+        </div>
+        
+
+        <div class="cat-bar-row" data-cat="06_科研技术与实践案例">
+            <div class="cat-bar-label">
+                <span class="cat-icon">🔬</span>
+                <span class="cat-name">科研技术与实践案例</span>
+            </div>
+            <div class="cat-bar-track">
+                <div class="cat-bar-fill" style="width:0.0%"></div>
+            </div>
+            <div class="cat-bar-count">0</div>
+        </div>
+        
+
+        <div class="cat-bar-row" data-cat="07_动态资讯与综合">
+            <div class="cat-bar-label">
+                <span class="cat-icon">📰</span>
+                <span class="cat-name">动态资讯与综合</span>
+            </div>
+            <div class="cat-bar-track">
+                <div class="cat-bar-fill" style="width:100.0%"></div>
+            </div>
+            <div class="cat-bar-count">171</div>
+        </div>
+        
+        </div>
+    </section>
+
+    <!-- ============ 筛选与内容 ============ -->
+    <section class="section">
+        <div class="section-title">
+            <span class="bar"></span>
+            <span>资讯列表</span>
+            <span class="count" id="visibleCount">共 178 篇</span>
+        </div>
+
+        <div class="filter-panel">
+            <!-- 分类 Tab -->
+            <div class="filter-group">
+                <div class="filter-label">🏷️ 分类筛选</div>
+                <div class="cat-tabs" id="catTabs">
+                    
+    <button class="cat-tab active" data-cat="all">
+        <span class="cat-tab-icon">🗂️</span>
+        <span class="cat-tab-name">全部</span>
+        <span class="cat-tab-count">178</span>
+    </button>
+    
+
+        <button class="cat-tab" data-cat="03_水污染防治与监管">
+            <span class="cat-tab-icon">🏭</span>
+            <span class="cat-tab-name">水污染防治与监管</span>
+            <span class="cat-tab-count">2</span>
+        </button>
+        
+
+        <button class="cat-tab" data-cat="05_饮用水水源保护">
+            <span class="cat-tab-icon">💧</span>
+            <span class="cat-tab-name">饮用水水源保护</span>
+            <span class="cat-tab-count">5</span>
+        </button>
+        
+
+        <button class="cat-tab" data-cat="07_动态资讯与综合">
+            <span class="cat-tab-icon">📰</span>
+            <span class="cat-tab-name">动态资讯与综合</span>
+            <span class="cat-tab-count">171</span>
+        </button>
+        
+                </div>
+            </div>
+            <!-- 时间段 -->
+            <div class="filter-group">
+                <div class="filter-label">🗓️ 时间段</div>
+                <div class="time-buttons" id="timeButtons">
+                    <button class="time-btn active" data-period="all">全部</button>
+<button class="time-btn" data-period="7d">近7天</button>
+<button class="time-btn" data-period="1m">近1个月</button>
+<button class="time-btn" data-period="3m">近3个月</button>
+<button class="time-btn" data-period="6m">近半年</button>
+<button class="time-btn" data-period="y2026">本年度(2026)</button>
+<button class="time-btn" data-period="y2025">去年(2025)</button>
+<button class="time-btn" data-period="3y">近3年</button>
+<button class="time-btn" data-period="older">更早</button>
+                </div>
+            </div>
+            <!-- 搜索与排序 -->
+            <div class="filter-group">
+                <div class="search-sort-row">
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="searchInput" placeholder="搜索标题、摘要、关键词...">
+                    </div>
+                    <div class="sort-group">
+                        <label for="sortSelect">排序：</label>
+                        <select class="sort-select" id="sortSelect">
+                            <option value="date_desc">按时间 新→旧</option>
+                            <option value="date_asc">按时间 旧→新</option>
+                            <option value="score_desc">按质量 高→低</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="result-info" id="resultInfo">
+                    显示全部 <b>178</b> 篇文档
+                </div>
+            </div>
+        </div>
+
+        <!-- 文档卡片网格 -->
+        <div class="doc-grid" id="docGrid" style="margin-top:22px;">
+            <!-- 由 JS 渲染 -->
+        </div>
+    </section>
+
+    <!-- ============ 底部反馈区 ============ -->
+    <section class="feedback-section" id="feedbackSection">
+        <h2>📬 意见反馈</h2>
+        <p>
+            您的建议将帮助持续优化本系统。点击下方反馈按钮，或发送邮件至
+            <span class="email">tjhjxhlin@163.com</span>，
+            我们将认真倾听每一位领导与专家的意见。
+        </p>
+        <a href="mailto:tjhjxhlin@163.com?subject=水生态环境资讯日报 - 意见反馈 (2026-07-16)&body=您好，
+
+我在使用「水生态环境资讯日报」过程中有以下建议/反馈：
+
+1. 内容方面：
+2. 功能方面：
+3. 其他建议：
+
+（请在此填写您的具体建议）
+
+—— 来自水生态环境知识管理系统" class="feedback-btn">
+            <span>✉️</span>
+            <span>提交反馈建议</span>
+        </a>
+    </section>
+</div>
+
+<!-- ============ 页脚 ============ -->
+<footer class="footer">
+    <span>水生态环境知识管理系统</span>
+    <span class="sep">|</span>
+    <span>资讯日报生成于 2026年07月16日 星期四</span>
+    <span class="sep">|</span>
+    <span>数据来源：自动采集与人工整理</span>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="back-top" id="backTop" title="回到顶部">↑</button>
+
+<script>
+// ============================================================
+// 文档数据（由 Python 注入）
+// ============================================================
+const ALL_DOCS = [{"id": "9cc2d466c22bd7e0b47e12a30d73f569", "title": "太湖流域管理局召开2026年工作会议", "url": "https://www.tba.gov.cn/", "source": "太湖流域管理局", "source_type": "政府机构", "category_code": "06_流域综合管理", "category_name": "综合", "category_icon": "📰", "geo_scope": "长三角", "publish_date": "2026-07-15", "sort_date": "20260715", "quality_level": "高质量", "quality_score": 0.67, "summary": "太湖流域管理局召开2026年工作会议，部署年度重点工作。李国英调研数字孪生太湖建设工作，推进太湖流域水治理现代化。流域片水行政执法工作现场会同步召开。", "keywords": ["太湖", "太湖流域管理", "局召开", "年工作会议"], "periods": ["7d", "1m", "3m", "6m", "y2026", "3y"], "is_hz": false}, {"id": "a0012064c2c839f1902d9efece63c435", "title": "国务院办公厅转发生态环境部等部门《群众身边水体治理方案》", "url": "https://www.sohu.com/a/1050552621_121106822", "source": "国务院办公厅", "source_type": "政府机构", "category_code": "03_水污染防治与监管", "category_name": "水污染防治与监管", "category_icon": "🏭", "geo_scope": "全国", "publish_date": "2026-07-09", "sort_date": "20260709", "quality_level": "高质量", "quality_score": 0.68, "summary": "到2030年，基本完成省级及以上工业园区水污染排查整治任务，基本消除县乡黑臭水体，基本控制重点区域畜禽养殖污染对水体的直接影响，群众身边水体基本实现无异色、无异味、无异常。", "keywords": ["水污染", "黑臭水体", "国务院办公厅", "转发生态环境", "部等部门", "群众身边水体", "治理方案"], "periods": ["7d", "1m", "3m", "6m", "y2026", "3y"], "is_hz": false}, {"id": "5c0c36bbae7314845829393831200d23", "title": "生态环境部标准库 - 水污染物排放标准等最新标准", "url": "https://www.mee.gov.cn/ywgz/fgbz/bz/", "source": "生态环境部", "source_type": "政府机构", "category_code": "01_政策法规与规划", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2026-07-01", "sort_date": "20260701", "quality_level": "高质量", "quality_score": 0.7, "summary": "赤水河流域水污染物排放标准GB 47945—2026于2026年9月1日实施。工业园区污水集中处理设施水污染物排放标准制订技术导则HJ 945.4-2026、流域水生态环境质量标准制订技术导则等新标准陆续发布。", "keywords": ["水生态环境", "水生态", "水污染"], "periods": ["1m", "3m", "6m", "y2026", "3y"], "is_hz": false}, {"id": "339517afee4fbada84a9af572863a0b9", "title": "我国水生态环境质量改善 碧水保卫战将有更高标准", "url": "https://www.gov.cn/lianbo/202606/content_7073311.htm", "source": "中国政府网", "source_type": "主流媒体", "category_code": "02_水环境质量与监测", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2026-06-25", "sort_date": "20260625", "quality_level": "高质量", "quality_score": 0.62, "summary": "截至2025年底，全国地级及以上城市黑臭水体基本消除，397个县级城市黑臭水体消除比例超过90%。水生态环境质量改善从量变到质变的拐点还没有到来，碧水保卫战将有更高标准。", "keywords": ["水生态环境", "水生态", "黑臭水体"], "periods": ["1m", "3m", "6m", "y2026", "3y"], "is_hz": false}, {"id": "cfecd830c4874b61a19a08ef85b41ce6", "title": "生态环境部地表水生态环境管理最新动态", "url": "https://www.mee.gov.cn/ywgz/ssthjbh/dbssthjgl/index.shtml", "source": "生态环境部", "source_type": "政府机构", "category_code": "01_政策法规与规划", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2026-06-12", "sort_date": "20260612", "quality_level": "高质量", "quality_score": 0.68, "summary": "生态环境部地表水生态环境管理页面发布最新政策文件，包括丹江口库区及上游主要水污染物排放控制标准、流域水生态环境质量标准制订技术导则等，持续完善水环境管理法规标准体系。", "keywords": ["水生态环境", "水环境", "水生态", "水污染", "地表水"], "periods": ["3m", "6m", "y2026", "3y"], "is_hz": false}, {"id": "fbf48d2bf0a17b23a00048d44c0df40f", "title": "浙江省饮用水水源水质月报（2026年5月）", "url": "https://www.zjemc.org.cn/hjzl/hjzlbg/yysyd/", "source": "浙江省生态环境监测中心", "source_type": "政府机构", "category_code": "05_饮用水水源保护", "category_name": "饮用水水源保护", "category_icon": "💧", "geo_scope": "浙江", "publish_date": "2026-06-03", "sort_date": "20260603", "quality_level": "高质量", "quality_score": 0.67, "summary": "浙江省生态环境监测中心发布2026年5月饮用水水源水质月报，定期公开县级以上集中式饮用水水源水质状况，保障公众知情权和监督权。", "keywords": ["水质", "饮用水水源", "浙江省饮用水", "水源水质月报"], "periods": ["3m", "6m", "y2026", "3y"], "is_hz": false}, {"id": "71b486b5878fe8be4ab67afe0bf49d26", "title": "杭州市县级以上集中式饮用水水源水质状况报告（2026年4月）", "url": "https://www.hangzhou.gov.cn/col/col1228974592/art/2026/art_7d4196c34db5a49c48d55cdf1c4f05f1.html", "source": "杭州市生态环境局", "source_type": "政府机构", "category_code": "05_饮用水水源保护", "category_name": "饮用水水源保护", "category_icon": "💧", "geo_scope": "杭州", "publish_date": "2026-05-27", "sort_date": "20260527", "quality_level": "高质量", "quality_score": 0.66, "summary": "2026年4月，监测的13个县级以上集中式饮用水水源断面均达标（达到或优于Ⅲ类标准），达标率为100%。集中式饮用水水源是指进入输水管网送到用户和具有调蓄功能的水源。", "keywords": ["水质", "饮用水水源", "杭州市县级以", "上集中式饮用", "水水源水质状", "况报告"], "periods": ["3m", "6m", "y2026", "3y"], "is_hz": true}, {"id": "d92e6a49ebce8409a24495f433c05d8c", "title": "杭州市钱塘江饮用水水源保护区优化调整过渡方案", "url": "https://www.hangzhou.gov.cn/col/col1228974623/art/2026/art_a68de438b13503fcc6534770dc69d17e.html", "source": "杭州市政府", "source_type": "政府机构", "category_code": "05_饮用水水源保护", "category_name": "饮用水水源保护", "category_icon": "💧", "geo_scope": "杭州", "publish_date": "2026-05-09", "sort_date": "20260509", "quality_level": "高质量", "quality_score": 0.69, "summary": "根据《中华人民共和国水污染防治法》及《浙江省饮用水水源保护条例》等法律法规，杭州市公布钱塘江饮用水水源保护区优化调整过渡方案划分范围。", "keywords": ["水污染", "水污染防治", "饮用水水源", "钱塘江"], "periods": ["3m", "6m", "y2026", "3y"], "is_hz": true}, {"id": "7a1a33b1e04c150490b4176414c0d687", "title": "重庆市2025年度生态环保领域真抓实干成效明显地方典型经验", "url": "https://sthjj.cq.gov.cn/zwgk_249/zfxxgkml/zcwj/qtwj/202605/t20260506_15653846.html", "source": "重庆市生态环境局", "source_type": "政府机构", "category_code": "08_管理实践与动态", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2026-05-06", "sort_date": "20260506", "quality_level": "一般", "quality_score": 0.46, "summary": "2025年，重庆全市各级各部门深学笃行习近平生态文明思想，全面贯彻落实习近平总书记视察重庆重要讲话重要指示精神，在水生态环境保护等领域取得显著成效，创新做法获生态环境部推广。", "keywords": ["水生态环境", "水生态", "重庆市", "年度生态环保", "领域真抓实干", "成效明显地方", "典型经验"], "periods": ["3m", "6m", "y2026", "3y"], "is_hz": false}, {"id": "c100799e94f14ee5cd6975fad0f21fc6", "title": "国务院关于2025年度环境状况报告：黑臭水体治理成效", "url": "http://www.npc.gov.cn/c2/c30834/202604/t20260429_454167.html", "source": "全国人大", "source_type": "政府机构", "category_code": "04_水生态保护与修复", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2026-04-27", "sort_date": "20260427", "quality_level": "高质量", "quality_score": 0.64, "summary": "国务院向全国人大常委会报告2025年度环境状况。全国地级及以上城市黑臭水体基本消除，397个县级城市黑臭水体消除比例超过90%。水生态环境质量改善从量变到质变的拐点还没有到来。", "keywords": ["水生态环境", "水生态", "黑臭水体"], "periods": ["3m", "6m", "y2026", "3y"], "is_hz": false}, {"id": "55a32f123c577a7566089d284df11162", "title": "生态环境法典表决通过 水处理行业合规底线明确", "url": "https://www.sohu.com/a/995936893_120888949", "source": "搜狐", "source_type": "主流媒体", "category_code": "08_管理实践与动态", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2026-03-12", "sort_date": "20260312", "quality_level": "中等", "quality_score": 0.5, "summary": "2026版《中华人民共和国生态环境法典》将以往分散在各类单行法律中的行业规范整合为统一的法典级条款，明确了水处理、给排水、管网行业的合规底线、责任要求，破解了以往行业标准分散的问题。", "keywords": ["生态环境法典", "表决通过", "水处理行业合", "规底线明确"], "periods": ["6m", "y2026", "3y"], "is_hz": false}, {"id": "dbf9a0bb81b3627dc3a56714668c7f1d", "title": "中华人民共和国生态环境法典（2026年8月15日施行）", "url": "http://lawdb.cncourt.org/show.php?fid=158197", "source": "全国人大", "source_type": "政府机构", "category_code": "01_政策法规与规划", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2026-03-12", "sort_date": "20260312", "quality_level": "一般", "quality_score": 0.48, "summary": "《中华人民共和国生态环境法典》已由十四届全国人大四次会议于2026年3月12日通过，自2026年8月15日起施行。法典将以往分散在各类单行法律中的行业规范整合为统一条款，明确了水处理、给排水、管网行业的合规底线和责任要求。", "keywords": ["中华人民共和", "国生态环境法", "日施行"], "periods": ["6m", "y2026", "3y"], "is_hz": false}, {"id": "3043b02bd870c69a3a701e60cddb4c91", "title": "2025年全国地表水环境成绩单：优良断面比例超九成", "url": "https://news.qq.com/rain/a/20260130A05Q3J00", "source": "腾讯新闻", "source_type": "主流媒体", "category_code": "02_水环境质量与监测", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2026-01-30", "sort_date": "20260130", "quality_level": "高质量", "quality_score": 0.62, "summary": "生态环境部公布2025年1-12月全国地表水环境质量状况。3641个国家地表水考核断面中，优良水质（Ⅰ-Ⅲ类）断面比例超过90%。水环境质量持续改善，碧水保卫战成效显著。", "keywords": ["水环境", "水质", "地表水"], "periods": ["6m", "y2026", "3y"], "is_hz": false}, {"id": "cab07b74a1b6c84940ecee7476610825", "title": "生态环境部公布2025年第四季度和1-12月全国地表水环境质量状况", "url": "https://www.mee.gov.cn/ywdt/xwfb/202601/t20260128_1142768.shtml", "source": "生态环境部", "source_type": "政府机构", "category_code": "02_水环境质量与监测", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2026-01-28", "sort_date": "20260128", "quality_level": "高质量", "quality_score": 0.68, "summary": "生态环境部公布2025年第四季度和1-12月全国地表水环境质量状况。地表水总体情况持续改善，国家考核断面水质达标率稳步提升。", "keywords": ["水环境", "水质", "断面水质", "地表水"], "periods": ["6m", "y2026", "3y"], "is_hz": false}, {"id": "6f715f8cf5a405081623e82c24b52774", "title": "生态环境部等5部门联合印发《重点流域水生态环境保护规划》", "url": "https://www.mee.gov.cn/ywgz/ssthjbh/", "source": "生态环境部", "source_type": "政府机构", "category_code": "01_政策法规与规划", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2025-12-28", "sort_date": "20251228", "quality_level": "高质量", "quality_score": 0.67, "summary": "生态环境部等5部门联合印发《重点流域水生态环境保护规划》，对全国重点流域水生态环境保护工作进行全面部署，明确水环境治理、水生态修复、水资源保障等重点任务。", "keywords": ["水生态环境", "水环境", "水生态", "生态修复"], "periods": ["y2025", "3y"], "is_hz": false}, {"id": "36a073600705fe9f1778b5104fafe2d8", "title": "保卫碧水，美丽河湖在行动——生态环境部有关情况发布", "url": "https://www.mee.gov.cn/ywdt/xwfb/202508/t20250827_1126196.shtml", "source": "生态环境部", "source_type": "政府机构", "category_code": "04_水生态保护与修复", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2025-08-27", "sort_date": "20250827", "quality_level": "高质量", "quality_score": 0.67, "summary": "深入开展长江经济带、沿黄河省区工业园区水污染整治专项行动，推动建成污水集中处理设施2700余座。深入打好城市黑臭水体治理攻坚战，地级及以上城市黑臭水体基本消除，县级城市黑臭水体消除比例超过90%。", "keywords": ["水污染", "黑臭水体", "保卫碧水", "美丽河湖在行", "生态环境部有", "关情况发布"], "periods": ["y2025", "3y"], "is_hz": false}, {"id": "342012b40da97824f3c1198ee9b3b0e5", "title": "深入开展碧水保卫战 推动建成污水集中处理设施2700余座", "url": "https://www.gov.cn/lianbo/bumen/202508/content_7037928.htm", "source": "国务院", "source_type": "政府机构", "category_code": "04_水生态保护与修复", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2025-08-26", "sort_date": "20250826", "quality_level": "高质量", "quality_score": 0.67, "summary": "各地各部门深入打好碧水保卫战，深入开展长江经济带、沿黄河省区工业园区水污染整治专项行动，推动建成污水集中处理设施2700余座。地级及以上城市黑臭水体基本消除，县级城市消除比例超过90%。", "keywords": ["水污染", "黑臭水体", "深入开展碧水", "保卫战", "推动建成污水", "集中处理设施", "余座"], "periods": ["y2025", "3y"], "is_hz": false}, {"id": "6563e607e74bc883b0e5d675ee1e2cea", "title": "让每一条河流都成为靓丽风景线——我国水生态环境保护工作取得新成效", "url": "https://www.gov.cn/lianbo/bumen/202508/content_7037928.htm", "source": "国务院", "source_type": "政府机构", "category_code": "04_水生态保护与修复", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2025-08-26", "sort_date": "20250826", "quality_level": "高质量", "quality_score": 0.67, "summary": "各地各部门深入打好碧水保卫战，推动水生态环境保护工作取得新成效。深入开展长江经济带、沿黄河省区工业园区水污染整治专项行动，推动建成污水集中处理设施2700余座。地级及以上城市黑臭水体基本消除。", "keywords": ["水生态环境", "水生态", "水污染", "黑臭水体"], "periods": ["y2025", "3y"], "is_hz": false}, {"id": "dbf50f5ddce40c048c9b5a7a3ed01cb9", "title": "国家地表水环境质量监测网建设运行", "url": "https://www.cnemc.cn/zzjj/jcwl/shjjcwl_699/202507/t20250709_1123128.shtml", "source": "中国环境监测总站", "source_type": "政府机构", "category_code": "02_水环境质量与监测", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2025-07-09", "sort_date": "20250709", "quality_level": "高质量", "quality_score": 0.66, "summary": "十四五期间，国家地表水环境质量监测网与全国重要江河湖泊水功能区优化合并，两网合一，构建统一的水生态环境监测网络，覆盖全国主要流域和水体。", "keywords": ["水生态环境", "水环境", "水生态", "地表水", "水功能区"], "periods": ["y2025", "3y"], "is_hz": false}, {"id": "36d264eb37361fd43603b23f207e9ac7", "title": "美丽河湖保护与建设行动方案（2025-2027年）解读", "url": "https://www.mee.gov.cn/zcwj/zcjd/202506/t20250616_1121360.shtml", "source": "生态环境部", "source_type": "政府机构", "category_code": "06_流域综合管理", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2025-06-16", "sort_date": "20250616", "quality_level": "高质量", "quality_score": 0.72, "summary": "《美丽河湖保护与建设行动方案（2025-2027年）》经国务院常务会议审议通过。方案明确了美丽河湖保护与建设的总体目标、重点任务和保障措施，推进太湖流域等重要水体保护治理取得新成效。到2027年，美丽河湖建设取得显著成效。", "keywords": ["太湖", "美丽河湖保护", "与建设行动方", "解读"], "periods": ["y2025", "3y"], "is_hz": false}, {"id": "be9eecb105be83132e9032001823b1f6", "title": "生态环境部推广2024年度水环境治理典型经验做法", "url": "https://www.tongchuan.gov.cn/resources/site/90/html/ssthjdt/gzdt/202505/883383.html", "source": "生态环境部", "source_type": "政府机构", "category_code": "08_管理实践与动态", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2025-05-23", "sort_date": "20250523", "quality_level": "高质量", "quality_score": 0.61, "summary": "生态环境部发布《2024年度生态环境领域真抓实干成效明显地方典型经验做法给予推广的函》，对水环境治理成效明显的地方典型经验做法进行推广，鼓励各地学习借鉴先进经验。", "keywords": ["水环境", "生态环境部推", "年度水环境治", "理典型经验做"], "periods": ["y2025", "3y"], "is_hz": false}, {"id": "8800f5dd89f4047bedada6618ccfac64", "title": "铜川市水环境治理典型经验做法获生态环境部推广", "url": "https://www.tongchuan.gov.cn/resources/site/90/html/ssthjdt/gzdt/202505/883383.html", "source": "铜川市政府", "source_type": "政府机构", "category_code": "08_管理实践与动态", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2025-05-23", "sort_date": "20250523", "quality_level": "高质量", "quality_score": 0.62, "summary": "生态环境部发布《2024年度生态环境领域真抓实干成效明显地方典型经验做法给予推广的函》，对2024年度水环境治理成效明显的地方典型经验做法进行推广。铜川市因创新水环境治理模式获推广。市委市政府高度重视水环境治理工作，市委书记、市长多次现场调研部署，创新建立了水环境治理长效机制。", "keywords": ["水环境", "铜川市水环境", "治理典型经验", "做法获生态环", "境部推广"], "periods": ["y2025", "3y"], "is_hz": false}, {"id": "0b6af57238f225ef8fe70834007b00a7", "title": "钱塘江流域首个河长制工作站（杭州站）启用", "url": "https://zjnews.zjol.com.cn/zjnews/202504/t20250406_30922666.shtml", "source": "浙江在线", "source_type": "主流媒体", "category_code": "06_流域综合管理", "category_name": "综合", "category_icon": "📰", "geo_scope": "杭州", "publish_date": "2025-04-06", "sort_date": "20250406", "quality_level": "高质量", "quality_score": 0.62, "summary": "钱塘江流域首个河长制工作站（杭州站）在萧山区闻堰驿正式揭牌启用，标志着钱塘江流域协同治水迈入制度化、常态化新阶段。工作站将统筹协调流域内河长制工作，推动跨区域联防联控。", "keywords": ["钱塘江", "钱塘江流域首", "个河长制工作", "杭州站", "启用"], "periods": ["y2025", "3y"], "is_hz": true}, {"id": "938a3c743fad08d7651eecadb85a409e", "title": "同一条钱塘江 河长共护幸福河——钱塘江流域河长制主题活动", "url": "https://ls.hangzhou.gov.cn/art/2025/3/25/art_1229699371_59028982.html", "source": "杭州市林水局", "source_type": "政府机构", "category_code": "06_流域综合管理", "category_name": "综合", "category_icon": "📰", "geo_scope": "杭州", "publish_date": "2025-03-25", "sort_date": "20250325", "quality_level": "高质量", "quality_score": 0.68, "summary": "3月24日，同一条钱塘江，河长共护幸福河主题活动在萧山区闻堰驿举行，钱塘江流域河长制工作站（杭州站）正式揭牌。活动推动流域内各级河长协同履职，共护钱塘江水生态环境。", "keywords": ["水生态环境", "水生态", "钱塘江"], "periods": ["y2025", "3y"], "is_hz": true}, {"id": "58453d992f8f74ed43e99749fffed187", "title": "浙江84个饮用水水源地健康报告出炉", "url": "https://zjnews.zjol.com.cn/zjnews/202503/t20250317_30883485.shtml", "source": "浙江在线", "source_type": "主流媒体", "category_code": "05_饮用水水源保护", "category_name": "饮用水水源保护", "category_icon": "💧", "geo_scope": "浙江", "publish_date": "2025-03-17", "sort_date": "20250317", "quality_level": "高质量", "quality_score": 0.62, "summary": "浙江84个县级以上饮用水水源地中，钱塘江杭州水源地等77个水源地安全保障达标评估等级为优秀（占比约92%），较2023年上升了约8个百分点。饮用水水源地安全评估是守护百姓大水缸的重要举措。", "keywords": ["饮用水水源", "钱塘江", "浙江", "个饮用水水源", "地健康报告出"], "periods": ["y2025", "3y"], "is_hz": false}, {"id": "1b2208edaaca0b33d25ed71da61f6c02", "title": "A review of sediment phosphorus release amount and rules in Lake Taihu", "url": "https://doi.org/10.18307/2025.0102", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2025-01-01", "sort_date": "20250101", "quality_level": "高质量", "quality_score": 0.67, "summary": "太湖是我国最为重要的湖泊之一，是国家湖泊治理的重点。自2007年水危机以来，太湖治理累计投入超2620亿元，是世界上治理力度最大的湖泊。2016年以来太湖出现磷反弹，2020年开始显著好转，2023年水华减少。太湖蓝藻水华与磷的响应相对显著，回顾太湖磷十余年来的研究，关于底泥内源释放对水体总磷贡献的说法不一，这对于太湖整体磷负荷的认识及内源治理措施的制定产生了重要影响。针对太湖底泥磷的源汇、释放量以及释放规律，本文对国内外关于湖泊底泥磷释放的监测、实验、计算等研究进行系统回顾，对关于太湖底泥释放方面的研究进行梳理。通过比较和分析，尝试形成对太湖底泥磷释放规律和范围的一些基本认识。通过综述总结提...", "keywords": [], "periods": ["y2025", "3y"], "is_hz": false}, {"id": "d8325bb7bd47ecd1c01b2603e92d0de3", "title": "杭州持续做好治水大文章 深化碧水保卫战", "url": "https://www.zj.gov.cn/art/2024/12/13/art_1229463129_60249489.html", "source": "浙江省政府", "source_type": "政府机构", "category_code": "05_饮用水水源保护", "category_name": "饮用水水源保护", "category_icon": "💧", "geo_scope": "杭州", "publish_date": "2024-12-13", "sort_date": "20241213", "quality_level": "高质量", "quality_score": 0.69, "summary": "杭州通过实施十四五规划、共保规划、碧水计划等举措，市控以上水质断面优Ⅲ比例、功能区达标率和集中式饮用水水源地水质达标率连续3年实现3个100%，主要水污染物排放总量持续下降。", "keywords": ["水质", "水污染", "饮用水水源"], "periods": ["3y"], "is_hz": true}, {"id": "c259003c02d273a6c263ec2b043d95ae", "title": "入河排污口监管新规出台 工矿企业排污口等实行审批管理", "url": "https://news.qq.com/rain/a/20241104A033WZ00", "source": "腾讯新闻", "source_type": "主流媒体", "category_code": "03_水污染防治与监管", "category_name": "水污染防治与监管", "category_icon": "🏭", "geo_scope": "全国", "publish_date": "2024-11-04", "sort_date": "20241104", "quality_level": "中等", "quality_score": 0.59, "summary": "国家对工矿企业排污口、工业及其他各类园区污水处理厂排污口、城镇污水处理厂排污口的设置实行审批管理，以有效管控入河污染物排放。出台管理办法旨在为加强入河排污口监督管理提供制度保障。", "keywords": ["污水处理", "入河排污口", "入河排污口监", "管新规出台", "工矿企业排污", "口等实行审批", "管理"], "periods": ["3y"], "is_hz": false}, {"id": "eb2bce9edbd3e20800e84076af190fd0", "title": "《入河排污口监督管理办法》2025年1月1日起施行", "url": "https://www.h2o-china.com/news/354077_3.html", "source": "中国水网", "source_type": "行业媒体", "category_code": "01_政策法规与规划", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2024-11-04", "sort_date": "20241104", "quality_level": "中等", "quality_score": 0.58, "summary": "生态环境部发布《入河排污口监督管理办法》，自2025年1月1日起施行。工矿企业排污口、工业及其他各类园区污水处理厂排污口、城镇污水处理厂排污口的设置实行审批管理。入河排污口是流域生态环境保护的重要节点。", "keywords": ["污水处理", "入河排污口", "入河排污口监", "督管理办法", "日起施行"], "periods": ["3y"], "is_hz": false}, {"id": "ad21fd17dc8fb2c27fef8f473ae768e8", "title": "广东创新智慧管控技术体系 守护水清岸绿", "url": "https://gdee.gd.gov.cn/ztzl_13387/swrgj/swrfzjsal/content/post_4506112.html", "source": "广东省生态环境厅", "source_type": "政府机构", "category_code": "08_管理实践与动态", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2024-10-11", "sort_date": "20241011", "quality_level": "一般", "quality_score": 0.46, "summary": "广东创新构建智慧管控技术体系，运用大数据、人工智能等手段实现水环境精准管控。针对沿海城市密集点源排放与复杂分散面源污染交织、黑臭水体治理后反弹等问题，提供了可复制的治理经验。", "keywords": ["水环境", "黑臭水体", "广东创新智慧", "管控技术体系", "守护水清岸绿"], "periods": ["3y"], "is_hz": false}, {"id": "2e238ab1f96b6f60b77354ec87f01c30", "title": "广东生态环境创新案例：用智慧管控技术体系守护水清岸绿", "url": "https://gdee.gd.gov.cn/ztzl_13387/swrgj/swrfzjsal/content/post_4506112.html", "source": "广东省生态环境厅", "source_type": "政府机构", "category_code": "08_管理实践与动态", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2024-10-11", "sort_date": "20241011", "quality_level": "一般", "quality_score": 0.48, "summary": "近年来，沿海城市面临密集点源排放与复杂分散面源污染交织、黑臭水体治理后反弹、近海水质水生态受损等问题。广东创新构建智慧管控技术体系，运用大数据、人工智能等手段实现水环境精准管控，为沿海城市水环境治理提供了可复制的经验。", "keywords": ["水环境", "水生态", "水质", "黑臭水体"], "periods": ["3y"], "is_hz": false}, {"id": "2af147ab8a1525cdeef7778ca84cb6a7", "title": "Progress and prospects in satellite remote sensing monitoring of terrestrial surface water", "url": "https://doi.org/10.1360/tb-2023-1323", "source": "OpenAlex (Chinese Science Bulletin (Chinese Version))", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2024-01-01", "sort_date": "20240101", "quality_level": "中等", "quality_score": 0.59, "summary": "陆地地表水（简称地表水）是地球系统的重要组成部分，也是人类赖以生存的重要水资源储备地。然而，地表水的分布范围广泛,空间异质性强，受到自然和人类诸多因素的综合影响，正经历着剧烈变化，对生态系统和社会的可持续发展产生着深远影响。在这样的背景下，遥感技术因其广泛覆盖、长时序观测的特性而日益成为研究地表水时空变化不可或缺的关键工具。本文从地表水遥感监测的数据源、方法、主要内容和发展趋势等方面对现有研究进行了综述。研究发现，近十年来，地表水遥感监测正处于黄金发展期。光学遥感数据源，如Landsat、Sentinel-2等，在地表水环境监测中发挥着主导作用。全球地表水数据产品，如Global Surfac...", "keywords": [], "periods": ["3y"], "is_hz": false}, {"id": "5012cd0bb3a07873d6605d72d218f64c", "title": "Common-used trophic level index in Chinese lakes: Progress and prospects", "url": "https://doi.org/10.18307/2024.0401", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2024-01-01", "sort_date": "20240101", "quality_level": "高质量", "quality_score": 0.61, "summary": "湖泊(包括自然湖泊和人工水库)富营养化已成为世界性的环境问题,营养状态指数是目前最流行的富营养化水平量化方法。然而,不同营养状态指数的基本逻辑和适用水体等方面存在明显差异,不当选取可能会造成营养水平和相关水华风险的错误估计,并引发湖泊保护和修复措施的错位。鉴于此,本文对我国常用营养状态指数的构建思路、共性和差异以及不确定性来源等进行了综述。总体来看,营养状态指数基本构建思路分3种:1) Carlson指数型(如TSI),以透明度(SD)为核心参数,使用SD的2倍变化对应指数的10分差值,假定SD 为64 m时记为指数值0分;2)改良TSI指数型(如TSIm),以叶绿素a(Chl.a)为核心参数...", "keywords": [], "periods": ["3y"], "is_hz": false}, {"id": "4ab0b28c9e076d11b445d761eb7ee691", "title": "Spatial and temporal variation characteristics of 2-methylisoborneol and associations with environmental factors in Gonghu Bay, Lake Taihu", "url": "https://doi.org/10.18307/2024.0315", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2024-01-01", "sort_date": "20240101", "quality_level": "高质量", "quality_score": 0.65, "summary": "湖泊水体丝状蓝藻的大量出现会产生嗅味代谢物,引发由2-甲基异莰醇(2-MIB)主导的嗅味问题,威胁饮用水安全。太湖贡湖湾是苏州市、无锡市的重要饮用水源地,近年由2-MIB引起的水体嗅味问题时有出现,但相关研究鲜有报道。为掌握贡湖湾2-MIB时空变化特征及影响因子,研究分别于2022年3—12月和高温期间(7月29日-8月29日)开展逐月及高频调查。逐月调查结果显示,贡湖湾2-MIB浓度变化季节性差异显著,夏季浓度最高,可达124.3 ng/L。贡湖湾各点2-MIB的空间分布无明显差异。高频调查结果发现,高温期间贡湖湾入湖口附近水域2-MIB浓度变化剧烈,最高值可达1385 ng/L,超其嗅阈值...", "keywords": [], "periods": ["3y"], "is_hz": false}, {"id": "9cd0602aaebdeab196cd53c5dbc0584f", "title": "Challenges and protection strategies of ecological environment of lakes along the Eastern Route of the South to North Water Diversion Project", "url": "https://doi.org/10.18307/2024.0500", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2024-01-01", "sort_date": "20240101", "quality_level": "高质量", "quality_score": 0.62, "summary": "南水北调东线工程横跨长江、淮河、黄河和海河四大流域,通过京杭大运河和输水渠道自南向北连通了高邮湖、洪泽湖、骆马湖、南四湖、东平湖和北大港水库等湖泊和水库,向黄淮海平原东部、胶东地区以及津冀地区提供生产生活生态用水。沿线调蓄湖泊是南水北调东线工程的关键节点和调蓄池,是改善输水水质的净化器和重要“绿肾”,对保障输供水安全至关重要。近年来,在生态文明建设和打好碧水保卫战的大背景下,南水北调东线沿线调蓄湖泊治理保护取得明显成效,水环境质量总体上呈改善趋势,但在快速气候变化和高强度人类活动的双重影响下,沿线湖泊流域水污染防控、水环境治理和水生态保护修复仍面临严峻挑战。本文从水量调蓄与水质净化、饮用水安全...", "keywords": [], "periods": ["3y"], "is_hz": false}, {"id": "91ed3bfdf99fbd99e870f374db3e82a8", "title": "Microbial mechanisms of C/N/S geochemical cycling during low-water-level sediment remediation in urban rivers.", "url": "https://doi.org/10.1016/j.jenvman.2024.120962", "source": "Semantic Scholar (Journal of Environmental Management)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2024-01-01", "sort_date": "20240101", "quality_level": "中等", "quality_score": 0.55, "summary": "Low-water-level regulation has been effectively implemented in the restoration of urban river sediments in Guangzhou City, China. Further investigation is needed to understand the microbial mechanisms involved in pollutant degradation in low-water-level environments. This study examined sediment sam...", "keywords": [], "periods": ["3y"], "is_hz": false}, {"id": "2893aed48144eda273716d8b9cc72f8b", "title": "Twenty years of microplastic pollution research—what have we learned?", "url": "https://doi.org/10.1126/science.adl2746", "source": "Semantic Scholar (Science)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2024-01-01", "sort_date": "20240101", "quality_level": "中等", "quality_score": 0.51, "summary": "Twenty years after the first publication that used the term microplastic, we review current understanding, refine definitions, and consider future prospects. Microplastics arise from multiple sources, including tires, textiles, cosmetics, paint, and the fragmentation of larger items. They are widely...", "keywords": [], "periods": ["3y"], "is_hz": false}, {"id": "55907458d815fe9e2e2bc95ccf1c08e4", "title": "Supply and demand relationship and multi-scenario assessment of water ecological services related water quantity and quality in Taihu Lake Basin", "url": "https://doi.org/10.5846/stxb202112223632", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "中等", "quality_score": 0.59, "summary": "耦合水量供给与水质净化的水生态服务供需关系的多尺度空间量化评估，有助于刻画和识别丰水区水质性缺水问题，并丰富水生态服务研究。在构建水量供给和水质净化服务供需评估方法的基础上，利用空间分析方法在现状情景基础上分别设置提升用水效率、改善土地管理方式和优化土地利用空间配置三种优化情景，并在栅格、子流域和县域三个尺度上开展基于水量供给和水质净化的水生态服务供需关系的定量评估，分别探讨了不同情景不同尺度下的水生态服务供需变化、空间响应及其机制特征。研究结果表明：（1）太湖流域的水量供需状况显著优于水质供需状况，节水能够有效改善流域内的水量赤字，而减量施肥和优化土地利用配置能够显著改善流域内的水质赤字。（...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "4ef63735a999f1450a04785ea4c2925b", "title": "The ecological vulnerability evaluation and its driving force in Lake Dianchi, 1980-2020", "url": "https://doi.org/10.18307/2023.0528", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.61, "summary": "人类活动的加剧和经济社会的发展导致滇池开发强度持续增加,滇池生态系统结构与功能受到严重影响,评估滇池的生态脆弱性程度与主要驱动因子是明晰滇池生态系统现状和问题、实现其精准治理和可持续发展的首要任务。基于“暴露程度-敏感程度-适应程度”模型(VSD模型),选取3个准则7个要素24个指标构建滇池生态系统脆弱性评估指标体系,利用逼近理想解排序法(TOPSIS)进行权重方案比选,并通过鲁棒性检验分析,确定计算权重的最优方案。通过分析1980—1989、1990—2009、2010—2020年这3个时间段滇池的生态脆弱性,识别出影响滇池生态系统的主要驱动因子,以期为滇池未来生态保护与修复方向的确定提供参...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "362250426abce5916820ef3c1e833f8d", "title": "地下水环境监测及地下水污染防治探究", "url": "https://doi.org/10.37155/2811-0595-0202-1", "source": "OpenAlex (地质研究与环境保护)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.62, "summary": "从控制和对污染物的全面管理的角度来看，对地下水利用现状进行批判性的综述。在进入地下水系统之 前，每个城市的污水需要最大程度地减少所有可能来源的砷含量。在可持续的环境中，必须大大减少硝酸盐和农药过 多的使用。为了制定未来可持续地下水的成功综合管理措施，它包括地下水和地下水资源的管理，提高供水和环境安 全的安全。因此，建议进行公共水管理。环境。从控制污染物和全面管理的角度来看，使用地下水的当前状态受到严 格批评。我们不仅在研究地下水污染的治理，还研究了从可持续发展的数量中管理地下水管理的管理。", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "2f19f3080ac56a3b5318f595013a6c95", "title": "Advances in impact of climate change and human activities on wetlands on the Tibetan Plateau", "url": "https://doi.org/10.5846/stxb202111153202", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "中等", "quality_score": 0.58, "summary": "青藏高原是中国湿地分布最多的区域,其独特的高寒湿地对区域生态环境安全有着不可或缺的作用。梳理了青藏高原湿地变化的时空特征,基于此,重点分析了气候变化与人类活动对不同类型湿地的影响和作用机制。研究发现:(1)主导不同类型湿地变化的气候因素有差异,影响存在区域异质性。湖泊湿地主要受降水量影响,湖泊湿地在北部扩张、南部缩小的趋势与降水量的空间差异存在较强的一致性;沼泽湿地主要受气温影响,气温升高导致水分蒸发、植被群落演替,沼泽湿地向草地转化,江河源区和若尔盖高原等主要分布区域呈现退化趋势;河流湿地主要受气温影响,气温升高加速河源冰川消融、同时也增大河流蒸散发量,共同作用下河流湿地呈现北部减少、南部增...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "0334a507d46c4549b89b04db181763c6", "title": "Research progress of aquatic ecological monitoring and assessment in watersheds and development recommendations in China", "url": "https://doi.org/10.18307/2023.0300", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.64, "summary": "水生态监测与评价是水生态系统管理、保护和可持续利用的基础。20世纪80年代开始，欧美发达国家水环境管理政策开始强调生态保护，重视流域水生态质量，先后开展了以水生生物为核心的河流水生态监测与评价研究计划。然而我国目前流域水环境监测与评价的指标主要以传统的理化监测指标为主，缺乏指示水生态变化的水生生物指标，单一的水质改善无法反映水生态环境好转这一长远目标，不能满足“十四五”水生态环境管理由以水污染防治为主向水环境、水生态、水资源“三水”统筹转变的总体要求。本研究系统分析发达国家和地区（如美国、欧盟、澳大利亚等）水生态监测与评价技术体系与业务化运行方面的先进经验，总结梳理我国水生态监测与评价试点已有...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "990dce5e674d8a20c92b326bcec915db", "title": "Phytoplankton community structure and water ecological assessment in the Three Gorges Reservoir", "url": "https://doi.org/10.18307/2023.0231", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.64, "summary": "2020年是长江禁渔开局之年,三峡库区作为长江的重要生态屏障,其水生态环境健康对长江大保护的实施具有重要意义。本文于2020年8月、11月及2021年1月、4月在三峡库区干支流共设置19个断面探究浮游植物群落结构特征,并利用生物量、多样性指数、综合营养状态指数和浮游植物Q指数等多种评价方法评价三峡库区水生态健康并分析其影响因素。结果表明:(1)三峡库区共鉴定出浮游植物8门105属266种,年平均丰度为6.4×10<sup>4</sup> cells/L,年平均生物量为0.038 mg/L。不同季节优势种组成不同,变异直链藻(Melosira varians Agardh)、骨条藻(Skelet...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "4cb7aa3c7bf4ec4959a5eba535231677", "title": "Spatio-temporal variation of phytoplankton community and its relationship with environmental factors in Danjiangkou Reservoir", "url": "https://doi.org/10.18307/2023.0306", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.64, "summary": "研究丹江口水库在完成高水位蓄水期间浮游植物群落的时空动态特征可为丹江口水库的水质保护与生态系统结构优化及健康管理提供一定科学依据。本研究基于2018—2020年的水库浮游植物监测数据，结合同期水库水体的理化参数，分析了丹江口水库浮游植物在不同年度、季度及空间的变化特征，以及影响浮游植物群落结构变化的主要环境因子。结果显示该区域共检测出浮游植物7个门类，其中蓝藻门、硅藻门、绿藻门、隐藻门为优势类群。2018—2020年浮游植物年均密度分别为1.96×10<sup>6</sup>、2.55×10<sup>6</sup>和5.07×10<sup>6</sup> cells/L，呈现出逐年增高趋势。浮...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "df68c9cfab8479d5a69e0a7071214ac8", "title": "基于荧光光谱的水体分类与荧光组分识别方法", "url": "https://doi.org/10.3788/aos221518", "source": "OpenAlex (Acta Optica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "中等", "quality_score": 0.59, "summary": "提出了一种基于MobileNetV2和VGG11组分拟合（CF-VGG11）卷积神经网络（CNN）与平行因子分析（PARAFAC）结合的水样分类和荧光组分拟合方法，通过输入单个三维荧光光谱（3D-EEM）数据来预测水样类别、溶解性有机物（DOM）质量浓度等级和荧光组分。算法以PARAFAC结果为基础建立荧光光谱数据集，分两步完成类别与组分的预测：第一步使用MobileNetV2算法对不同水样进行类别预测和DOM质量浓度分级；第二步使用CF-VGG11网络拟合荧光组分。采集地表水、工业废水处理水、污水处理厂进出口水和乡村饮用水4种类型的水样构建数据集，获得了95.83%的分类精度和98.11%的...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "ef103cf73e2a7e6c33242ac86890980a", "title": "基于AlexNet的近岸水生植物光谱分类及特征光谱分析", "url": "https://doi.org/10.3788/cjl220653", "source": "OpenAlex (Chinese Journal of Lasers)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "一般", "quality_score": 0.48, "summary": "水生植物能够净化污染物和抑制藻类生长，在生态系统重建方面具有重要的应用价值。光谱分析作为植物种类识别的一种方法，具有无接触、快速、无污染等特点。受周围水环境的影响，绿色水生植物的光谱特征峰比陆生植物更加难以区分，地面实测光谱数据不仅维度高，且存在大量重叠谱带和背景干扰，特征光谱不明显；同时，通过地面实测获取样本数据较为困难，适用于深度学习的地面光谱数据集较少。针对以上问题，本文提出了一种基于一阶导数法结合AlexNet网络的分类模型。本团队以2019年9—10月上海河道内4种优势种群的近岸挺水水生植物为研究对象，使用地物光谱仪采集4种水生植物叶片部位的光谱信息。实验中，首先使用4种光谱分析法对...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "aca9e24ce6bae53d978231270394acb1", "title": "Trend and driving factors of water environment change in Lake Erhai in the last 50 years", "url": "https://doi.org/10.18307/2023.0422", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.68, "summary": "基于1971-2020年近50年洱海湖区主要水质指标的监测数据,采用M-K检验和GAMs模型定量解析了洱海水质的年际变化趋势,采用多元回归法综合分析了洱海水环境演变的驱动因素。结果表明,近50年来,在流域发展与湖泊保护双轮驱动的作用下,洱海水质年际波动明显,主要水质指标浓度也呈现出多个显著变化的趋势过程。1980s初至1985年间水质指标浓度显著上升,主要与流域南部城镇化发展有关;1986-1980s末显著下降,与南部截污干渠(管)建设密切相关;1990s末至2003年间显著上升,主要与南部城镇工业发展、农业种植结构调整等重要发展策略有关;2004-2008年间显著下降,主要与中心城区截污治污...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "bf22fb7eeaed1bb88eeaecc4d37df6e3", "title": "Succession of macrozoobenthic communities and its drivers in Meiliang Bay of Lake Taihu during the past 40 years", "url": "https://doi.org/10.18307/2023.0217", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.7, "summary": "梅梁湾是太湖北部最大湖湾,也是太湖生态环境问题最严重的区域之一,近年来对太湖治理力度不断加大,然而对其生态状况演变的认识尚不清晰。本文基于长期监测及文献资料,获得1980s以来太湖梅梁湾底栖动物及环境因子数据,分析底栖动物种类组成、优势种、丰度的时空变化,应用非度量多维尺度分析(NMDS)和随机森林(RF)分析群落结构演变及其与环境因子的关系。结果表明,梅梁湾1980-2019年共记录到44属(种)底栖动物,以摇蚊幼虫和软体动物为主,总丰度年际变化显著,40年来底栖群落结构发生显著变化,优势种经历了由较敏感的软体类为主到以耐污寡毛类、摇蚊幼虫等为主的转变。综合NMDS和随机森林分析结果,梅梁湾...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "4b2c0b7999aed45daa6969761218e0b4", "title": "Driving factors of algal blooms in drinking-water reservoirs in Lake Taihu Basin", "url": "https://doi.org/10.18307/2023.0511", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.72, "summary": "藻类异常增殖引发的水华是威胁我国水源地水库的主要生态问题之一。探究水源水库中藻类异常增殖的促发因素是防控藻类水华水质问题的前提。本文以太湖流域两个大(Ⅱ)型中营养水库为例,通过周年浮游植物细胞密度、生物量及相关环境因子逐月监测,分析影响水库有害藻类生物量季节性异常增殖特征及其促发条件。结果表明,地处亚热带季风区的两个水源水库均存在蓝藻和硅藻阶段性异常增殖的风险,老石坎水库5月暴发了以曲壳藻为绝对优势种的重度硅藻水华现象,硅藻细胞密度达到6232×10<sup>4</sup> cells/L,赋石水库则在6和9月均出现了蓝藻细胞数达到水华级别的异常增殖现象。冗余分析表明,总磷、水温和水位是影响水...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "34c7871e6ce4c79f11f54c7a71cd1f81", "title": "Spatio-temporal variation and driving factors of algal bloom at Lake Dianchi during 2002-2018", "url": "https://doi.org/10.5846/stxb202110253002", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.61, "summary": "为弄清滇池外海蓝藻水华暴发时空变化规律及其影响因素，将滇池外海分为北、中、南3个区域，基于2002-2018年期间中分辨率成像光谱仪（MODIS）反演的水华面积，分析了上述3个区域蓝藻水华的时空变化特征。基于2007-2018年水文、气象和出入流数据，构建了外海三维水动力生态模型（AEM3D），并计算了各区域的水力滞留时间。通过冗余分析（RDA）、随机森林（RF）和斯皮尔曼相关分析方法，分析了影响以上区域蓝藻水华暴发的主要驱动因子。结果表明：2002-2018年期间，整个滇池外海区域年平均水华面积比（水华面积占该区域总面积比例）呈缓慢下降趋势，空间上由北向南依次递减，整个外海水华暴发面积最大主...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "24243b02ef1ba03a8bd9d3b1bd149724", "title": "Assessment on ecosystem health of Lake Poyang based on a comprehensive index method", "url": "https://doi.org/10.18307/2023.0321", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.64, "summary": "由于湖泊生态问题日益突出，湖泊生态系统安全状态已经成为人们关注的热点问题，了解湖泊水生态系统的状况并根据湖泊生态系统健康状况开展精准治理和生态修复与保护尤为重要。本文基于对鄱阳湖及其流域生态环境的长期监测数据和资料收集，采用综合指标体系法，从物理形态、水文、水环境、水域生态、湿地生态和社会服务6个方面构建了鄱阳湖生态系统健康评估的指标体系，主要涵盖了湖泊口门状况、“五河”入湖径流变异程度、入湖河流水质达标率等26个指标。依据设置的阈值等级得到鄱阳湖生态系统健康评价各层次健康状况等级，通过对各湖泊生态系统各指标得分进行加权计算，得出生态系统健康评估准则层和目标层的得分，最终对鄱阳湖生态系统健康进...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "8279ce00da90ba58d885b92370afdcfb", "title": "Review of lake ecosystem's characteristics of carbon sink and potential value on carbon neutrality", "url": "https://doi.org/10.5846/stxb202112283680", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "中等", "quality_score": 0.58, "summary": "为了应对气候挑战，达成碳达峰远景目标，需要正确评估自然资源碳中和价值。湖泊作为具有独特生态、人文价值的地理单元，因碳循环强度高、碳排放总量大，是传统意义上的碳源。通过梳理近期相关研究成果，对比不同类型湖泊碳汇/源状况，湖泊生态系统以一系列碳汇特征表现出潜在的碳中和价值。强烈的光合作用可以使水体CO<sub>2</sub>欠饱和，但由呼吸-光合作用、碳酸盐岩溶蚀作用带来的水体碱度、CO<sub>2</sub>分压pCO<sub>2</sub>提高也有利于湖泊碳汇增益。CO<sub>2</sub>在水体中大量溶解，积极参与到湖泊碳循环，将pCO<sub>2</sub>高于40 Pa作为判断湖泊为碳...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "aa699530c6232818c1e3dcfd001f4601", "title": "The twin global crises of climate change and water require the same thing: Accelerated action", "url": "https://doi.org/10.1002/wwp2.12107", "source": "OpenAlex (World Water Policy)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "中等", "quality_score": 0.52, "summary": "March 2023 was a milestone month for water and climate! That month saw the release of two very important documents, the Synthesis Report of the Intergovernmental Panel on Climate Change (IPCC) Sixth Assessment Report and the United Nations 2023 World Water Development Report: Partnerships and cooper...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "e733974f7e884bbdeb036195842bd751", "title": "Spatio-temporal evolution trend of multi-scale landscape ecological risk in Miyun Reservoir watershed", "url": "https://doi.org/10.5846/stxb202204211082", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.66, "summary": "密云水库作为北京重要的地表饮用水水源地、水资源战略储备基地受到广泛关注，相关研究多基于流域尺度，缺乏多尺度针对水源保护区的生态风险评价，开展多尺度生态风险评价有利于指导密云水库流域高质量和可持续发展。以1990、2000、2010和2018年4期土地利用数据为基础，基于景观指数，采用地统计学方法，分析流域土地利用类型及变化，从流域尺度、水源保护区尺度构建生态风险评价模型，揭示生态风险时空变化。结果表明：（1）流域内主要土地利用类型为林地和草地，随着城市扩张和\"退耕还林\"等政策实施，耕地和未利用地面积减少，建设用地面积增加，流域景观趋于复杂和分散，破碎化程度加剧；（2）生态风险区域在流域尺度呈\"...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "86ac880d9e2a300cc10bd5d64e987032", "title": "Multi-scenario simulation of land use change and its impact on ecosystem services in Beijing-Tianjin-Hebei region based on the FLUS-InVEST Model", "url": "https://doi.org/10.5846/stxb202201280269", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "一般", "quality_score": 0.47, "summary": "研究未来不同情景下土地利用变化对区域生态系统服务的影响，可以为城市可持续发展的规划和决策提供有效支持。以京津冀城市群为研究区域，首先利用未来土地利用模拟（FLUS）模型模拟2045年自然发展情景、耕地保护情景和生态保护情景下的土地利用空间分布格局，并结合InVEST模型模拟研究区不同情景下的生境质量、产水量、碳储量、土壤保持量和水质净化服务，在此基础上运用层次分析法构建综合生态系统服务指数（CES），从空间上反映多种生态系统服务的供给总量，研究不同情景下土地利用变化对生态系统服务功能的影响。研究结果表明：①FLUS模型的模拟精度较高，适用于研究区的土地利用模拟。②在生态保护情景下，除产水量相比...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "cb4742ba81ac6e2fdb0c0b8f8c063d43", "title": "Effects of electrochemical intervention on the remediation of black-odorous water: insights into microbial community dynamics and functional shifts in sediments.", "url": "https://doi.org/10.2166/wst.2023.169", "source": "Semantic Scholar (Water Science and Technology)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "一般", "quality_score": 0.43, "summary": "Black-odorous water is a severe environmental issue that has received continuous attention. The major purpose of the present study was to propose an economical, practical, and pollution-free treatment technology. In this study, the in situ remediation of black-odorous water was conducted by applying...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "54a31bd3f61774a91a3c66dfec85c07e", "title": "Long-term improvement of sediment in situ restoration and REDOX characteristics by Vallisneria natans coupling with carbon fiber.", "url": "https://doi.org/10.1016/j.ecoenv.2023.115547", "source": "Semantic Scholar (Ecotoxicology and Environmental Safety)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "一般", "quality_score": 0.48, "summary": "China is conducting ecological restoration work in urban water bodies. Under anoxic and anaerobic conditions, pollutants transform and produce odorous and black substances, deteriorating the water quality, which is a significant problem in urban water bodies. Vallisneria natans has received widespre...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "93f34f5c60bf93150e4cc3a6002d9482", "title": "Coupling the measures of pollution source control and water replenishment to improve water quality in the catchment scale of Qianshan River Basin.", "url": "https://doi.org/10.1016/j.envpol.2023.122899", "source": "Semantic Scholar (Environmental Pollution)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2023-01-01", "sort_date": "20230101", "quality_level": "高质量", "quality_score": 0.63, "summary": "With the development of the economy, the problem of urban black odorous water bodies has become increasingly significant, having a serious impact on the environment. As important means of remediating aquatic environments, pollution source control and water replenishment are of great significance in...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "370b70a3fc72440b5b962cf685f68f20", "title": "十四五重点流域水环境综合治理规划", "url": "https://www.ndrc.gov.cn/xxgk/zcfb/ghwb/202201/P020220111669050733286.pdf", "source": "国家发改委", "source_type": "政府机构", "category_code": "06_流域综合管理", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-11", "sort_date": "20220111", "quality_level": "高质量", "quality_score": 0.62, "summary": "国家发改委印发《十四五重点流域水环境综合治理规划》，旨在进一步激发地方政府落实重点流域保护治理责任的积极性和主动性，推进长江、黄河、太湖等重要湖泊保护治理。", "keywords": ["水环境", "太湖", "十四五重点流", "域水环境综合", "治理规划"], "periods": ["older"], "is_hz": false}, {"id": "380dd4e98308d24d25b9b48594982889", "title": "Investigation on vertical composition type of the sediment and the composition of the sediment-water interface in Lake Taihu", "url": "https://doi.org/10.18307/2022.0302", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.62, "summary": "针对太湖中底泥-水界面上物质的状态、性质及其对水质的影响问题，本文通过对太湖8个湖区39个采样点的现场调查取样和实验室检测，分析太湖底泥状态和垂向上的构成、不同区域底泥-水界面物质的差异及底泥与磷释放和湖泛之间的关系.结果表明：太湖底泥-水界面上存在3种物质：粉质硬黏土、淤泥质粉土和悬浊水层.粉质硬黏土（硬底板）是太湖形成前的沉积物，全湖普遍存在，并于湖心区等部位直接裸露；淤泥质粉土是太湖湖相历史形成的沉积物，覆盖了约68%的湖底面积而直接与水接触；悬浊水层在近些年输入颗粒物比较多的区域出现.太湖底泥的垂向存在4种结构，其中Ⅰ型、Ⅱ型结构对水的影响比较小，Ⅲ型、Ⅳ型是易于释放的结构，是磷释放的...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "fe9dddd65f55964afa0d10f2c7c9767a", "title": "Hydrological connectivity research in Lake Taihu Basin: Status, progress and future challenges", "url": "https://doi.org/10.18307/2022.0402", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.65, "summary": "水文连通性作为连接河湖水体间物质、能量及信息传递与交换的关键纽带,对水环境、水生态和生境状况具有联动与触发反馈作用,已成为水文学、水利学和生态学等诸多领域的研究热点.太湖流域作为全国典型的流域性密集平原河网区,在快速城镇化背景下,河湖水文连通关系变化剧烈并引起了一系列生态环境效应.本文以水文连通性概念与内涵为背景,对太湖流域水文连通性研究进行了综述.太湖流域水文连通性评价方法以图论法、景观格局指数及水文连通性函数等方法联合使用为主,且聚焦于区域尺度研究;演变过程按人类活动影响强度大致划分为自然水系形成阶段、古代人类活动影响阶段和现代人类活动影响阶段;气候变化和人类活动共同影响着太湖流域水文连通...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "a83fd73f0b8c2ebd367aa99fbfe5af4c", "title": "Regionalization and classification of water eco-environment in Zhejiang Province based on ecosystem service", "url": "https://doi.org/10.5846/stxb202009292518", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "中等", "quality_score": 0.52, "summary": "水环境综合管理被普遍认为是促进流域可持续发展的基本手段。生态系统服务是生态系统对人类福祉和生存的直接和间接贡献, 是维持与影响流域水生态环境的重要因素。随着流域空间管控日益受到重视, 基于生态特征的\"分区分类\"管控已成为流域精细化管理的重要内容。论文基于生态系统服务功能与水质关联性, 采用典型对应分析(CCA)选取了土壤类型、土地利用、归一化植被指数和人口密度等4种生态特征作为水生态功能分区指标。结合流域生态特征、汇水区域和行政管理单元的空间分布, 通过聚类分析及空间叠置法, 将浙江省划分了10个水生态功能区和510个水环境控制单元。采用当量因子法对各控制单元的生态系统服务价值进行系统评估。结...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "db458d188bd93ec0ffea8b702b3b20f2", "title": "Characteristics of phytoplankton community structure and its response to hydro-meteorology in summer of Qiantang River", "url": "https://doi.org/10.18307/2022.0205", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.64, "summary": "河流中浮游植物的动态变化能够较好的指示河流水质状况.为探索水文气象过程对筑坝河流浮游植物群落结构的影响，2020年夏季，以钱塘江干流为例，对包括富春江水库在内的11个河段开展了浮游植物群落结构及相关环境因子的调查分析.结果表明：夏季在钱塘江干流共鉴定出浮游植物6门59属95种，优势属为沟链藻（Aulacoseir）、菱形藻（Nitzschia）、平裂藻（Merismopedia）、长孢藻（Dolichospermum）、假鱼腥藻（Pseudoanabaena）和微囊藻（Microcystis），其中梅雨期优势属主要隶属于硅藻门，梅雨后蓝藻门种属则迅速占优，浮游植物总细胞密度快速增加；整个夏季浮...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "b42e09c5d4948da5e575dadea0c9ea60", "title": "Impacts of perfluoroalkyl substances on sustainable development of coastal marine ecosystems under climate change", "url": "https://doi.org/10.5846/stxb202108302446", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "一般", "quality_score": 0.41, "summary": "海岸带生态系统为人类提供了食物、水等丰富的物质以及文化、休闲等生态系统服务。但由于全氟化合物等污染物的排放和气候变化的影响，海岸带地区环境日益恶化、资源枯竭、极端气候灾害加剧。这些问题直接导致了海岸带水质下降、近海生物多样性减少、生物群落结构变化，海岸带生态系统可持续发展受到影响。全氟化合物在自然环境中难以降解，会沿食物链在生物体内累积和放大进而对人类健康造成风险。随着氟化工产业在我国的快速发展、新型全氟化合物的不断更替以及气候变化的加剧，全氟化合物对海岸带生态的影响面临着极大的不确定性。为了更好地服务海岸带生态系统的可持续发展，目前仍需要加快完善立法保障，在全国范围内对全氟化合物进行监测；将...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "06f7f64fddf6610ee89ef101acc85d4d", "title": "Distribution characteristics of phytoplankton functional groups and their relationship with environmental factors in Taihu Basin", "url": "https://doi.org/10.18307/2022.0506", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "中等", "quality_score": 0.51, "summary": "太湖流域地处长江下游，水系发达，是典型的平原水网地区，为明确空间和环境因子对太湖流域浮游植物功能类群分布的影响，本研究于2019年8—9月期间比较太湖流域包括河流、湖泊和水库的85个采样点的浮游植物、空间和环境特征. 首次利用“人工智能图像识别技术”，并结合传统人工镜检，共鉴定浮游植物250个分类单位，隶属于9门13纲28目57科110属，以绿藻门(45.6%)、硅藻门(19.2%)和蓝藻门(16.4%)为主. 共划分功能类群31个，包括M、D、J、S1、C、Y、F、P、MP、H1、SN、W1、G、K和TB共15个优势功能类群. 结果表明：1)太湖流域不同水体功能类群组成差异显著，差异主要来自...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "21a6c08d5ce90effdc08d6274d1f0bd8", "title": "A retrospect on the water diversion project from Yangtze River to Lake Taihu during 2002-2021: Practices, achievements and future challenges", "url": "https://doi.org/10.18307/2022.0500", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.7, "summary": "过去几十年太湖流域经济社会快速发展，但由于经济增长方式尚未根本转变，流域水循环系统遭到无序干扰和破坏，太湖水污染问题严重，水质型缺水问题突出，流域水安全面临巨大挑战. “引江济太”作为太湖流域水安全保障的关键措施和流域水环境综合治理的重要举措，自2002年启动实施以来，以丰补枯，增加流域水资源供给；以动治静，抑制太湖蓝藻大规模暴发，改善流域区域水环境；科学应对，保障突发水污染事件和重大活动期间供水安全，取得了显著的综合效益，社会各界予以了广泛关注. 本文基于监测数据和大量文献，在综述“引江济太”实践背景、过程和成效的基础上，重点围绕“引江济太”调度模式、水量水质保障、洪旱风险管控、调水事件驱动...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "ea7ff1ceb66335eab7071a389938f7c7", "title": "Species diversity, spatial distribution and protection strategies of wintering waterbirds after extreme summer flood in Lake Poyang", "url": "https://doi.org/10.18307/2022.0528", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "中等", "quality_score": 0.58, "summary": "鄱阳湖是我国最大的淡水湖，也是具有国际意义的候鸟越冬地. 近年来，鄱阳湖水文情势异常使得候鸟越冬环境更加复杂. 本文以2020年鄱阳湖出现夏季极端水位为背景，基于2019和2020年鄱阳湖越冬水鸟同步调查数据，探讨了夏季极端水位对越冬水鸟丰富度和空间分布的影响. 研究结果表明：夏季极端水位条件下鄱阳湖越冬水鸟的总数量、群落结构和优势物种组成相对稳定，水鸟数量由597307只下降至572358只，主要是鸭科、鸥科、鹳科、鸬鹚科和鹮科鸟类数量明显下降；食块茎、食种子和食鱼集团水鸟数量均有所下降. 水鸟的整体空间分布格局变化不大，主要栖息地仍为鄱阳湖保护区和上饶湿地的碟形湖及人控湖汊，越冬水鸟向人工...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "c28c80c0ab62a170b85e2281818458ed", "title": "Evolution of ecological patterns and its driving factors on Qinghai-Tibet Plateau over the past 40 years", "url": "https://doi.org/10.5846/stxb202204191060", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "一般", "quality_score": 0.45, "summary": "20世纪80年代至今近40年间，青藏高原自然与人工生态系统发生了广泛而深刻的变化，作为我国重要的生态屏障，亟需对其生态系统格局演变过程及其驱动因素进行系统定量的解析。本研究利用1980年至2018年间8期遥感解译土地利用与覆被数据，将青藏高原9类主要生态系统类型，森林、灌丛、草地、农田、城镇、水体与湿地、冰川、裸地、荒漠，依其主要构成组分，划分为以植被为主体的自然生态系统（森林、灌丛、草地）、以无机环境为主体的自然生态系统（水体与湿地、冰川、裸地、荒漠），以及人工生态系统（农田、城镇）共三大类。统计分析表明1980至2018年的近40年来，青藏高原以植被为主的自然生态系统面积约占61.9%，其...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "cf74cf1309752df1be36f1f4387cb0c0", "title": "Landscape dynamics and ecological risk of the expressway crossing section in the Hainan Rainforest National Park", "url": "https://doi.org/10.5846/stxb202006191601", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "一般", "quality_score": 0.47, "summary": "海南热带雨林国家公园被中线高速公路自东北-西南方向穿越，改变了局域景观分布格局，影响到生态系统完整性与原真性，可能存在潜在的生态风险。选取海南热带雨林国家公园高速公路穿越段两侧3 km作为研究区域，运用GIS技术、Fragstats和景观生态学理论定量评价2013年（高速公路未建）、2016年（高速公路在建）和2019年（高速公路竣工）三年的景观要素变化，解析景观变化趋势和可能带来的潜在生态风险。结果表明，2016年高速公路建成面积（含动土区域）为325.51 hm<sup>2</sup>，林地面积略有减少，但林地斑块密度增加；耕地面积虽略有增加，但耕地最大斑块指数下降，耕地景观优势度降低。2...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "d82d21b04a06e99bc16b0109fa67af42", "title": "典型污染场地土壤与地下水调查技术与评价研究", "url": "https://doi.org/10.26789/jnhb.v7i6.1394", "source": "OpenAlex (节能环保)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "中等", "quality_score": 0.55, "summary": "治理地下水污染是中国水环境保护的重要组成部分。但地下水污染程度不仅与污染源密切相关，而且与水文地质条件密切相关。因此，该项目的重点是收集和研究现有的5~10个受污染点的监测结果和数据。在收集、学习其他国家先进采样技术和与中国专家交流的基础上，结合污染场地的实际情况，自行研究了几种现场土壤采样方法、地下水污染源判定方法。", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "73f7e2d68caa4399b255f85ba02d2680", "title": "Changes of rivers and lakes water quality in Lake Ebinur Basin, Xinjiang(2005-2020)", "url": "https://doi.org/10.18307/2022.0210", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.68, "summary": "艾比湖流域是西北地区重要的生态屏障，维持着该地区乃至整个新疆北部的生态平衡.艾比湖流域水环境的好坏关系着当地经济和流域的可持续发展.然而，针对艾比湖流域长期水质变化、营养状况和健康风险的研究较少，故基于艾比湖流域2005—2020年12个断面长时间序列的监测数据，利用加拿大水质指数（Canadian water quality index，CWQI）评价河湖水质状况，采用综合营养状态指数（comprehensive trophic level index，TLI （∑））评价艾比湖水体富营养化状态，使用Risk评价水环境健康风险（water environment healthy risk，W...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "8239b12d32706abf221a76df96d30ced", "title": "Progress of hydrological process researches in lake wetland: A review", "url": "https://doi.org/10.18307/2022.0104", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.68, "summary": "湖泊湿地是世界上最重要的生态系统之一，在调蓄洪水、净化环境、保护生物多样性以及为人类提供淡水和食物等方面发挥着不可替代的作用.然而，受气候变化和人类活动叠加影响，湖泊湿地水文过程发生了剧烈变化，湖泊湿地面临着面积萎缩、质量下降和服务功能退化等风险.本文总结了原位观测、数值模拟和遥感技术在获取湖泊湿地关键水文要素方面的优势及不足；从辩证的角度探讨了气候变化和人类活动对湖泊湿地水文过程的双重影响；结合洪水和水文连通性等研究热点分析了水文过程的典型表现形式；从正反两方面揭示了湖泊湿地植物、动物和水质对水文过程改变的响应.本研究最终提出未来应该将遥感技术与数值模拟方法相结合，建立多目标-多要素-多尺度...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "e3d1facf8f479e1fa890004ae431c4d3", "title": "Spatiotemporal variation of water yield in the upstream regions of the Shule River Basin using the InVEST Model", "url": "https://doi.org/10.5846/stxb202105011149", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "中等", "quality_score": 0.54, "summary": "开展山区流域产水量的定量评估研究,有利于区域水资源保护规划的制定、生态补偿机制的建立以及生态平衡的维系。然而,目前对我国西部高寒山区产水量的时空变化评估及其影响因素的研究依然较为缺乏。选取青藏高原东北缘祁连山西段疏勒河上游为研究区,基于InVEST(Integrate Valuation of Ecosystem Services and Tradeoffs Tools)模型定量估算并分析了2001-2019年产水量的时空变化特征及影响因素。结果表明:(1)2001-2019年,研究区年均气温和年实际蒸散量呈增加趋势(P>0.05),年降水量和NDVI则显著增加(P<0.05);(2)年均总产...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "045ff85c41b1e2874227fa3a262da34b", "title": "Construction and adjustment of ecological security pattern based on MSPA-MCR Model in Taihu Lake Basin", "url": "https://doi.org/10.5846/stxb202103020571", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "中等", "quality_score": 0.55, "summary": "构建生态安全网络是在快速城镇化和生态环境恶化的背景下保护生物多样性的重要举措。以典型跨界的太湖流域为地理研究单元，使用多源空间数据，采用空间形态学方法（Morphological spatial pattern analysis，MSPA）和最小累积阻力模型（Minimal cumulative resistance，MCR）以及地理学统计方法建立\"生态源地-活动廊道-保护网络-阻力特征-分区调控\"的生态安全模式。研究结果显示：（1）太湖流域20个具有保护生物多样性功能的生态源地主要分布在浙西区和湖西区，包括大型湖体和丘陵森林等；（2）流域内重要性廊道贯穿太湖连接大型湖体和森林，一般性廊道集中...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "571ca03e56b39e5685609460ab027692", "title": "生物膜法在化工含油污水处理中的应用", "url": "https://doi.org/10.37155/2811-0595-0103-10", "source": "OpenAlex (地质研究与环境保护)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "中等", "quality_score": 0.59, "summary": "随着化工发展水平的提升，很多地区已经开始在化工含油污水处理中合理运用生物膜法，能够进一步提 升污水处理效果。由于传统化工污水处理方式比较单一、污水处理效果不佳，已经不能切实满足当前化工污水处理需 要，因此化工企业应该在测定清楚含油污水的污染物吸附能力，合理使用生物膜法，减少化工污水中存在的污染物， 从而进一步提高化工含油污水的处理能力。本文首先分析生物膜法的原理以及特点，其次探讨基于生物膜法的化工含 油污水处理方式，以期对相关研究产生一定的参考价值。", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "71c6b1d95e8f4bc66a02228b0da4d3a0", "title": "石油化工污水处理技术的现状分析与发展趋势研究", "url": "https://doi.org/10.37155/2717-5316-0301-13", "source": "OpenAlex (工程学研究与实用)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "中等", "quality_score": 0.57, "summary": "石油化工企业生产加工业原料主要是石油，其加工过程是将石油通过一系列的工艺进行重整和合成的处理过程。在我国石油化工企业发展的早期阶段，各个生产装置的进水管采用的是并联设置，每个生产装置使用的都是新鲜用水，这无形当中就加大了用水量，造成了水资源的严重浪费。随着石油化工企业的发展和水资源的枯竭，企业改变了这种并联设置的生产装置，将一个生产过程中产生的污水和新鲜水混合后即可用于下一个生产过程，从而大大节约了水资源。", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "16a9d3e636b3876178cee2bddabb1420", "title": "乡村振兴背景下农村生活污水治理探析", "url": "https://doi.org/10.37155/2811-0617-0105-40", "source": "OpenAlex (农业科技与发展)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "中等", "quality_score": 0.56, "summary": "乡村振兴既是我们党提出的未来国家发展的战略目标，也是我国社会改革的重要手段，对未来的产业结 构和经济规划有着长远的考虑。乡村污水治理是乡村振兴的重要内容，只有优化生活污水处理模式，才能更好地完成 农村产业转型，提高农村居民生活质量。本文为从更广阔的视角审视我国农村生活污水处理现状，促进以水治污，对 农村生活污水排放情况进行分析，根据农村生活污水排放情况选择处理工艺，各种实际利益，并提出适当的建议。", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "7d346496a50bee2ce51ea777b156f107", "title": "Design and practice of a platform for monitoring, early-warning and simulation of algal blooms in Lake Chaohu", "url": "https://doi.org/10.18307/2022.0102", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.68, "summary": "近20年来，巢湖蓝藻水华频繁暴发，对流域内居民生活和社会生产产生了严重影响.由于缺乏蓝藻水华全方位监测、高精度模拟和智能化分析手段，传统方法难以实现现状掌握、异常识别、原因追溯、未来模拟的目标，无法满足巢湖蓝藻水华科学防控与应急处置的要求，蓝藻水华引起的突发事件随时可能发生.本文针对巢湖蓝藻水华的全面监测和应急决策问题，整合了卫星遥感、无人机监测、视频监控、浮标监测和人工巡测手段，构建了巢湖水质和水华全方位监测网络；结合巢湖水动力-水质-藻类耦合模拟模型，研制了蓝藻水华预测预警和蓝藻水华暴发应急处置模块，实现了蓝藻水华短期（未来2日逐时）和长期（未来7日逐日）模拟，并实现了未来5日蓝藻水华沿岸...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "e746b24a40817ba96fe0af4f2f9db2c2", "title": "Nitrogen and phosphorus control thresholds of cyanobacterial blooms in Lake Taihu", "url": "https://doi.org/10.18307/2022.0403", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.7, "summary": "藻类生长与营养盐浓度存在藻类几何级数增长的营养盐浓度变化的下限阈值和藻类生长不受氮磷浓度增加影响的上限阈值,但由于蓝藻水华的形成受多种因素的综合影响,不同湖泊、不同区域及不同时段的氮磷浓度对蓝藻水华的影响差别较大,使得蓝藻生长的氮磷控制阈值难以确定.针对控制蓝藻水华暴发的氮磷阈值的研究虽然有所开展,但多集中在实验室研究阶段或对经验值的判断,虽然也有基于野外实测数据的研究,但也限制于某一特定区域,而基于野外长序列实测数据并且覆盖整个湖泊的氮磷阈值研究则是空白.太湖作为具有较高营养背景的富营养化浅水湖泊,蓝藻水华的发生受氮磷影响较大.对太湖总磷(TP)、总氮(TN)和叶绿素a(Chl.a)浓度的时...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "ff6f63bb287540ff26f4c63054242cf2", "title": "A water bridge over a troubled world: The need for an intersectional approach", "url": "https://doi.org/10.1002/wwp2.12075", "source": "OpenAlex (World Water Policy)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "一般", "quality_score": 0.49, "summary": "We are facing increasing challenges in today's world. After 2 years of pandemic that turned all our habits upside down and forced us to adopt new attitudes in social, family, and individual spheres, we now face a real war situation in Europe, and the threats are not becoming lighter. Water must be o...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "d698c4376179e7fe2e96494d3caa0271", "title": "长江中游故道区高碘地下水分布与形成机理", "url": "https://doi.org/10.3799/dqkx.2021.031", "source": "OpenAlex (Earth Science-Journal of China University of Geosciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "中等", "quality_score": 0.55, "summary": "摘要: 高碘地下水（碘浓度大于100 μg/L）广泛分布于我国沿海地区和干旱内陆盆地，威胁近千万人口的饮水安全，但目前对湿润区河湖平原地下水中碘的分布与成因机制的认识还十分薄弱.通过采集长江中游故道区75组浅层地下水样品和7组地表水样品进行了水化学分析，查明了地下水中碘的空间分布特征，并运用主成分分析识别了碘富集的水环境要素和水文地球化学过程，并结合4个不同位置的钻孔岩性特征探讨了沉积环境演化对地下水中碘富集的控制作用.研究发现地下水中碘的浓度范围为0.78~1 590 μg/L，其中25%样品超过我国水源性高碘地区水碘含量判定值（100 μg/L）.高碘地下水主要赋存于长江河曲凹岸和粘土充填...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "cc79b23b2fc2e9a4eb3d49401ce9538e", "title": "Study on the ecological regulation of algal bloom control in the middle and lower reaches of the Hanjiang River", "url": "https://doi.org/10.18307/2022.0304", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.68, "summary": "汉江中下游1992—2021年冬春季节共计暴发了十余次大规模水华事件，水生态安全和饮用水安全频繁受到威胁.基于历次水华发生情况，分析总结了汉江中下游水华特征和暴发成因，根据水华与水文过程响应关系研究提出了抑制水华的关键指标及其调控阈值，构建了汉江中下游水利工程联合生态调度方案，明确了抑制水华的生态调度方式和调度持续时间，并结合2021年1月下旬抑制水华生态调度实践分析了调度效果.研究表明：（1）汉江中下游水华暴发时间主要集中在1—3月份，兴隆水库修建后水华发生河段已经从潜江以下向上游扩展至兴隆库区；（2）发生水华年份汉江下游流量明显小于不发生水华年份，兴隆库区河段和仙桃自然河段抑制水华的临界流...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "6954de37ecb3513e1ea9864c19292e26", "title": "Assessing the risks of harmful algal bloom accumulation atlittoral zone of large lakes and reservoirs: An example from Lake Chaohu", "url": "https://doi.org/10.18307/2022.0103", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.68, "summary": "淡水湖库富营养化与蓝藻水华是全球性的突出水环境问题，尤其是滨岸带严重蓝藻水华堆积甚至造成了水体黑臭、威胁饮用水安全等严重危害，科学评估滨岸带蓝藻水华堆积风险、精准识别蓝藻水华易堆积区域是水环境管理与研究中亟待解决的关键科学问题.本研究以我国长江中下游的大型浅水富营养化湖泊巢湖为研究对象，依托流域水文与湖泊水动力模拟、遥感反演、GIS空间分析等技术，综合考虑藻类生物量、岸线形态、湖泊水动力、风速和风向等要素，创新构建了蓝藻水华堆积风险评估指标体系，量化评估了2018-2019年的巢湖滨岸带的蓝藻水华堆积风险，并将滨岸带蓝藻水华堆积风险等级划分为5级（Ⅰ、Ⅱ、Ⅲ、Ⅳ、Ⅴ），绘制了蓝藻水华滨岸带堆积...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "2a7677a654da31d8353b413e26973ecc", "title": "Investigating spatiotemporal dynamics of Lake Poyang wetland for the recent century", "url": "https://doi.org/10.18307/2022.0325", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.68, "summary": "鄱阳湖是我国最大淡水湖和长江中游仅存的两个通江湖泊之一，重建其近百年自然通江的湖泊湿地演变过程，对于鄱阳湖湿地生态修复与保护具有重要意义.本研究基于两期历史时期地形图和遥感产品，构建了1930s、1970s、1990s、2000s和2010s鄱阳湖湿地格局变化数据集，探究了土地利用方式改变和水文连通变化对鄱阳湖湿地变化的影响.结果表明：鄱阳湖湿地面积由1930s的5024.3 km<sup>2</sup>下降至2010s的3232.7 km<sup>2</sup>，近百年损失率高达35.7%，其中1930s-1970s时期面积变化最为显著，损失率达33.2%，且主要集中分布于赣江与饶河的入湖尾...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "789b1f5115bab227c3fd25c3a2db0c53", "title": "Effects of ecological water supplement on vegetation dynamics in Lake Baiyangdian wetland", "url": "https://doi.org/10.18307/2022.0413", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.68, "summary": "白洋淀位于雄安新区腹地,是雄安新区重要的生态屏障与后花园,生态补水与植被恢复是白洋淀生态修复的重要内容.本文运用遥感影像资料,对比分析了雄安新区设立以来(2017年和2020年)白洋淀挺水植被、沉水植被、陆生植被、开阔水域、建设用地和裸地6种土地利用类型的变化趋势,深入剖析了挺水植被、沉水植被和陆生植被的时空分布格局、生长期内逐月生物量变化及其演替规律,探讨了水位变化对挺水植被和沉水植被生物量的影响,分析了雄安新区设立以来生态补水对淀区植被恢复的整体效果.结果表明:白洋淀水生植被主要分布在淀区北部、西北、西南和沿岸水深较浅的区域,相比2017年雄安新区设立之初,生态补水作用下,2020年淀区水...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "074320b4d3ff6b1e9667d76fa47aed1a", "title": "Spatio-temporal characteristics of habitat quality based on land-use changes in Guangdong Province", "url": "https://doi.org/10.5846/stxb202107191938", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "一般", "quality_score": 0.47, "summary": "生境质量的高低成为测度地区生态健康及可持续状态的关键因子。广东省生态质量及退化过程复杂，目前对该领域的研究较为薄弱。利用FLUS-InVEST耦合模型，对广东省1980-2020年生境质量变化及未来2020-2035年生境质量趋势进行研究。得出以下主要结果：(1)林地、耕地为广东省的主要土地利用类型，构成了地表覆盖景观基质；建设用地增加迅速，40年间面积翻了1.2倍；耕地锐减，面积比由27.1%减到22.8%；如果继续保持历史变化趋势，未来15年间建设用地面积将继续增加，耕地面积则减少至不足22%。(2)林地集中连片区域主要在北部生态发展区，耕地集聚分布于东西两翼，除几个大的水库图斑外，湿地在...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "e95c51618ac7fe0e1c918ac5cb602b08", "title": "Comprehensive identification of eco-corridors and eco-nodes based on principle of hydrological analysis and Linkage Mapper", "url": "https://doi.org/10.5846/stxb202101240248", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "一般", "quality_score": 0.46, "summary": "传统的生态网络或生态安全格局构建研究中，多基于最小累积阻力模型（MCR）提取最小费用路径作为生态廊道，并人工判别生态节点，这种方式缺少对生态过程中能量流、信息流等交换过程的考虑，导致生态网络在结构、功能上存在一定的缺失。以福建省上杭县为例，以上杭县森林公园、湿地保护区、自然保护区等为主要生态源地，从陆生动物迁移特征出发选取土地覆被类型、距道路距离、地形起伏度、坡度、距水域距离、NDVI植被指数等因素为阻力因子，利用熵权法获得权重加权叠加生成综合阻力面，运用水文分析原理Hydrology （HY）和Linkage Mapper工具箱（LM）中电路理论等方法综合识别生态廊道和生态节点，运用重力模型...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "cf895e77bfa1b0ab4ebc09a873097cb9", "title": "Evolution characteristics and driving factors of water quality and eutrophication of typical lakes in the middle reaches of the Yangtze River from 2016 to 2020", "url": "https://doi.org/10.18307/2022.0503", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.68, "summary": "“十三五”时期，长江流域水环境质量改善明显，但湖泊水质和富营养化状况改善滞后. 长江中游作为我国淡水湖泊集中分布区域之一，部分湖泊存在水环境质量恶化和富营养化加重问题. 本文以长江中游区域国家开展监测的洪湖、斧头湖、梁子湖、大通湖、洞庭湖和鄱阳湖这6个典型湖泊为研究对象，科学评价其2016—2020年水质和富营养化时空变化特征及关键驱动因素，探讨其成因及治理对策. 结果表明，“十三五”时期长江中游湖泊水质和富营养化程度存在较大差异，与2016年相比，2020年大通湖水质改善最为明显，梁子湖水质变差，总磷是影响长江中游湖泊水质类别的主要因子; 洪湖富营养程度恶化最为严重，斧头湖次之，TLI(SD...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "fb68e1b9ead0faea6c07dcb0cd6ff94b", "title": "Review on the control and mitigation strategies of lake cyanobacterial blooms", "url": "https://doi.org/10.18307/2022.0201", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "高质量", "quality_score": 0.66, "summary": "由于人类活动和全球气候变化的叠加影响，湖泊富营养化和蓝藻水华仍是未来相当长一段时间内的水生态环境问题.蓝藻水华暴发会引发湖泊生态系统的灾害和饮用水安全风险，因此湖内蓝藻水华防控必不可少.现有蓝藻水华防控长效方法主要基于营养盐控制理论、浅水湖泊稳态转换理论和生物操纵理论，技术措施包括内源营养盐控制、生态修复、生物操纵.应急处置方法可以削减局部水域蓝藻水华强度，主要包括物理、化学方法.本文基于国内外研究治理案例，梳理了单项蓝藻防控技术运用的边界条件、蓝藻削减效果及防控成本.湖泊富营养化控制和蓝藻水华防控是一个长期而艰巨的系统工程，必须采取流域污染削减和湖内防控相结合的治理策略.湖泊水质与水生态的持...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "21fa41e165d95d11e641d661644ad690", "title": "Spatio-temporal analysis and simulation of urban ecological resilience: A case study of Hangzhou", "url": "https://doi.org/10.5846/stxb202101030007", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "中等", "quality_score": 0.52, "summary": "从韧性的特征角度研究城市生态韧性水平的变化机制，探究城市防范化解生态风险能力的时空差异，以此明确城市分区生态治理的重要任务，是实现韧性城市生态风险防控的有利途径。从抵抗力、适应力和恢复力3个方面构建了城市生态韧性评估模型，并以杭州为例，评估了其1995-2015年城市生态韧性时空变化格局，再者利用空间自相关模型对2015年杭州生态韧性分区管理模式进行了探究。最后，基于FLUS模型模拟了2035年基准和创新创业导向的两种情景下的城市土地利用空间格局，并评估了不同城市发展情景下的生态韧性水平空间分布情况。基于以上研究得到以下结论：（1）1995-2005年，生态韧性低值区域向东北和东南方向扩张，而...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "55f1731163332ee0d417b3e972e5140a", "title": "Case study of the in-situ restoration of black-odorous water by combined process of forced aeration and biological contact oxidation.", "url": "https://doi.org/10.2166/wst.2022.008", "source": "Semantic Scholar (Water Science and Technology)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "一般", "quality_score": 0.46, "summary": "Black and odorous water bodies are an extreme phenomenon that impair ecological integrity, adversely affect the lives of residents and the town's image, and cause unpleasant sensory experiences. Herein, we consider a black and smelly river in Heshan City, Guangdong Province, as a case study. The pro...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "578a034c1bebcae28b169ccc1f949b38", "title": "High removal of nitrogen and phosphorus from black-odorous water using a novel aeration-adsorption system", "url": "https://doi.org/10.1007/s10311-022-01427-8", "source": "Semantic Scholar (Environmental Chemistry Letters)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "一般", "quality_score": 0.47, "summary": "Black-odorous waters are an increasingly common phenomenon characterized by excessive levels of nutrients, the formation of metal sufide precipitates, volatile sulfurous compounds, low dissolved oxygen and high chemical oxygen demand. Black-odorous waters frequently occur in lake and river systems w...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "1368634b4347ed52c4481aee68d8cfa7", "title": "The degradation of dissolved organic matter in black and odorous water by humic substance-mediated Fe(II)/Fe(III) cycle under redox fluctuation.", "url": "https://doi.org/10.1016/j.jenvman.2022.115942", "source": "Semantic Scholar (Journal of Environmental Management)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "一般", "quality_score": 0.44, "summary": "In nature, the hydroxyl radical (•OH) is produced during the anaerobic-aerobic transition when groundwater level fluctuates. In addition, the •OH is also detected in iron-bearing clay minerals and iron oxides during the redox process. Goethite is one of the most stable iron oxides involved in biogeo...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "a6a3ded3661af76142feee9b2883d2a0", "title": "Pollution and health: a progress update", "url": "https://doi.org/10.1016/S2542-5196(22)00090-0", "source": "Semantic Scholar (Lancet Planetary Health)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2022-01-01", "sort_date": "20220101", "quality_level": "一般", "quality_score": 0.47, "summary": "Summary The Lancet Commission on pollution and health reported that pollution was responsible for 9 million premature deaths in 2015, making it the world's largest environmental risk factor for disease and premature death. We have now updated this estimate using data from the Global Burden of Diseas...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "1879710390da5fa0fd09a3e31fc73e64", "title": "Attenuation characteristics of photosynthetically active radiation in summer eastern LakeTaihu and implications for submerged plants restoration", "url": "https://doi.org/10.18307/2021.0125", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.65, "summary": "水下光照分布是影响水生态系统的重要因素，研究光合有效辐射衰减特征对于沉水植物恢复具有一定的指导意义.根据沉水植物生物量资料，将东太湖划分为沉水植物茂盛区、沉水植物稀疏区和无植物区3种区域.基于2019年夏季原位水下光场资料，探讨了东太湖光衰减特性和光照衰减因子的空间差异以及不同区域内的主导衰减因子，分析了东太湖的稳态阶段和富营养化水平，并阐述了真光层深度与透明度的关系，以期为东太湖沉水植物恢复和保护提供相关资料.结果表明：东太湖不同区域光衰减特性差异显著，光合有效辐射衰减系数（k<sub>d</sub>（PAR））在0.73~11.80 m<sup>-1</sup>之间变化，真光层深度范围为0...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "8e120cd4405a83d0ae1101054d3627d1", "title": "Wind induced turbulence caused colony disaggregation and morphological changes in the cyanobacterium &lt;i&gt;Microcystis&lt;/i&gt;", "url": "https://doi.org/10.18307/2021.0205", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "中等", "quality_score": 0.53, "summary": "微囊藻群体大小和形态决定其垂向迁移能力，从而影响着水华的形成.为了探讨湖泊中风生紊流对微囊藻群体大小和形态的影响，本研究于2012年8月26日至9月7日在太湖梅梁湾的围隔内进行了12 d的昼夜不间断的高频采样（采样间隔每2小时一次）.研究期间，水面微囊藻密度呈现4次周期性消涨，藻密度变化范围为4×10<sup>4</sup>~2671×10<sup>4</sup> cells/mL.而整个水柱中的藻密度变化范围仅为3×10<sup>4</sup>~18×10<sup>4</sup> cells/mL.皮尔逊相关性分析表明微囊藻的原位生长速率与表面藻密度呈负相关而与风速呈正相关.强风速使微囊藻在...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "60e5d32603699151f4d8efe0efaa3621", "title": "Changes in aquatic vegetation communities based on satellite images before and after pen aquaculture removal in East Lake Taihu", "url": "https://doi.org/10.18307/2021.0228", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.62, "summary": "为削减东太湖养殖污染，改善湖泊水质，苏州市于2018年底基本完成东太湖养殖围网拆除工作.围网拆除后，湖泊生态环境对此如何响应，已成为学者及相关管理部门关注的重点.水生植被在维持湖泊生态系统平衡、物质循环和净化水质方面发挥着重要的作用，是诊断湖泊生态系统健康状态的关键指标.本研究基于Sentinel-2卫星数据，利用分类决策树模型和基于生活史的沉水植被优势种群提取方法，监测了东太湖2017年（围网拆除前）和2019年（围网拆除后）的水生植被类群和沉水植被优势种群的空间分布.经验证，水生植被类群监测精度为82.66%，Kappa系数为0.77；沉水植被优势种群的监测精度为62.08%，Kappa系...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "5db8ed4a0123cf2197874762890c0bb3", "title": "Spatial distribution and pollution assessment on the main nutrients and heavy metals in sediments of Lake Gehu, Taihu Basin after removing the aquaculture net&lt;sup&gt;*&lt;/sup&gt;", "url": "https://doi.org/10.18307/2021.0511", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "中等", "quality_score": 0.56, "summary": "为评估滆湖围网拆除工程实施效果，采用高密度网格化布点方法，系统分析滆湖沉积物营养盐和重金属的空间分布和污染特征；并基于有机氮评价方法、综合污染指数评价方法、重金属地质累积指数法和重金属潜在生态风险评价方法进行污染风险评价.结果表明，滆湖沉积物总氮（TN）、总磷（TP）和总有机碳（TOC）的平均含量分别为（3709±1004）mg/kg、（1127±650）mg/kg和（78.39±23.88）mg/g，三者空间分布特征较为一致；营养盐综合污染指数评价表明，全湖整体为重度污染，其中全湖TN均处于重度污染状态，TP绝大部分区域也处于重度污染状态.沉积物重金属Zn、Cr、As、Pb、Ni、Cu、Cd...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "bc4f508d446516144ae6e393b728fb7e", "title": "Discussion on evaluation indicator system of ecological remediation along the shoreline of Yangtze River in Jiangsu Province", "url": "https://doi.org/10.5846/stxb202012143182", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.61, "summary": "通过分析江苏长江岸线生态修复的现状及存在的问题，明确了构建生态修复评价指标体系的必要性。基于江苏长江岸线生态修复的实际情况，借鉴前人相关研究成果及湿地、水生态等领域有关生态评价的规范，提出植物覆盖度、水土保持度、原生植物恢复度、植物物种多样性、护岸型式多样性和岸线曲折度6项关键指标，以及各项指标的定量化确定方法。在此基础上，构建了以前4项为主要指标，其它为附加指标的评价体系，明确了赋分等级和对应分值。分析研究结果表明，6项指标全面系统考虑了长江岸线生态修复对植物生长状态、动物生存条件和岸坡稳定等方面要求；修复评价指标体系通过主要指标和附加指标相结合的方式，既实现了对生态修复效果的定量化评价，又...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "6f7077163fc69b2c5a9e36e240103752", "title": "Quantitative study on spatio-temporal evolution and mechanisms of wetland landscape patterns in Shanghai", "url": "https://doi.org/10.5846/stxb202002150262", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.63, "summary": "基于1980-2018年上海市历史遥感数据，定量研究上海市湿地景观格局变化及其驱动机制。为此，采用Fragstats 4.2.1计算了景观格局指数，并在数据处理系统软件平台使用灰色关联系统分析了湿地景观格局与社会、经济以及自然环境之间的灰色关联度。结果表明：（1）自1980以来，上海市湿地面积持续缩减，尤其水田损失最多。截至到2018年，上海市共损失了21.06×10<sup>4</sup>hm<sup>2</sup>的湿地，现存湿地面积为38.22×10<sup>4</sup>hm<sup>2</sup>，其中人工湿地占85%，自然湿地占15%。人工湿地以水田为主，自然湿地以河流湿地为主。水...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "08855063ec9eff90a29f3ca90460e80e", "title": "Spatiotemporal variations of water quality of lakes in Wuhan from 2015 to 2019&lt;sup&gt;*&lt;/sup&gt;", "url": "https://doi.org/10.18307/2021.0510", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.7, "summary": "为探究“十三五”期间武汉市湖泊水质变化特征及规律，分析当前武汉市湖泊水环境的主要问题及成因，为武汉市水生态环境保护“十四五”规划提供科学支撑，以武汉市166个湖泊为研究对象，根据武汉市环境监测中心2015-2019年对各个湖泊的监测数据，采用水质综合污染指数、富营养化状态评价、动态度分析等方法，对武汉市湖泊水环境进行综合评价.结果表明：1）2015-2019年武汉市湖泊水质总体好转，2019年全市湖泊综合污染指数较2015年下降7.74%，多数湖泊营养状态呈现稳中向好趋势，但湖泊水质较难实现持续改善.2）武汉市湖泊主要超标污染物总磷、氨氮、化学需氧量和高锰酸盐指数平均质量浓度在2015-201...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "abb5cc9fd097699a4952b789ecfd3339", "title": "Freshwater Mussel Watch: An innovative approach for interpretations of aquatic pollution and toxicology", "url": "https://doi.org/10.18307/2021.0104", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.46, "summary": "淡水渔业是国民经济重要产业，在产量和产值均取得巨大成就的同时，也面临着严峻的水域生态环境污染形势.与此相适应，自2003年系统性提出以背角无齿蚌（Anodonta woodiana）为专用指示生物的创新性“淡水贝类观察”研究体系（Freshwater Mussel Watch）以来，已经成功地应用于国内外的江河、湖泊和池塘等渔业生态环境无机（特别是重金属）和有机污染物胁迫的监测、评价和预警，以及毒理学、污染物积累动力学和水质净化等方面研究.本文梳理了“淡水贝类观察”在被动监测、主动监测及渔业环境研究用模式动物开发等方面的研究进展，以期为渔业以及水域生态环境污染的有效监测、评价、保护以及阐释污染...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "f571bd8994110ff2aa9809216c428cc9", "title": "Characteristics of soil temperature variation in karst area and its relationship with environmental factors", "url": "https://doi.org/10.5846/stxb201911102370", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.47, "summary": "喀斯特地区土壤温度变化特征对研究该区土壤活性及小气候变化具有重要意义。为探明喀斯特地区土壤温度变化特征及其与环境因子的关系，以喀斯特高原峡谷区四种典型土地类型（花椒地、金银花地、火龙果地、荒地）为研究对象，采用土壤含水量监测系统（ECH2O）对各样地土壤温度变化进行连续定点监测，分析土壤温度的动态变化特征及其与环境因子的关系。结果表明：10 cm处土壤温度日变幅最大，土层越深日变幅越小；土壤温度日变幅为夏季较大，秋、冬季较小。火龙果地、金银花地土壤温度日变幅明显大于花椒地、荒地；随着土层加深，土壤温度日变化出现滞后现象；不同季节土壤温度均为火龙果地 > 荒地 > 花椒地 > 金银花地。夏季土层...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "f6b91c09542bbd5e4621bbba5b780649", "title": "Advances in the macrozoobenthos biodiversity monitoring and ecosystem assessment using environmental DNA metabarcoding", "url": "https://doi.org/10.5846/stxb202009162411", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.49, "summary": "底栖动物是淡水生态系统中物种多样性最高的类群，也是应用最广泛的水质监测指示生物之一。传统的底栖动物监测以形态学为基础，耗时费力，无法满足流域尺度大规模监测的需求。环境DNA-宏条形码技术是一种新兴的生物监测方法，其与传统方法相比优势在于采样方法简单、低成本、高灵敏度，不受生物样本和环境状况的影响，不依赖分类专家和鉴定资料，能够快速准确地对多个类群进行大规模、高通量的物种鉴定。然而，在实际应用中该方法的效果受诸多因素的影响，不同的方法、流程往往会产生差异较大的结果。鉴于此，着重分析总结了应用环境DNA-宏条形码技术监测底栖动物的关键影响因素，包括样品采集与处理流程、分子标记选择、引物设计、PCR...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "ef6198ca184f7857b96019153148d9e4", "title": "Impacts of urbanization on watershed ecohydrological processes: progresses and perspectives", "url": "https://doi.org/10.5846/stxb201909051853", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.61, "summary": "了解流域水文过程（水量和水质）是流域综合管理的基础。城市化引起的生态环境问题已成为目前和未来一段相当长的时期内人类社会面临的重大问题。然而，城市化（土地利用/覆被变化、新污染物产生）、水文（降水、入渗、蒸散、径流过程）和生态系统服务（产水服务、调节气候、土壤保持、初级生产力、维持生物多样性等）在不同时空尺度之间的相互作用还存在知识空白。从城市化对流域生态系统结构和功能的影响、城市化对地表能量平衡与水量平衡的影响、城市化对水质和水生生物的影响、以及城市土地利用/覆被变化的大气环境效应等多方面系统总结了城市化影响流域生态水文过程的研究进展。研究发现，城市\"热岛\"、\"干岛\"、暴雨径流引起的城市内涝、...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "f5f79f76ff883e8ce1004cd2cf9bdfd2", "title": "Spatiotemporal pattern of phytoplankton community structure and its determining factors in the channel of the middle route of South-to-North Water Diversion Project", "url": "https://doi.org/10.18307/2021.0305", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.49, "summary": "为了解南水北调中线干渠浮游植物群落的时空格局，自2018年8月开始分4个季度对干渠沿程的11个样点进行采样调查，同步开展水环境调查；共检出浮游植物7门83属145种，物种丰富度上，硅藻种类数最多，绿藻和蓝藻分别占第2和第3位，且春季>秋季>冬季>夏季；优势种包括极小曲丝藻（Achnanthidum minutissimum）、桥弯藻（Cymbella sp.）、空星藻（Coelastrum sphaericum）、衣藻（Chlamydomonas sp.）等（优势度Y>0.02）；全年叶绿素a浓度为（4.09±2.89）μg/L，细胞密度为（6.79±7.15）×10<sup>6</sup>...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "4a6f1695961c3968bcfdfce717d225af", "title": "Analysis of water balance in Aral Sea and the influencing factors from 1990 to 2019", "url": "https://doi.org/10.18307/2021.0426", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.49, "summary": "咸海地处中亚，气候和人类的双重影响下湖面急剧萎缩引发区域生态危机，定量解析其水量平衡互动关系及影响因素对咸海地区水资源管理和生态保护有重要意义.基于1990—2019年密集时序Landsat影像、T/P卫星、Jason1/2测高卫星及咸海数字测深模型（DBM），提取近30年咸海面积、水位变化信息，重建咸海水位-面积-库容曲线，探明咸海水量变化特征；建立水量平衡模型，定量分析研究区水量平衡要素变化及时空差异，探讨其互动关系与影响机制.结果表明：（1）1990—2019年间，咸海水量减少了2271.6×10<sup>8</sup> m<sup>3</sup>（约75.15%），年平均变化率达-78...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "8b8a55975cc48e3a7361de47edc661b9", "title": "The change and driving factors of ecosystem service bundles: A case study of Daqing River Basin", "url": "https://doi.org/10.5846/stxb202103100650", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.61, "summary": "生态系统服务簇是多种生态系统服务的组合，是生态系统多功能性中的主导功能表征。识别生态系统服务簇的空间和功能变化及影响因素，可为基于主导功能实施分区管理策略、统筹土地多功能性，进而为整体提升区域生态系统服务提供参考。本研究以大清河流域为例，选取6种生态系统服务（水资源供给服务、粮食供给服务、水源涵养服务、水质净化服务、土壤保持服务、固碳服务），在乡镇尺度上探讨了生态系统服务簇的变化特征，研究了影响其变化的主要因素。结果表明：（1）依据主导的生态系统服务类型，大清流域可以分为3个生态系统服务簇，生态调节服务簇（B1），农产品供给服务簇（B2）和人居环境簇（B3）；（2）2000-2015年，生态调...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "a57965e221c5e2e7e3e3765e114717f2", "title": "浅谈可移动式污水处理设备的研究现状及发展趋势", "url": "https://doi.org/10.26549/gcjsygl.v5i1.6423", "source": "OpenAlex (工程技术与管理)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.6, "summary": "随着环境治理力度的加大，以农村污水为代表的小水量、分散式点源污水的治理已成为现阶段重点课题。传统的纳管、集中式污水处理方式存在局限性、经济性较差，而移动式污水处理设备能有效解决永久性污水处理实施投资大、运管复杂、运营费用高等问题，是现阶段点源污水治理的发展方向。", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "0bcb1c880b11c6b0ae7221c935855339", "title": "Temporal-spatial patterns and coupling coordination degree of water resources carrying capacity of urban agglomeration in the middle reaches of the Yangtze River", "url": "https://doi.org/10.18307/2021.0621", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.61, "summary": "长江中游城市群是实施生态优先绿色发展战略的重点区域，从水资源承载系统内的水资源、社会、经济、生态环境4个子系统中选取24项指标构建水资源承载力评价体系，综合运用改进熵权TOPSIS模型、空间自相关分析和耦合协调发展模型定量评价2012-2018年长江中游城市群水资源承载力时空变化过程及子系统间的耦合协调性.结果表明，（1）长江中游城市群整体水资源承载力水平表现为：缓慢上升（2012-2015年）、下降（2015-2017年）、再上升的趋势（2017-2018年）；（2）水资源承载力的空间差异不明显（仅2016年差异显著），武汉城市圈水资源承载力的空间差异相对较大且呈现低值包围高值的空间分布特征...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "31a7f3ba1a1eeee7030fedda90f4b60b", "title": "Characteristics and driving factors of the long-term shifts between &lt;i&gt;Microcystis&lt;/i&gt; and &lt;i&gt;Dolichospermum&lt;/i&gt; in Lake Taihu and Lake Chaohu", "url": "https://doi.org/10.18307/2021.0408", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.65, "summary": "随着我国湖泊治理力度的加大，太湖和巢湖的营养盐水平，特别是氮水平近年来明显下降，如2007年以后太湖总氮和近年来巢湖的氨氮水平都呈现下降趋势，但是2个湖泊水华蓝藻的优势种却向相反的方向演化，太湖的长孢藻（Dolichospermum）比例在增加，而巢湖的长孢藻比例却在降低，为阐明这种变化过程和驱动因素，本研究利用太湖（1993—2015年）和巢湖（2012—2018年）的历史数据分析了2个湖泊中的水华蓝藻——微囊藻（Microcystis）和长孢藻生物量的历史变化过程，并结合营养盐数据分析了影响2种水华蓝藻变动的驱动因素.结果显示：太湖和巢湖的微囊藻生物量多年来始终保持高位波动，近年来均有升高...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "a5433ede23d752d222f31cd86923bc7b", "title": "Dynamic analysis of niche and interspecific association of dominant phytoplankton species in Huaxi Reservoir of Guizhou Plateau", "url": "https://doi.org/10.18307/2021.0314", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "中等", "quality_score": 0.59, "summary": "为了解贵州高原花溪水库在2017年3月生态调控蓝藻水华后，浮游植物物种多样性结构的稳定状况，于2017年4月—2018年1月4个季节对花溪水库的浮游植物群落结构进行调查.运用生态位宽度、生态位重叠值、方差比率法、卡方检验和联结系数对主要浮游植物群落间的相互关系进行综合分析.结果表明：4个季节共出现优势种4门11种，其中硅藻门的尖针杆藻（Synedra acusva）和梅尼小环藻（Cylotella meneghiniana）在4个季节都为优势种，对水环境状态指示明显.各优势种的生态位宽度差异较大，变化范围为0.120～0.814，主要由广生态位种和窄生态位种组成.种对间生态位重叠值的变化范围为...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "86b0b1be1c730cf34d1b761c6cbd9ea9", "title": "Index system of ecological security of inland lakes in cold arid region: a case study of Hulun Lake, China", "url": "https://doi.org/10.5846/stxb202004301059", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.61, "summary": "呼伦湖作为我国北方寒冷干旱地区内陆湖泊的典型代表，在涵养水源、调节气候、防风固沙及维系呼伦贝尔草原生态系统平衡乃至我国北方生态安全屏障等方面发挥着不可替代的作用。准确识别呼伦湖流域主要生态安全问题、完善其生态安全评价指标体系对于科学研判呼伦湖生态环境状况、维持区域可持续发展及精准实施底线管控政策具有重要意义。在遥感影像、地面调查、实验模拟等多尺度数据分析基础上，结合历史资料收集、专家咨询、部门访谈等方式分析识别了呼伦湖区域生态安全问题及成因：（1）气候暖干化及超载放牧等因素使得草地退化显著，土地沙化、盐碱化面积扩大；（2）草原退化增加了干草入湖、大气干湿沉降及水土流失等水环境污染负荷；（3）气...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "2dddcdb4c19c2923aa9c7ac41b582a25", "title": "Capturing the rapid intra-day change of cyanobacteria bloom by land-based hyperspectral remote sensing in Lake Taihu", "url": "https://doi.org/10.18307/2021.0628", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.72, "summary": "受蓝藻自身垂直迁移和频繁风浪扰动影响，太湖蓝藻水华漂浮混合和迁移堆积等变化迅速，在传统的湖面定位和断面监测中总感觉蓝藻水华有些来无影、去无踪，限制了对其形成过程、驱动机制和防控治理的深入认识.卫星遥感可以实现蓝藻水华空间分布同步观测，但由于观测频次的限制很难捕捉蓝藻水华快速动态变化过程.本文利用与杭州海康威视数字技术股份有限公司联合自主研发的陆基（地基、岸基或者平台、船舶、桩基等能固定安装的均可）高光谱多参数水质遥感监测仪，架设于中国科学院太湖湖泊生态系统研究站（简称太湖站）水上观测场，通过对叶绿素a浓度及其他关键水质参数秒-分钟级的连续观测，有效捕捉了一天内蓝藻水华短期突然和快速变化过程.研...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "f5d7b642d78cf47d95382a2155eebf54", "title": "Key issues in detecting lacustrine cyanobacterial bloom using satellite remote sensing", "url": "https://doi.org/10.18307/2021.0301", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.6, "summary": "蓝藻水华是全球性的水环境健康问题，对水华暴发过程信息的快速准确获取是制定有效防治措施的关键.卫星遥感因具有大范围、周期性观测的特点，被广泛地用于湖泊蓝藻水华的时空动态监测.本文指出在利用遥感对湖泊蓝藻水华进行研究时，需要注意的4个问题：（1）湖泊水体中泥沙等信号对藻华存在干扰；（2）大气程辐射及水陆边界影响藻华特征提取结果；（3）卫星数据的有效观测频次影响获取的藻华时空变化趋势；（4）卫星遥感难以实现藻华暴发区的叶绿素浓度准确反演.本文分析了形成上述问题的主要原因，并建议相关的研究工作者在选用合适的遥感数据及方法时，对它们的潜在影响进行评估.;Cyanobacterial bloom is a...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "9bbd8a85a21b42d1118427efc9c5f82e", "title": "Isotopic characteristics and sources of organic carbon in suspended particulates and sediments in Lake Wuliangsuhai", "url": "https://doi.org/10.18307/2021.0612", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "中等", "quality_score": 0.58, "summary": "悬浮颗粒物和沉积物是湖泊有机污染物的主要承载物质，其稳定同位素研究对有效识别有机质污染导致的湖泊富营养化具有重要意义.本研究选取乌梁素海为研究区，于2019年4月（融冰期）、7月（夏灌期）和10月（秋灌期）对湖区及入湖渠道的表层沉积物和悬浮颗粒物中有机碳的δ<sup>13</sup>C、C/N比及总有机碳（TOC、POC）和总氮（TON、PON）含量进行测定分析，联合采用δ<sup>13</sup>C、C/N及同位素多元混合模型研究湖泊有机碳来源及其贡献率.结果表明，乌梁素海悬浮颗粒物有机碳δ<sup>13</sup>C<sub>POC</sub>的变化范围为-23.29‰~-29.75‰，呈...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "30d5bd0942b410c933170856baf3ea35", "title": "Research progress on remote sensing monitoring of phytoplankton in eutrophic water", "url": "https://doi.org/10.18307/2021.0502", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.49, "summary": "随着湖泊流域经济的快速发展，蓝藻水华频繁暴发的现象越来越严重，水体富营养化已经成为国内外重大环境问题.浮游植物是水体的初级生产者，是衡量水体富营养化程度的主要指标之一，遥感技术则是探测水体浮游植物时空分布的重要手段.在收集整理近千篇国内外水体浮游植物遥感研究论文的基础上，从卫星数据源、研究内容及研究方法等角度，总结了遥感技术在富营养化湖泊浮游植物监测应用的历史进展、研究重点及发展趋势.研究表明，现有的富营养化水体浮游植物遥感研究，以湖泊蓝藻水华问题为切入点，研究视角由水体表层（藻华面积、色素浓度）转至水下三维（藻总量），研究方法从定性识别转向定量反演，研究内容从监测蓝藻水华推进到探测不同类群蓝...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "b4864d71b41d68392b89e2f0ed2e9600", "title": "Long-term spatiotemporal variation analysis and probability prediction of algal blooms in Lake Chaohu (2009-2018) based on multi-source remote sensing data", "url": "https://doi.org/10.18307/2021.0204", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.68, "summary": "湖泊富营养化导致的水华问题严重影响了淡水资源的利用和保护，快速、全面、准确的监测水华信息对于湖泊水环境的治理具有十分重要的意义.本文以巢湖为研究区域，利用多源光学遥感影像和时空融合技术，采用波段融合的方式将NDVI指数波段加入到遥感影像当中，并通过监督分类解译水华信息，以此揭示2009-2018年10年间巢湖水华的时空变化规律.结果表明：巢湖发生的水华以零星和局部水华为主，2012年巢湖水体首次出现区域蓝藻水华；巢湖水华的季节变化性强，夏、冬半年水华变化差异大，其中2018年季节间的差异最为显著；巢湖水华后五年发生频率明显高于前五年，西半湖水华较东半湖严重，且巢湖西北部是水华的高发区域，201...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "b2d6cf17bd3152775712ea13827fe03f", "title": "Analysis of variation and driving factors of total phosphorus in Lake Taihu, 1980-2020", "url": "https://doi.org/10.18307/2021.0402", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.7, "summary": "磷是湖泊生态系统物质和能量循环的重要组成部分，是湖泊富营养化防治的重要控制性指标.为分析太湖富营养化与人类活动的关系，掌握总磷（TP）的时空变化规律及驱动因子，本文收集整理了1980—2020年太湖TP浓度数据并分析了TP的时序、时空和年内变化特征.结果表明，1980s经济社会快速发展之初，伴随着工业和三产用水量激增，废污水排放量和入湖负荷大增，1985—1995年太湖TP浓度急剧升高.随着治理与保护措施的实施，到1995年达到峰值后逐步走低，2009年后进入了窄幅波动期.从空间上看，不同时段TP浓度分布格局较好地反映了入湖污染物的输入分布.通过分时段对比分析可能影响太湖TP浓度变化的驱动因子...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "f22eb32c78823828f8b4f3a4bbf131a1", "title": "Water quality change and driving forces of Lake Hongze from 2012 to 2018", "url": "https://doi.org/10.18307/2021.0308", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.68, "summary": "洪泽湖是南水北调东线工程的重要枢纽.为评估水环境长期变化，于2012—2018年开展逐月水质监测.结合水文气象与淮河水质水量数据，分析洪泽湖水质长期变化趋势及空间分异的驱动因素，结果显示：2012—2018年，洪泽湖总氮、总磷多年平均浓度为1.74和0.081 mg/L，分别为Ⅴ类水和Ⅳ类水，透明度均值为0.48 m，下降趋势不显著，而高锰酸盐指数、叶绿素a多年平均浓度分别为4.13和0.008 mg/L，呈显著下降趋势.在空间分布上，过水区总氮、总磷浓度显著高于成子湖、溧河洼；高锰酸盐指数、叶绿素a浓度则相对较低，透明度则是成子湖较高，溧河洼和过水区相近.3个湖区的叶绿素a浓度下降明显，但过...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "c8c37c6d77628305f8207fe0f083b8a8", "title": "Climate change, land degradation and food insecurity: linkages and potential solutions", "url": "https://doi.org/10.5846/stxb201909221976", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.47, "summary": "气候变化影响全球食物、水、能源生产和消费，并直接威胁国家和区域粮食安全和社会稳定，相关研究关系到国计民生与全球可持续发展。土地退化是近年来国际研究热点，IPCC、IPBES、UNCCD等都开展了土地退化的专题评估，高度关注土地退化的动态、趋势、影响及响应。尽管气候变化与土地退化具有密切关联，但对其复杂关联机制及解决途径缺乏系统的研究。IPCC于2017-2019年开展了第一次气候变化和土地退化评估，并于2019年8月发布了《气候变化与土地》特别报告（SRCCL）。基于此评估报告，对其中气候变化、土地退化与粮食安全之间的关联机制、未来的变化趋势、可能的影响及对策等进行了系统的论述。特别报告的重要...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "4cfbd18b054f9aa5cc2d0d5f649a68fc", "title": "Ecological risk assessment and spatial identification of ecological restoration from the ecosystem service perspective: a case study in source region of Yangtze River", "url": "https://doi.org/10.5846/stxb202004200948", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.68, "summary": "辨识生态修复空间是进行生态恢复与重建的重要前提。在流域尺度，以长江源区为研究对象，构建了青藏高原生态修复空间辨识框架，以定量方法为主、定性方法为辅，依次开展了区域主导生态系统服务评估、生态风险评估、植被退化评价，识别了生态修复优先区，提出了系统保护与修复建议。结果表明：①2000年、2015年长江源区生态系统服务呈现从西北部向东南部增加的趋势，单位面积水源涵养量、土壤保持量分别下降18.06%、22.9%，单位面积防风固沙量增加8.84%，NPP未发生显著变化。②生态风险以1、2、3级中低风险为主，面积占比共计74.41%；4级区面积占比19.35%；5级区面积占比仅6.24%，集中分布于称多...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "a5bbd3769098453a61a292a27999ce02", "title": "Spatio-temporal changes of water conservation service in the Beijing-Tianjin sandstorm source control project area", "url": "https://doi.org/10.5846/stxb202005111181", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.49, "summary": "水分是干旱、半干旱地区植物生长的主要限制因子，也是权衡生态修复工程措施的重要依据。基于区域水量平衡方程与GIS空间分析技术，评估了京津风沙源治理工程区水源涵养功能的时空变化，并分析了气象、地形、植被等因素对水源涵养功能的影响。结果表明：2000-2015年工程区的水源涵养量与涵养能力均有所增加，多年平均值分别为16.79亿m<sup>3</sup>和3.66mm。工程区水源涵养能力由西向东递增，高值区与较高区的面积占到工程区的32.45%；相比2000年，2015年有41.65%的地区水源涵养能力增大，其中22.01%的地区显著升高。但2000-2015年荒漠草原亚区水源涵养能力明显下降，农牧...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "839894db05d9176160bd3eb00e96219d", "title": "Chlorophyll-&lt;i&gt;a&lt;/i&gt; concentration variation characteristics of the algae-dominant and macrophyte-dominant areas in Lake Taihu and its driving factors, 2007-2019&lt;sup&gt;*&lt;/sup&gt;", "url": "https://doi.org/10.18307/2021.0506", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.65, "summary": "基于太湖31个站点的逐月监测数据，分析了2007-2019年太湖藻型湖区和草型湖区的叶绿素a变化特征，并分析研究不同环境因子对不同类型湖区叶绿素a的影响.结果表明，近年来太湖不同类型湖区的总磷浓度和叶绿素a浓度变化基本一致，均呈波动上升趋势.不同类型湖区的总磷浓度拐点均为2015年，叶绿素a浓度拐点均为2016年.最低月平均水温、前冬积温、年平均水温、年均风速与藻型湖区和草型湖区叶绿素a浓度均呈显著相关.沉水植物分布面积与草型湖区叶绿素a浓度之间呈显著相关.湖西区年内和年度降雨剧烈变化，湖西区年降雨量与不同类型湖区当年叶绿素a浓度的关系不明显，5日极端降雨量与不同类型湖区下年度叶绿素a浓度均呈...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "92dc4c848437d0136df7473f7b0a561b", "title": "Identification of ecological protection crucial areas in Altay Prefecture based on habitat quality and ecological security pattern", "url": "https://doi.org/10.5846/stxb202011202987", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.47, "summary": "随着生态文明建设上升为国家战略，生态安全与保护修复格局的识别成为国土空间规划战略中关于生态空间保护的重要内容。为了促进区域生态系统的保护修复及有效管理，从空间尺度上对区域生态安全和修复区域的识别必不可少。利用InVEST模型的Habitat Quality模块分析了阿勒泰地区1995年、2005年和2018年的生境质量变化状况，从生态环境保护的角度出发构建区域生态安全格局，结果发现：（1）1995-2018年阿勒泰地区生境质量处于中等水平，总体呈下降趋势，说明当地生态系统有不断退化趋势；（2）以生态结构系统性和生态过程完整性为目标，通过MSPA分析结合景观连通性识别出15块生态源地，处于阿勒泰...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "a6c512e9cac59a9000a8c51c6099cdb5", "title": "Coupling coordination and matches in ecosystem services supply-demand for ecological zoning management: A case study of Dalian", "url": "https://doi.org/10.5846/stxb202103220757", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.47, "summary": "生态管理分区是建设用地扩张指引和生态空间管控的重要依据，对维护区域生态安全和生态文明建设具有重要意义。以我国北方沿海重要中心城市——大连市为例，选取食物供给、水源涵养、固碳释氧、土壤保持、生境维持和美学景观6项指标，综合运用模型法及生态经济学方法量化生态系统服务供给，并结合土地利用、人口和经济现状定量评估2015年生态系统服务需求。利用象限匹配法和耦合协调度模型，探究千米网格尺度下生态系统服务供需匹配关系和协调关系及其区域差异，进而通过空间叠置分析划分生态管理分区并提出相应管理措施，旨在为区域内生态修复以及差异化建设提供科学参考。研究结果表明：①大连市生态系统服务供需具有显著空间异质性，总体呈...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "4645f18f5a72f8b4d6327af550b6673f", "title": "Assessing surface water-groundwater interactions in the seasonal lake-wetland system of Lake Poyang", "url": "https://doi.org/10.18307/2021.0317", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.68, "summary": "洪泛系统具有复杂动态的水文环境，在季节性洪水脉冲影响下，地表-地下水交互转化对洪泛区水循环和生态环境保护等方面具有重要意义.本文采用野外试验、统计分析和达西定律等研究方法，开展了鄱阳湖洪泛区碟形湖湿地系统（河流-洲滩湿地-碟形湖）地表-地下水文学特征、相互作用和交换通量研究.数据资料显示，在地形地貌影响下，研究区洲滩地下水位明显低于碟形湖水位，但总体上略高于周边河流水位，统计结果进一步表明，在控制洪泛湿地的地下水动态方面，河流水文情势变化对地下水的影响作用要强于碟形湖水文变化.就河流-地下水转化关系而言，研究区湿地系统的地下水与周边河流水体之间存在动态转化关系，地下水对河流的补给通量以及河流对...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "2349b2567c40a4397a0d0eee626f1e50", "title": "A study on the collaborative control of water quality of nitrogen and phosphorus between typical lakes and their inflow rivers in China&lt;sup&gt;*&lt;/sup&gt;", "url": "https://doi.org/10.18307/2021.0509", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.68, "summary": "入湖河流是外源氮磷输入湖泊的主要途径，是湖泊外源输入控制的关键中间环节.本文主要开展我国一些典型湖泊及其主要入湖河流总氮、总磷浓度对比研究，结合入湖河流氮磷输入对湖体营养水平和富营养化程度的影响分析，初步探讨我国入湖河流与湖体氮磷水质协同控制的必要性和途径.结果表明，目前入湖河流氮磷水平仍然是我国一些典型湖泊水体氮磷水平和富营养化程度的重要影响因素之一；单纯依靠入湖河流氮磷协同控制已经无法较好地实现我国一些湖泊氮磷水平达到Ⅲ类及以下水平和中营养化水平及以下，建议结合内源控制、生态修复等综合治理；除了入湖河流氮磷水质，水量也是湖泊水体氮磷水平和富营养化程度的重要因素之一.进一步结合国际上入湖河流...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "24983e38b3f79caa54682ddb7bca5d38", "title": "Fluctuation of phosphorus concentration in Lake Taihu in the past 70 years and future control strategy", "url": "https://doi.org/10.18307/2021.0401", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.65, "summary": "分析湖泊中磷浓度的变化特征，揭示其变化的驱动机制，是有效实施湖泊水体磷浓度控制的前提.本文整理分析了太湖70年来（1949—2020年）水体磷浓度监测历史资料，对比了太湖不同湖区、不同时间尺度水体磷浓度的差异性及波动性，发现影响太湖磷浓度变化的原因既有人为的因素，也有自然的因素.无论是污染较轻的1950年，还是污染负荷相对较重的近30年，太湖水体磷浓度一直存在较大时空差异性.暴雨引发入湖河流携带磷污染的扩散、风浪扰动引起的内源释放及蓝藻水华期间藻类生物量的大幅时空变化，都加剧了太湖水体磷浓度的不稳定性.近20年的太湖水污染治理对磷浓度的时空分布影响明显，1998年的太湖水污染治理“零点行动”，...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "7e9ceee05311b03fd83ffbd67da9fe4a", "title": "Lake eutrophication responses modeling and watershed management optimization algorithm: A review", "url": "https://doi.org/10.18307/2021.0103", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.68, "summary": "湖泊富营养化是全球水环境领域面临的长期挑战，富营养化响应与流域优化决策模型是制定经济和高效调控方案的关键.然而已有的模型研究综述主要集中于模型开发、案例应用、敏感性分析、不确定性分析等单一方面，而缺少针对非线性响应、生态系统长期演变等最新湖泊治理挑战的研究总结.本文对数据驱动的统计模型、因果驱动的机理模型和决策导向的优化模型进行了综述.其中，统计模型包含经典统计、贝叶斯统计和机器学习模型，常用于建立响应关系、时间序列特征分析以及预报预警；机理模型包含流域的水文与污染物输移模拟以及湖泊的水文、水动力、水质、水生态等过程的模拟，用于不同时空尺度的变化过程模拟，其中复杂机理模型的敏感性分析、参数校验...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "6e08afd9ba55278c86e4170cdabb9e68", "title": "Spatio-temporal pattern and evolution trend of ecological environment quality in the Yellow River Basin", "url": "https://doi.org/10.5846/stxb202012083131", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "中等", "quality_score": 0.59, "summary": "黄河流域是我国重要的生态功能区，在我国经济社会发展和生态安全方面的作用举足轻重。如何及时、准确的获取黄河流域生态环境质量的时空格局与演变趋势，对黄河流域生态环境保护和建设具有重要意义。利用Google Earth Engine（GEE）平台，筛选目标年份及其前后各1年的夏季（6-9月）Landsat遥感影像，去除有云像元，掩膜水体信息，采取中值合成提取绿度、湿度、热度和干度4个生态指标，通过主成分分析快速构建遥感生态指数（RSEI）。结果表明：（1）绿度（NDVI）、湿度（Wet）、热度（LST）和干度（NDSI）4个指标在第1主成分（PC1）上的平均贡献率为89.60%，依据PC1构建遥感生...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "80ac13fbe3581824ea0a1cfd447b21b8", "title": "Analyzing the ecological environment and urbanization characteristics of the Yangtze River Delta Urban Agglomeration based on Google Earth Engine", "url": "https://doi.org/10.5846/stxb202003250687", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "中等", "quality_score": 0.59, "summary": "作为城市发展的最高空间组织形式，城市群在高速城市化进程中将不可避免的对地区生态环境产生胁迫影响。如何平衡生态环境和城市化发展已经成为了值得关注的问题。以长三角城市群为例，基于Google Earth Engine云平台，通过整合日间光学遥感和夜间灯光遥感数据对生态环境状况、城市化强度以及二者在发展过程中的耦合协调特征开展了长时间序列的对比分析。结果表明：1）长三角城市群在过去近20年间的遥感生态环境指数（Remote Sensing-based Ecological Index，RSEI）稳定上升，生态环境呈现出好转的态势，但地区间的差异依旧显著；2）综合灯光指数（Comprehensive...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "ca620efe13c2a1ef9cab50e77f90d825", "title": "Assessment of global meteorological, hydrological and agricultural drought under future warming based on CMIP6", "url": "https://doi.org/10.1016/j.aosl.2021.100143", "source": "OpenAlex (Atmospheric and Oceanic Science Letters)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.46, "summary": "Quantifying the changes and propagation of drought is of great importance for regional eco-environmental safety and water-related disaster management under global warming. In this study, phase 6 of the Coupled Model Intercomparison Project was employed to examine future meteorological (Standardized...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "62bccc78560451b0ad7198c6c20940bd", "title": "A review of water quality index models and their use for assessing surface water quality", "url": "https://doi.org/10.1016/j.ecolind.2020.107218", "source": "Semantic Scholar", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.66, "summary": "Abstract The water quality index (WQI) model is a popular tool for evaluating surface water quality. It uses aggregation techniques that allow conversion of extensive water quality data into a single value or index. Globally, the WQI model has been applied to evaluate water quality (surface water an...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "7eebf6ce607a6bce4f5a230cde1329bb", "title": "Identifying Microbial Distribution Drivers of Archaeal Community in Sediments from a Black-Odorous Urban River—A Case Study of the Zhang River Basin", "url": "https://doi.org/10.3390/W13111545", "source": "Semantic Scholar (Water)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "中等", "quality_score": 0.57, "summary": "Rapid urbanization has destroyed urban water systems and led to blackened and odorous rivers. The heavily polluted rivers are always facing eutrophication and heavy metal pollution, while the combined effects of these environmental factors on the microbial diversity and distribution of the river mic...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "cafa6d170f9e559895a86ccb34dcff36", "title": "Effect of remediation reagents on bacterial composition and ecological function in black-odorous water sediments", "url": "https://doi.org/10.1007/s00203-022-02871-4", "source": "Semantic Scholar (Archives of Microbiology)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.43, "summary": "Black-odorous urban water bodies and sediments pose a serious environmental problem. In this study, we conducted microcosm batch experiments to investigate the effect of remediation reagents (magnesium hydroxide and calcium nitrate) on native bacterial communities and their ecological functions in t...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "74abb787588c5836370e0299dd39a841", "title": "Supplementary material to \"ERA5-Land: A state-of-the-art global reanalysis dataset for land applications\"", "url": "https://doi.org/10.5194/ESSD-13-4349-2021", "source": "Semantic Scholar (Earth System Science Data)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.47, "summary": "Abstract. Framed within the Copernicus Climate Change Service of the European Commission, the European Centre for Medium-Range Weather Forecasts (ECMWF) is producing an enhanced global dataset for the land component of the 5th generation of European ReAnalysis (ERA5), hereafter named as ERA5-Land. O...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "a071f0b04bb0ac95071e15bf70859969", "title": "Global diagnosis of nitrate pollution in groundwater and review of removal technologies.", "url": "https://doi.org/10.1016/j.scitotenv.2021.152233", "source": "Semantic Scholar (Science of the Total Environment)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "高质量", "quality_score": 0.6, "summary": "Clean water and sanitation for the world population is one of the most important challenges established by the Sustainable Development Goals of the United Nations since worldwide, one in three people do not have access to safe drinking water. Groundwater, one of the main sources of fresh water, has...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "de47d93c8f53d69f4f5bc79f0b568b28", "title": "The global threat from plastic pollution", "url": "https://doi.org/10.1126/science.abg5433", "source": "Semantic Scholar (Science)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2021-01-01", "sort_date": "20210101", "quality_level": "一般", "quality_score": 0.45, "summary": "Plastic pollution accumulating in an area of the environment is considered “poorly reversible” if natural mineralization processes occurring there are slow and engineered remediation solutions are improbable. Should negative outcomes in these areas arise as a consequence of plastic pollution, they w...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "717dfa1ea3fb18a2c83148193cc9c037", "title": "Impact of urbanization on stream structure and connectivity of plain river network in the Taihu Basin", "url": "https://doi.org/10.18307/2020.0223", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.62, "summary": "太湖流域的快速城市化使河流形态发生了改变，影响了平原河网水系结构与连通性.本文以近几年城市化发展较为迅速的张家港地区为例，基于景观生态学和图论的相关理论，利用2002与2015年的水系数据，对全区以及各行政分区水面率、河网密度、河频率等指标进行研究，旨在揭示该地区河网水系结构与连通性参数变化及城市化对其影响.结果表明：研究区2015年与2002年相比全区各水系结构指标都呈减小趋势，水面率、河网密度、河频率的衰减率分别为15.7%、12.6%、33.3%，河网有主干化趋势，干流面积与长度发育的同步性较好；不同行政区的水系变化有明显的空间分异，张家港南部水系较北部水面率、河频率衰减更剧烈；东北部地...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "320ed949123a6e405640ac4363fee528", "title": "Molecular characteristics of surface dissolved organic matter in Meiliang Bay of Lake Taihu over the algal blooming-disappearance cycle", "url": "https://doi.org/10.18307/2020.0603", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.69, "summary": "人类活动引起的富营养化对太湖的碳循环模式可能产生严重影响，精细描述太湖藻华暴发-消退周期的溶解性有机质分子是了解太湖碳库动态变化的关键.本研究利用傅立叶变换离子回旋共振质谱技术，以太湖北部梅梁湾2017年5月至2018年5月的表层水体为研究对象，解析藻华暴发-消退周期溶解性有机质的来源和分子组成特征，进而理解浮游藻类异常增殖对水体溶解性有机质的影响及其在区域碳循环中的角色.研究结果表明，藻华暴发期浮游藻类生产力显著增加，使得表层水体的溶解性有机质从含量到分子组成均发生剧烈改变.含量上表现为溶解性有机碳浓度升高，分子组成上表现为CHO类化合物和以脂肪族类化合物为代表的活性组分占比增加，特征化合物...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "7fbd285fe4e8870335a50819ed9e2902", "title": "Classification of ecomorphotypes of Coilia nasus from the middle and lower reaches of the Yangtze River Basin", "url": "https://doi.org/10.18307/2020.0220", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.62, "summary": "长江流域是我国刀鲚（Coilia nasus）分布的重要水域.传统意义上认为，刀鲚存在长颌鲚和短颌鲚2种表现型，其上颌骨的长或短是区分刀鲚溯河洄游、淡水陆封（湖鲚）和淡水定居3种生态型的关键外形指标.然而这种主观分型经验尚需要野外调查数据验证.本研究基于以往研究所获溯河洄游和淡水栖息刀鲚不同的耳石微化学图谱技术，首先对采集自长江中下游及附属湖泊的刀鲚群体共566尾个体有无溯河洄游“履历”进行了分析确认；再对其上颌骨长、头长、全长进行方差分析和回归分析.结果发现长颌鲚、短颌鲚在早期发育阶段，长、短颌特征分化并不明显.当发育至幼鱼阶段时，前者上颌骨长会长于头长；而后者全生活史过程中上颌骨长均短于头...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "679b4eef6fb7c986037b60dd9fcfa731", "title": "Priority evaluation of ecological protect areas based on MSPA, landscape connectivity, and spatial syntax methods in the Su-Xi-Chang Region", "url": "https://doi.org/10.5846/stxb201901140109", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "一般", "quality_score": 0.46, "summary": "随着城市化进程的加快，对生态保护空间（Ecological Protect Area，EPA）进行优先级识别已经成为保护生物多样性，缓解城市生态压力，提高土地利用效率的重要方法之一。以苏锡常地区为例，通过形态空间格局分析（Morphological Spatial Pattern Analysis，MSPA）确定EPA，进而采用景观连接度方法对其优先级进行识别，以优先级较高的林地和水域为\"源地\"，构建EPA网络；同时由于景观连接度方法在识别优先级时，未能体现EPA对物种决策的非等权重影响，因此本研究引入空间句法进一步对EPA进行优先级识别。结果显示：1）苏锡常地区EPA中编号1、2的林地以及太...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "933add766e6055cc0caa47f292846bfe", "title": "Establishment and application of an evaluation system for the effectiveness of coastal wetland nature reserves management in Guangxi", "url": "https://doi.org/10.5846/stxb201901070056", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "一般", "quality_score": 0.49, "summary": "海洋保护区事业正处于从\"重面积、重数量\"向\"重建设、重成效\"转型的重要阶段，海洋保护区，特别是滨海湿地类保护区的管理有效性评估引起了国内外生态学家的广泛关注。根据现有评估体系中存在问题，结合广西滨海湿地类自然保护区建设及发展特点，构建了\"管理机制-管理基础-管理行为-管理成效\"的评估框架，通过专家咨询法、层次分析法设置形成包含4个评估要素，19个评估指标以及6个附加指标在内的评估体系。本评估体系综合考虑了保护区管理工作的产出效益，包括管控成效、生态成效和社会经济成效，在指标设计时突出了保护区的生境特点，管理人员以及社会公众的保护意愿，采用分级分值制量化指标，根据长期有效数据开展评估，适用于监测...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "51e7f1c80f327f34cf29659e7283b494", "title": "Spatio-temporal dynamics of ecosystem service value in the southern slope of Qilian Mountain from 2000 to 2015", "url": "https://doi.org/10.5846/stxb201811292598", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "一般", "quality_score": 0.42, "summary": "祁连山是我国西部重要的生态安全屏障和生物多样性保护优先区域，其中南坡地区是水源涵养服务核心区，但目前对该区域生态系统服务时空分布及动态变化仍缺乏深入认识。利用遥感技术和生态系统服务理论，综合多源数据产品，借鉴生态系统服务计算方法，对包括土壤保持等7个生态系统服务类型展开功能及价值核算，对祁连山南坡土壤保持等7个生态系统服务类型2000-2015年间的时空分异及动态展开监测和评估，研究表明：（1）近16年来祁连山南坡生态系统服务平均单位面积价值为76.27万元/km<sup>2</sup>，总价值为658.74亿元，且调节气候、水源涵养和调节空气质量服务构成了研究区生态系统服务的主体。（2）高寒...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "2646a74e5693e1ae5d00e7edc10bf4d8", "title": "Application feasibility of chromophoric dissolved organic matter (CDOM) absorption coefficient as the substitute for chemical oxygen demand concentration in lakes and reservoirs", "url": "https://doi.org/10.18307/2020.0602", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.66, "summary": "化学需氧量是衡量水体中有机物量及污染程度的综合性指标，也是我国《地表水环境质量标准（GB 3838—2002）》的重要评价指标.然而，由于测定过程缓慢和使用了有毒有害试剂易于形成二次污染，现行标准的高锰酸钾和重铬酸钾化学需氧量测定方法无法做到环境友好，也不能反映当前快速和实时监测的技术需求.因此，迫切需要发展操作简便、快速高效、灵敏可靠、环境友好和环保绿色的化学需氧量替代检测方法.本文首先从文献计量学视角比较我国与世界上发达国家化学需氧量研究主题论文发文量，剖析了我国发展化学需氧量替代检测方法的迫切性.基于全国大范围65个湖库706个样本有色可溶性有机物吸收系数、化学需氧量和其他水质参数同步调...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "74cc32f27d9ecb96e94af708b611b3fa", "title": "Progress in remote sensing study on lake hydrologic regime", "url": "https://doi.org/10.18307/2020.0514", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.57, "summary": "湖泊作为最直接的淡水资源之一，在人类的生产、生活各方面都占据至关重要的地位.受到全球气候变化与人类活动的影响，湖泊正在发生急剧变化，因而有必要对其进行快速、准确的时空变化监测，从而为水资源管理与保护、未来气候变化预警提供依据.遥感技术的产生与发展为大范围、实时动态的湖泊变化监测提供了难得的契机，它克服了人类对湖泊实地考察的局限性.本文对现有国内外湖泊水情遥感监测技术与方法进行了综合梳理，主要综述了国内外在湖泊水域范围提取、湖泊水位提取、湖泊水量估算、流域水文过程等方面的遥感研究进展情况，重点总结了该领域近年来提出的新方法和新技术.最后，结合当前遥感技术的发展，对未来遥感在湖泊动态变化监测中的应...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "edede937409f3124d0c0201655ec2dd2", "title": "农村生活污水处理技术", "url": "https://doi.org/10.32629/eep.v3i8.996", "source": "OpenAlex (生态环境与保护)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.56, "summary": "随着社会的不断发展,农村生活污水处理问题十分严峻,不能忽视,急需整理出合理科学的解决方案。农村环境的维护工作十分重要,对生态的保护,农村环境可持续发展有着极其重要的价值。本篇文章主要分析农村生活污水现存的问题,探究出农村生活污水的处理技术,在不断联合研究的基础上,开发出能源消耗少,效率非常高的农村生活污水处理技术,学习和引进适合我国发展的先进处理工艺,为农村生活污水提供全新的路径,提高农村地区人们的生活质量。", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "fb35f37b5fef59f2c59f71164104e5b6", "title": "论水产养殖废水污染危害及处理技术", "url": "https://doi.org/10.32629/as.v3i2.1817", "source": "OpenAlex (农业科学)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "一般", "quality_score": 0.49, "summary": "在当前我国社会经济高速发展的基本现状下,水产养殖行业的发展速度也是非常突出的,其最大限度上满足了人们多元化的基本生活需求,促使人们的生活质量得到显著性地提高。可是,水产养殖蓬勃发展的同时也产生了大量的养殖废水,它的出现不仅严重的污染了人类赖以生存的自然生态环境,还是水产养殖病害防控难点。目前,改善农村人居环境,是党中央作出的重大决策,是实施乡村振兴战略的重点任务。水产养殖废水污染管控问题也上升为全社会共同关注的热点,已受到相关部门的重视。接下来,本篇文章围绕水产养殖废水污染危害及处理技术开展论述,望能够引起大家的重视。", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "ce8c1a27a3631f89be561510251113a6", "title": "Spatio-temporal variations and driving factors of grey water footprint in Fujian Province", "url": "https://doi.org/10.5846/stxb201910292274", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "一般", "quality_score": 0.46, "summary": "灰水足迹是稀释水污染物至达标需要的淡水体积，是评价水污染程度与水环境质量的重要方法，对灰水足迹进行核算与分析，可以促进福建省提高水环境质量，构建可持续的水生态环境。借鉴Hoekstra等提出的灰水足迹核算方法，对福建省及各地市2001-2017年的灰水足迹进行核算，对其时空变化特征进行评价并使用对数平均迪式指数分解法（Logarithmic Mean Divisia Index Method，LMDI）模型对灰水足迹变动的驱动因素进行分解。结果表明：a）总氮是决定灰水足迹总量的主要污染物，非点源污染是灰水足迹的最主要来源但占比由68.25%降至63.35%；b）福建省灰水足迹总量降低了9.58...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "579ea263238d4f8aa0212d01cb7541be", "title": "农村生活污水处理的分析", "url": "https://doi.org/10.32629/eep.v3i7.932", "source": "OpenAlex (生态环境与保护)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.56, "summary": "生活污水来源于农民生产与生活中排放的污水,主要有两大类型,即畜牧养殖污水和生活污水。生活污水包括生活中的洗浴、厕所、厨房及衣服洗涤等污水排放；畜牧养殖污水是畜牧养殖时清洗养殖场形成的高浓度废水。因此生活污水并未含有毒害物质和重金属物质,但含有较多的磷和氮,可生化性良好。由于农村并未建立污水排放管,也没有建立污水处理区域,因此无法集中处理农村生活污水。因此为了有效处理农村生活污水,本文阐述了农村生活污水的主要特性,对农村生活污水常用的处理技术及其处理问题与措施进行了探讨分析。", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "48e3e342b365d27d66664a15ca9eac18", "title": "试论环境工程中工业污水治理的常见问题及优化对策", "url": "https://doi.org/10.26549/slkxyjs.v3i4.5090", "source": "OpenAlex (水利科学与技术)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.53, "summary": "随着时代与社会的发展，人们的环境保护意识逐渐增强，在这样的发展背景下，各行业逐渐开始重视环境工程建设。对于环境工程来说，污水处理是其中一个极为重要的工作内容，尤其是在当前工业化发展的背景下，中国工业污水处理正处于待解决的状态。论文从环境工程中工业污水治理技术分析、工业污水治理中的常见问题以及工业污水治理策略三个方面进行相关论述，以供参考。", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "70fd0386c4785b04267b4bee2e78548d", "title": "Preparation of Covalent Organic Framework Membranes and Their Applications in Seawater Desalination and Water Treatment", "url": "https://doi.org/10.6023/a20030088", "source": "OpenAlex (Acta Chimica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "一般", "quality_score": 0.49, "summary": "日益严重的水资源短缺和水资源污染问题是全球面临的挑战，大力发展海水淡化和水处理技术是缓解该问题的有效途径.近年来，能耗低、环境友好的膜分离技术被广泛用于海水淡化和水处理领域.共价有机框架（Covalent organic framework，COF）膜因其具有大小可控、化学性质可调的孔道，成为潜在的高性能膜分离材料.本综述详细介绍了COF膜合成方法学的研究进展，概述了COF膜在海水淡化和水处理领域的研究，并展望了其在海水淡化和水处理领域的前景和面临的挑战.", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "8530e5d6f4ef2a8b6d41d906b8dc4a82", "title": "Research progress and prospect of environmental dredging decision-making of lake sediment", "url": "https://doi.org/10.18307/2020.0506", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.59, "summary": "环保疏浚的决策研究主要涉及“是否疏浚”、“疏浚多少”、“如何疏浚”、“能否疏浚”等问题，关系到工程是否立项、资金投入、工艺选择和疏浚效果等.本文首先简要回顾了50年来环保疏浚研究和发展历史，系统总结了国内外在针对湖泊富营养化、潜在生态风险以及湖泛污染控制方面开展环保疏浚的研究进展，分析了疏浚决策理念的差异和需要完善的问题.然后就疏浚工程量设计，分析了湖泊环保疏浚区域的选定和疏浚面积的确定方法和实例，围绕环保疏浚深度的确定，介绍和分析了视觉分层法、拐点法、背景值法、标准偏差倍数法、频度控制法、生态风险指数法、分层释放法和吸附解析法等方法及其优缺点.接着总结了应用不同工艺疏浚过程中产生的底泥扩散、...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "67da1eec770cdd81b6481deb81e34235", "title": "Impact of water environment factors on eutrophication status of Lake Ulansuhai based on monitoring data in 2013-2018", "url": "https://doi.org/10.18307/2020.0604", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.64, "summary": "为探明寒旱区浅水型湖泊乌梁素海水环境因子对水体营养状态的影响程度，以2013—2018年1月和7月湖泊水环境监测数据为基础，对具有典型代表性监测点的水体营养状态与水环境因子（盐度、pH值和水深）之间建立向量自回归模型（VAR）模型，通过方差分解方法分析水环境因子对水体营养状态的贡献水平，同时界定出水体营养状态处于最佳水平条件下的水环境因子的适宜范围.结果表明：水环境因子对水体营养状态的方差贡献初期表现显著而后趋于稳定，且盐度、pH值和水深指标的综合方差贡献率最高可达66.62%；并以全湖94.4%的水体面积不呈现富营养化状态作为标准界定出乌梁素海水体处于最佳营养状态水平条件下盐度、pH值和水深...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "1f43e53042f55f60f67bb68f9c40ce2a", "title": "Spectral features of submerged aquatic vegetation and water depths impact in Lake Ulansuhai", "url": "https://doi.org/10.18307/2020.0418", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.59, "summary": "沉水植物对于改善富营养化水体和重建水生生态系统起着至关重要的作用.应用遥感技术可以实时、大面积监测沉水植物的分布和生长情况，而冠层水深直接影响沉水植物在湖泊、河流中的准确遥感解译.本研究基于实测光谱数据，分析了乌梁素海沉水植物光谱特征，并研究了冠层水深对乌梁素海沉水植物反射光谱的影响，建立了乌梁素海沉水植物冠层水深反演模型.结果表明：1）挺水植物在短波红外1662 nm和2223 nm附近分别有一个反射峰，这是挺水植物区别于沉水植物和漂浮藻类的重要波段；0深度沉水植物（WDC=0）与漂浮藻类的光谱反射率非常接近，但是在绿波段（550~690 nm）有明显差异，因此，可以利用绿波段和短波红外波段...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "d06ee0b0eae8db7ca5bd297cb1f43dfe", "title": "The responses of the benthic-pelagic coupling to eutrophication and regime shifts in shallow lakes: Implication for lake restoration", "url": "https://doi.org/10.18307/2020.0101", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.66, "summary": "浅水湖泊中的初级生产者主要由分布在底栖生境中的底栖植物和生活在敞水生境中的浮游植物组成.底栖植物主要包括维管束沉水植物和底栖藻类等，浮游植物则主要为浮游藻类.贫营养浅水湖泊湖水营养盐浓度低，透明度高，底栖植物因能直接从沉积物中获取营养盐，往往是浅水湖泊的优势初级生产者.随着外源营养盐负荷的增加，湖水中的营养盐浓度不断升高，浮游植物受到的营养盐限制作用减小，加上其在光照方面的竞争优势，逐步发展成为湖泊的优势初级生产者，湖泊逐步从底栖植物为优势的清水态转变为浮游植物为主的浑水态，即稳态转换.在稳态转换过程中，浅水湖泊生态系统结构与功能发生了一系列变化，本文综述了浅水湖泊沉积物性质和生物（浮游植物、...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "b3087a4cdeca009794d903e2c1c15f0c", "title": "Effect of water diversion from the Yangtze River to Lake Taihu on total phosphorus rebound after 2016", "url": "https://doi.org/10.18307/2020.0518", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.69, "summary": "针对“引江济太”工程将总磷浓度偏高的长江水引入太湖后对2016年后太湖总磷反弹的影响，本文实测并收集整理了2016年前后“引江济太”调水入湖水量、磷通量及全太湖入湖水量、磷通量与太湖磷存量等数据，对2016年前后“引江济太”调水入湖水量、磷通量、磷形态与其他入湖河道水量、磷通量、磷形态以及全太湖的水质、受水区贡湖的水质进行了分析.结果表明：2016年前后，“引江济太”年均入湖磷通量为97.56 t，年均入湖水量为8.16亿m<sup>3</sup>，从调水量、入湖磷通量、调水后短期磷响应及各湖区磷增量来看，“引江济太”与2016年后太湖总磷反弹相关性不强.“引江济太”调水累计入湖磷通量为877...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "edda47bb6698462bb324806fc5788101", "title": "Discussions and practices on the framework of monitoring system in eutrophic lakes and reservoirs", "url": "https://doi.org/10.18307/2020.0513", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.64, "summary": "湖泊和水库是我国的主要饮用水源地，但大都处于富营养化状态，蓝藻水华频发，已成为影响社会稳定、制约区域社会经济可持续发展的重大问题.蓝藻水华的整体应对策略，已经从被动应急转变为主动防御；但要做到主动防御，必须有现代化全方位的蓝藻灾害监测监控手段和体系，及时掌握蓝藻水华及其衍生灾害现状和动向，在未发生或者刚发生时及时觉察.本文针对富营养化湖库富营养化引起的蓝藻水华应急监控问题，按照“整个湖体、重点区域、关键位置”3个监测层次，利用中高分辨率卫星、无人机、岸基/平台视频、自动浮标、人工巡测等技术或手段，围绕“现状掌握、异常报警、原因追溯”的建设目标，提出了天-空-地一体化监控系统建设框架，明确了不同...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "9819b27cf950eec59a5984e639497f8d", "title": "Seasonal forecast method of cyanobacterial bloom intensity in eutrophic Lake Taihu, China", "url": "https://doi.org/10.18307/2020.0504", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.69, "summary": "在太湖、巢湖、滇池、洱海、三峡水库等我国重要湖泊和水库，蓝藻水华时常发生但年际之间藻情往往有较大差异，给蓝藻水华的防控物资及人员投入、湖库水源地水质安全保障带来较大的挑战，亟待探索周年尺度的蓝藻水华强度预测方法.本文收集了太湖连续15年的蓝藻水华情势观测数据和同步的气象、水文数据用于构建蓝藻水华预测模型，提出了利用遥感反演的蓝藻水华面积（A<sub>BL</sub>）及人工观测的水体浮游植物叶绿素a浓度（[Chl.a]<sub>LB</sub>）共同表征的蓝藻水华强度指标（BI）.分析了太湖年尺度的BI值与环境条件的关系，提出了基于年初能够掌握的气象、水文、营养盐等综合环境指标进行年度BI预测...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "826170584911d14df63b4862d03c33d7", "title": "The limitations of comprehensive trophic level index (&lt;i&gt;TLI)&lt;/i&gt; in the eutrophication assessment of lakes along the middle and lower reaches of the Yangtze River during summer season and recommendation for its improvement", "url": "https://doi.org/10.18307/2020.0104", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.66, "summary": "综合营养状态指数（TLI）在中国湖库富营养化评价中应用非常广泛.对于该指数的各分项指标，基于叶绿素a的评估结果是富营养化风险的直接体现，是最终指示；而基于理化指标（总氮、总磷、透明度和高锰酸盐指数）的评估结果是间接指示.如果两者TLI评估结果存在显著差异，则说明基于理化参数的TLI评估结果低估或者高估了实际富营养化水平和相关风险.本文针对长江中下游湖库的基于水质理化指标和基于叶绿素a的TLI结果是否匹配的问题开展了调查分析.结果表明，对于非通江浅水湖泊而言，基于总氮、总磷、高锰酸盐指数的TLI评估结果均低估了富营养化水平和相关风险；对于通江浅水湖泊而言，基于总氮、总磷和透明度的TLI评估结果高...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "63c64cbf0eb251e429a8185256e43133", "title": "Water level prediction of Lake Poyang based on long short-term memory neural network", "url": "https://doi.org/10.18307/2020.0325", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.56, "summary": "湖泊水位是维持其生态系统结构、功能和完整性的基础.鄱阳湖受流域五河和长江来水双重影响，水位变化复杂.为了准确预测鄱阳湖水位变化，采用长短时记忆神经网络方法（LSTM）构建了鄱阳湖水位预测模型.该模型以赣江、抚河、信江、饶河和修水五河入湖流量和长江干流流量作为输入条件，预测鄱阳湖湖区不同代表站（湖口、星子、都昌、吴城和康山）的水位过程.研究以1956-1980年的水文时间序列数据作为训练集，1981-2000年作为验证集，探讨了LSTM模型输入时间窗、隐藏神经元数目、初始学习率等模型参数对预测精度的影响，并确定了鄱阳湖水位预测模型的最优参数.结果表明，采用LSTM神经网络方法可基于流域五河和长江...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "f600f65d71264e8aa20033b84354eda4", "title": "Evolution mechanism of dissolved oxygen stratification in a large deep reservoir", "url": "https://doi.org/10.18307/2020.0521", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.66, "summary": "深水水库溶解氧（DO）的演化成因目前尚不完全清楚，研究其演变机制对制定水库水质保护和管理策略十分重要.本文以我国京津冀地区重要的大型深水水源水库潘家口水库为例，系统分析了水库水温和DO浓度的时空分布特征、演化成因，以及水库的水质响应情况.结果表明：4月中旬-11月底该水库存在显著的季节性热分层，水库热分层为DO层化结构的形成提供了垂向分异性物理环境；与热分层类似，DO层化表现为3层结构，本文从上至下将其分别定义为混合层、氧跃层和氧亏层.垂向各层不同生化过程的作用为DO浓度空间差异性演变提供了驱动力，其中混合层受浮游藻类过量生长的影响，DO往往处于过饱和状态；氧跃层受大量生物的呼吸及有机物分解等...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "92ddc11db520b27a2f54caa51606341d", "title": "Long-term changes in physical environments and potential implications for the eco-environment of Lake Taihu in the past four decades", "url": "https://doi.org/10.18307/2020.0503", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.62, "summary": "过去40年，全球气候变暖、辐射变暗和变亮、风速减弱、气候异常波动等自然环境变化以及筑坝建闸、岸堤硬质化和调水引流等强烈人类活动势必会深刻改变太湖湖泊物理环境和过程，驱动湖泊生态系统演化.基于历史文献、档案数据以及气象水文和透明度等长期观测数据，本文系统梳理了太湖气温、水温、风速、水位和透明度等物理环境空间分布和长期变化特征，探讨了气温和风速、水位和透明度相互协同作用机制及其潜在生态环境意义.受全球变化和城市化等影响，过去40年太湖气温和水温呈现显著升高趋势，而近地面风速则表现为持续下降，湖泊增温和风速下降有利于藻类生长和蓝藻水华漂浮聚集，某种程度上增加了蓝藻水华出现频次和集聚的面积.为防洪和满...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "9fea036c0ef92df5668db264c0947ca0", "title": "Ecological function evaluation and regionalization in Baiyangdian Wetland", "url": "https://doi.org/10.5846/stxb201901280209", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.53, "summary": "白洋淀湿地在雄安新区建设过程中具有重要生态安全保障作用。开展白洋淀湿地生态功能评价及分区研究，为生态环境治理和保护提供科学依据，是当前普遍关切和急需解决的问题之一。面向白洋淀湿地生态保护和管理的需求，在明确白洋淀自然环境特征和主要生态环境问题的基础上，结合外业调查、遥感、综合评价等方法，从水产品供给功能、水生植物供给功能、气候调节功能、生物多样性维护功能、水质改善功能5个方面评价了白洋淀湿地生态系统服务功能重要性，从水污染敏感性、湿地变化敏感性、重要自然与文化价值敏感性3个方面评价了白洋淀湿地生态系统敏感性。基于评价结果，将白洋淀湿地初步划分为7个一级生态功能区和19个二级生态功能区。在分区方...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "5a8756711b9aa5203fccc885f95ea4a0", "title": "Ecological security pattern construction and optimization in Arid Inland River Basin: A case study of Shiyang River Basin", "url": "https://doi.org/10.5846/stxb201908281782", "source": "OpenAlex (Acta Ecologica Sinica)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.56, "summary": "生态安全格局识别及构建是保障干旱区生态安全、实现可持续发展的基本空间途径。石羊河流域是典型的干旱内陆河流域，其生态环境极为脆弱、敏感。基于石羊河流域生态本底特征，选取并定量评估水资源、生物多样性、水土保持和沙漠化4种生态系统服务，识别生态源地；以建筑物指数和植被净初级生产力为阻力因子，应用加权叠加法构建基本阻力面，并运用最小累积阻力模型及水文分析法识别生态廊道和生态功能节点，进行生态安全格局构建及优化。结果表明：（1）2005-2015年，石羊河流域生态源地增加，生态环境质量趋于好转，特别是下游民勤绿洲区及上游祁连山区源地面积增加明显。2005、2010、2015年生态源地面积占流域总面积的比...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "26ce8487cbdf77745316e823d88e1caa", "title": "The variation of water quality from 2012 to 2018 in Lake Chaohu and the mitigating strategy on cyanobacterial blooms", "url": "https://doi.org/10.18307/2020.0102", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.67, "summary": "巢湖自1990s中期至2012年间水质明显改善，但是近年来水质改善效果变缓，2018年蓝藻水华面积显著增加，为有效评估巢湖水体环境的变化，通过对2012-2018年巢湖17个点位的逐月调查数据分析阐述了近年来巢湖水质和藻情的变化特征，并在流域空间尺度上分析了巢湖流域水污染治理的进展和不足，为后续治理方向的调整和确定提供支撑.2012-2018年湖区调查数据显示：巢湖湖体总磷和总氮浓度显著升高，铵态氮浓度显著下降，水华蓝藻总量显著升高.在空间上，各污染指标水平呈现由西向东呈逐渐降低的趋势，但是各指标在不同湖区随时间的变化趋势差异明显，西部湖区的总磷、总氮和水华蓝藻指标近年来略有下降或持平，中部和...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "ee49f85736cd0e829a090506db5229bb", "title": "Long-term variations of phosphorus concentration and capacity in Lake Taihu,2005-2018: Implications for future phosphorus reduction target management", "url": "https://doi.org/10.18307/2020.0103", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.64, "summary": "为揭示大型浅水湖泊水体磷浓度对湖泊外源负荷削减和生态系统变化的响应规律，指导富营养化湖泊水生态修复和管理实践，利用太湖湖泊生态系统研究站2005-2018年连续14年的太湖水体各形态磷浓度的月、季度调查数据，估算了太湖湖体各形态磷赋存量的季度变化，分析了太湖水体磷浓度受湖泊水位、水量、蓝藻水华态势（蓝藻总生物量及水华出现面积）等环境条件变化的影响特征.结果表明，在连续10年的全流域高投入污染治理背景下，太湖水体总磷浓度仍未发生显著下降，水体各形态磷浓度在年际、月际及空间上的变幅大，不同季节和不同湖区总磷浓度的时空差异性大于14年来总磷浓度年均值的差异性；全湖32个监测点上、中、下3层混合样水体...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "fa6d86b5d4acec2e3e953e66563f73f7", "title": "Conservation of Chinese sturgeon (&lt;i&gt;Acipenser sinensis&lt;/i&gt;) based on its life history: Dilemma and breakthrough", "url": "https://doi.org/10.18307/2020.0509", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "一般", "quality_score": 0.48, "summary": "国家一级保护动物中华鲟（Acipenser sinensis）自然繁殖已连续中断3年（2017—2019年），自然种群濒临灭绝.本文归纳了中华鲟生活史各阶段的生态需求，指出：葛洲坝阻隔是导致中华鲟自然种群衰退的根本原因，三峡等长江上游特大型梯级水电工程的相继蓄水运行是导致中华鲟自然繁殖中断的关键因素，河道冲刷、航道疏浚与挖沙、防洪及城市景观工程等人类活动使中华鲟仔稚鱼栖息地丧失，进而导致补充群体减少，造成繁殖群体持续萎缩.近40年来，对给予高度期望的补偿中华鲟自然种群衰退的中华鲟人工增殖放流措施没有得到科学有效地实施，造成人工干预力保中华鲟自然种群延续的希望几近破灭.本文探讨了近40年来在中华...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "e5c842fda61a23fc9b25137c05cf6bff", "title": "Shallow lake limnology and control of eutrophication in Lake Taihu", "url": "https://doi.org/10.18307/2020.0501", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.69, "summary": "自2007年无锡暴发饮用水危机事件以来，太湖经历了前所未有的高强度、大规模治理，各种治理措施累计投资已经超过千亿元.监测显示，在治理初期太湖的氮、磷浓度下降明显，水质有所好转，但最近几年关键水质指标总磷与浮游植物叶绿素a浓度出现了波动，蓝藻水华有所反弹.研究表明，太湖的外源负荷并没有减少，这与城镇用水量增加、污水排放标准偏低、面源污染削减不足有很大的关系；同时，内源负荷也因为蓝藻水华的持续而加重，浅水湖泊水深浅、扰动强的特点强化了磷的循环利用效率，加剧了内源负荷对湖泊富营养化和蓝藻水华的影响.气候变暖叠加营养盐富集的复合效应、流域风速下降以及暴雨事件频次和强度增加等气象水文条件变化，都促进了太...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "d19dd8db933beeb14c6bc4ce95ee2ab4", "title": "Hydrology, environment and ecological evolution of Lake Baiyangdian since 1960s", "url": "https://doi.org/10.18307/2020.0500", "source": "OpenAlex (Journal of Lake Sciences)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "全国", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.6, "summary": "白洋淀是我国华北平原最大的浅水湖泊湿地，享有“华北之肾”、“华北明珠”等美誉，对维持京津冀大城市群的区域生态系统平衡和保持生物多样性发挥着生态安全屏障作用.长期以来，高强度人类活动导致入淀水量锐减、水体污染严重、生物多样性减少、生态系统功能衰退，“明珠”失去了应有的光泽.结合历史文献资料和课题组长期在白洋淀的监测结果，本文系统地梳理了自1960s以来，白洋淀的水文、水环境和水生态演变历程，并分析了导致一系列演变发生的可能原因.随着区域经济的发展，人类活动增强，白洋淀区域水量、水环境以及生态质量自1960s以来逐渐退化.近20年来，随着一系列环境治理政策和生态补水工程的实施，白洋淀水质恶化趋势得...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "278cb04314ce7c1dd86f21f7c151dd27", "title": "Constructed Wetlands for Wastewater Treatment", "url": "https://doi.org/10.1201/9781003069850", "source": "Semantic Scholar", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "高质量", "quality_score": 0.68, "summary": "General Principles: Wastewaters: A Perspective (A.J. Smith). Wetlands Ecosystems: Natural Water Purifiers? (D.A. Hammer and R.K. Bastian). Hydrologic Factors in Wetland Water Treatment (R.H. Kadlec). Physical and Chemical Characteristics of Freshwater Wetland Soils (S.P. Faulkner and C.J. Richardson...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "0b21cc7760184b416d5e178c71612da4", "title": "A novel magnesium-based oxygen releasing compound for eutrophic water remediation.", "url": "https://doi.org/10.1016/j.chemosphere.2020.126326", "source": "Semantic Scholar (Chemosphere)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "一般", "quality_score": 0.41, "summary": "Eutrophication of surface water bodies is a global problem in recent years. Dosing polluted water with oxygen releasing compounds (ORCs), especially those that can remove excessive nutrients simultaneously is regarded as one of the most economical and eco-friendly methods of treating eutrophic water...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "336609d7366efe27ca2ecb2a1cce6c0e", "title": "Mechanistic insights into organic carbon-driven water blackening and odorization of urban rivers.", "url": "https://doi.org/10.1016/j.jhazmat.2020.124663", "source": "Semantic Scholar (Journal of Hazardous Materials)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.54, "summary": "With rapid global urbanization, massive anthropogenic inputs of organic matter and inorganic nutrients are resulting in severe pollution of urban rivers and consequently altering the structure and function of their aquatic microbial communities. In contrast to nutrient-induced eutrophication of fres...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "4354a64f8bbbdb6e2a2f207237b15b9e", "title": "Human Health and Ocean Pollution", "url": "https://doi.org/10.5334/aogh.2831", "source": "Semantic Scholar (Annals of Global Health)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.5, "summary": "Background: Pollution – unwanted waste released to air, water, and land by human activity – is the largest environmental cause of disease in the world today. It is responsible for an estimated nine million premature deaths per year, enormous economic losses, erosion of human capital, and degradation...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "0bd8d01b6a62b54277f30c00b29d94c5", "title": "Thermochemical conversion of sewage sludge: A critical review", "url": "https://doi.org/10.1016/j.pecs.2020.100843", "source": "Semantic Scholar (Progress in Energy and Combustion Science)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "中等", "quality_score": 0.54, "summary": "Abstract The increasing levels of sewage sludge production demands research and development to introduce more commercially feasible options for reducing socio-economic and environmental problems associated with its current treatment. Sewage sludge may be processed to produce useful products or as a...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "a33d6608ef041f9dba475d5b07aecaba", "title": "Beyond Risk: Bacterial Biofilms and Their Regulating Approaches", "url": "https://doi.org/10.3389/fmicb.2020.00928", "source": "Semantic Scholar (Frontiers in Microbiology)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "一般", "quality_score": 0.45, "summary": "Bacterial biofilms are complex surface attached communities of bacteria held together by self-produced polymer matrixs mainly composed of polysaccharides, secreted proteins, and extracellular DNAs. Bacterial biofilm formation is a complex process and can be described in five main phases: (i) reversi...", "keywords": [], "periods": ["older"], "is_hz": false}, {"id": "7e45ecac539374e80ad65b9777f0f54d", "title": "Predicted growth in plastic waste exceeds efforts to mitigate plastic pollution", "url": "https://doi.org/10.1126/science.aba3656", "source": "Semantic Scholar (Science)", "source_type": "学术期刊", "category_code": "07_科研文献与技术", "category_name": "综合", "category_icon": "📰", "geo_scope": "国际", "publish_date": "2020-01-01", "sort_date": "20200101", "quality_level": "一般", "quality_score": 0.43, "summary": "A mess of plastic It is not clear what strategies will be most effective in mitigating harm from the global problem of plastic pollution. Borrelle et al. and Lau et al. discuss possible solutions and their impacts. Both groups found that substantial reductions in plastic-waste generation can be made...", "keywords": [], "periods": ["older"], "is_hz": false}];
+
+// 当前筛选状态
+const state = {
+    category: 'all',     // 当前选中分类
+    period: 'all',       // 当前选中时间段
+    keyword: '',         // 搜索关键词
+    sort: 'date_desc',   // 排序方式
+};
+
+// 分类中文名映射
+const CAT_NAMES = {
+    "01_政策法规与标准": "政策法规与标准",
+"02_水环境质量管理": "水环境质量管理",
+"03_水污染防治与监管": "水污染防治与监管",
+"04_水生态修复与保护": "水生态修复与保护",
+"05_饮用水水源保护": "饮用水水源保护",
+"06_科研技术与实践案例": "科研技术与实践案例",
+"07_动态资讯与综合": "动态资讯与综合",
+};
+
+// ============================================================
+// 渲染文档卡片
+// ============================================================
+function renderDocs() {
+    let docs = ALL_DOCS.slice();
+
+    // 1. 分类筛选
+    if (state.category !== 'all') {
+        docs = docs.filter(d => d.category_code === state.category);
+    }
+
+    // 2. 时间段筛选
+    if (state.period !== 'all') {
+        docs = docs.filter(d => d.periods && d.periods.includes(state.period));
+    }
+
+    // 3. 关键词搜索（匹配标题、摘要、关键词）
+    if (state.keyword) {
+        const kw = state.keyword.toLowerCase();
+        docs = docs.filter(d => {
+            const title = (d.title || '').toLowerCase();
+            const summary = (d.summary || '').toLowerCase();
+            const kws = (d.keywords || []).join(' ').toLowerCase();
+            const source = (d.source || '').toLowerCase();
+            return title.includes(kw) || summary.includes(kw) || kws.includes(kw) || source.includes(kw);
+        });
+    }
+
+    // 4. 排序
+    if (state.sort === 'date_desc') {
+        docs.sort((a, b) => b.sort_date.localeCompare(a.sort_date));
+    } else if (state.sort === 'date_asc') {
+        docs.sort((a, b) => a.sort_date.localeCompare(b.sort_date));
+    } else if (state.sort === 'score_desc') {
+        docs.sort((a, b) => b.quality_score - a.quality_score);
+    }
+
+    // 5. 渲染
+    const grid = document.getElementById('docGrid');
+    const info = document.getElementById('resultInfo');
+    const visibleCount = document.getElementById('visibleCount');
+
+    if (docs.length === 0) {
+        grid.innerHTML = `
+            <div class="empty-state">
+                <div class="icon">🔍</div>
+                <div class="title">未找到匹配的文档</div>
+                <div class="desc">请尝试调整筛选条件或更换关键词</div>
+            </div>
+        `;
+    } else {
+        grid.innerHTML = docs.map(d => {
+            const qClass = d.quality_level === '高质量' ? 'q-high' :
+                           d.quality_level === '中等' ? 'q-mid' : 'q-low';
+            const hzClass = d.is_hz ? 'is-hz' : '';
+            const geoTagClass = d.is_hz ? 'hz' : '';
+            const keywordsHtml = (d.keywords && d.keywords.length)
+                ? `<div class="doc-keywords">${d.keywords.slice(0,6).map(k => `<span class="doc-keyword">${escapeHtml(k)}</span>`).join('')}</div>`
+                : '';
+            const linkHtml = d.url
+                ? `<a class="doc-link" href="${escapeAttr(d.url)}" target="_blank" rel="noopener noreferrer">查看原文 <span>→</span></a>`
+                : `<span class="doc-link" style="color:var(--c-text-soft);cursor:default;">暂无链接</span>`;
+            const summaryLen = (d.summary || '').length;
+            const showToggle = summaryLen > 80;
+            const sourceType = d.source_type ? `<span class="meta-item">📌 ${escapeHtml(d.source_type)}</span>` : '';
+
+            return `
+            <article class="doc-card ${qClass} ${hzClass}" data-id="${escapeAttr(d.id)}">
+                <div class="doc-card-head">
+                    <span class="quality-badge ${qClass}">${escapeHtml(d.quality_level)}</span>
+                    <span class="doc-cat-tag">${escapeHtml(d.category_icon)} ${escapeHtml(d.category_name)}</span>
+                </div>
+                <h3 class="doc-title" onclick="toggleSummary(this)">${escapeHtml(d.title)}</h3>
+                <div class="doc-summary">${escapeHtml(d.summary)}</div>
+                ${showToggle ? `<button class="doc-summary-toggle" onclick="toggleSummary(this)">展开摘要 ▾</button>` : ''}
+                ${keywordsHtml}
+                <div class="doc-meta">
+                    <span class="meta-item">📅 ${escapeHtml(d.publish_date)}</span>
+                    ${sourceType}
+                    ${d.geo_scope ? `<span class="geo-tag ${geoTagClass}">📍 ${escapeHtml(d.geo_scope)}</span>` : ''}
+                    <span class="meta-item">📚 ${escapeHtml(d.source)}</span>
+                    ${linkHtml}
+                </div>
+            </article>
+            `;
+        }).join('');
+    }
+
+    // 更新结果信息
+    const total = ALL_DOCS.length;
+    const visible = docs.length;
+    info.innerHTML = visible === total
+        ? `显示全部 <b>${total}</b> 篇文档`
+        : `匹配 <b>${visible}</b> 篇 / 共 <b>${total}</b> 篇文档`;
+    visibleCount.textContent = `显示 ${visible} 篇`;
+}
+
+// HTML 转义工具
+function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s).replace(/[&<>"']/g, ch => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[ch]));
+}
+function escapeAttr(s) {
+    return escapeHtml(s);
+}
+
+// ============================================================
+// 卡片摘要展开/收起
+// ============================================================
+function toggleSummary(el) {
+    let card, toggle, summary;
+    if (el.classList.contains('doc-title')) {
+        card = el.closest('.doc-card');
+        summary = card.querySelector('.doc-summary');
+        toggle = card.querySelector('.doc-summary-toggle');
+    } else {
+        toggle = el;
+        card = toggle.closest('.doc-card');
+        summary = card.querySelector('.doc-summary');
+    }
+    if (!summary) return;
+    const expanded = summary.classList.toggle('expanded');
+    if (toggle) {
+        toggle.textContent = expanded ? '收起摘要 ▴' : '展开摘要 ▾';
+    }
+}
+
+// ============================================================
+// 事件绑定
+// ============================================================
+// 分类 Tab
+document.getElementById('catTabs').addEventListener('click', e => {
+    const btn = e.target.closest('.cat-tab');
+    if (!btn) return;
+    document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.category = btn.dataset.cat;
+    renderDocs();
+});
+
+// 时间段按钮
+document.getElementById('timeButtons').addEventListener('click', e => {
+    const btn = e.target.closest('.time-btn');
+    if (!btn) return;
+    document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.period = btn.dataset.period;
+    renderDocs();
+});
+
+// 搜索框（实时防抖）
+let searchTimer = null;
+document.getElementById('searchInput').addEventListener('input', e => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+        state.keyword = e.target.value.trim();
+        renderDocs();
+    }, 200);
+});
+
+// 排序
+document.getElementById('sortSelect').addEventListener('change', e => {
+    state.sort = e.target.value;
+    renderDocs();
+});
+
+// 分类条形图点击 → 联动分类筛选
+document.querySelectorAll('.cat-bar-row').forEach(row => {
+    row.addEventListener('click', () => {
+        const cat = row.dataset.cat;
+        const tab = document.querySelector(`.cat-tab[data-cat="${cat}"]`);
+        if (tab) tab.click();
+        document.querySelector('.filter-panel').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+});
+
+// 回到顶部
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) backTop.classList.add('show');
+    else backTop.classList.remove('show');
+});
+backTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+// 日期选择器（仅提示，历史数据需重新生成）
+document.getElementById('historyDate').addEventListener('change', e => {
+    const val = e.target.value;
+    if (val && val !== '2026-07-16') {
+        showToast(`已选择 ${val}，历史日报数据需重新生成后查看`);
+    }
+});
+
+// 简易提示
+function showToast(msg) {
+    let t = document.getElementById('toast');
+    if (!t) {
+        t = document.createElement('div');
+        t.id = 'toast';
+        t.style.cssText = 'position:fixed;left:50%;bottom:32px;transform:translateX(-50%);background:rgba(12,74,110,.95);color:#fff;padding:12px 22px;border-radius:24px;font-size:14px;z-index:9999;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transition:opacity .3s;';
+        document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.style.opacity = '1';
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.style.opacity = '0', 2800);
+}
+
+// ============================================================
+// 初始渲染
+// ============================================================
+renderDocs();
+</script>
+
+</body>
+</html>
